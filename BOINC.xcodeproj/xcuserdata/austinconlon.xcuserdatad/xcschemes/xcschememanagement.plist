@@ -4,21 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>BOINC WatchKit App (Complication).xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
-		</dict>
-		<key>BOINC WatchKit App (Notification).xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-		<key>BOINC WatchKit App.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
 		<key>BOINC.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -27,17 +12,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>FBE6B67A1E6AE428007F5B9C</key>
+		<key>FB592D8C1F24EE5A00FD6341</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FBE6B68E1E6AE428007F5B9C</key>
+		<key>FB592DA01F24EE5B00FD6341</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FBE6B6971E6AE428007F5B9C</key>
+		<key>FB592DAB1F24EE5B00FD6341</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FB592DB41F24EE5B00FD6341</key>
 		<dict>
 			<key>primary</key>
 			<true/>

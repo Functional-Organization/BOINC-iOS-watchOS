@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  BOINC
 //
-//  Created by Austin Conlon on 3/4/17.
+//  Created by Austin Conlon on 7/23/17.
 //  Copyright © 2017 Austin Conlon. All rights reserved.
 //
 

@@ -7,66 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FBE6B67F1E6AE428007F5B9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6B67E1E6AE428007F5B9C /* AppDelegate.swift */; };
-		FBE6B6811E6AE428007F5B9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6B6801E6AE428007F5B9C /* ViewController.swift */; };
-		FBE6B6841E6AE428007F5B9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBE6B6821E6AE428007F5B9C /* Main.storyboard */; };
-		FBE6B6861E6AE428007F5B9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBE6B6851E6AE428007F5B9C /* Assets.xcassets */; };
-		FBE6B6891E6AE428007F5B9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBE6B6871E6AE428007F5B9C /* LaunchScreen.storyboard */; };
-		FBE6B6941E6AE428007F5B9C /* BOINCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6B6931E6AE428007F5B9C /* BOINCTests.swift */; };
-		FBE6B6991E6AE428007F5B9C /* BOINC WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FBE6B6981E6AE428007F5B9C /* BOINC WatchKit App.app */; };
-		FBE6B69F1E6AE428007F5B9C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBE6B69D1E6AE428007F5B9C /* Interface.storyboard */; };
-		FBE6B6A11E6AE428007F5B9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBE6B6A01E6AE428007F5B9C /* Assets.xcassets */; };
-		FBE6B6A81E6AE428007F5B9C /* BOINC WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FBE6B6A71E6AE428007F5B9C /* BOINC WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FBE6B6AF1E6AE428007F5B9C /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6B6AE1E6AE428007F5B9C /* InterfaceController.swift */; };
-		FBE6B6B11E6AE428007F5B9C /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6B6B01E6AE428007F5B9C /* ExtensionDelegate.swift */; };
-		FBE6B6B31E6AE428007F5B9C /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6B6B21E6AE428007F5B9C /* NotificationController.swift */; };
-		FBE6B6B51E6AE428007F5B9C /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6B6B41E6AE428007F5B9C /* ComplicationController.swift */; };
-		FBE6B6B71E6AE428007F5B9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBE6B6B61E6AE428007F5B9C /* Assets.xcassets */; };
+		FB1DFB4B1F28704500EDA670 /* AddProjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1DFB4A1F28704500EDA670 /* AddProjectTableViewController.swift */; };
+		FB1DFB571F28861600EDA670 /* Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1DFB561F28861600EDA670 /* Projects.swift */; };
+		FB2C445D1F2ED5A700099BDE /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2C445C1F2ED5A700099BDE /* Project.swift */; };
+		FB592D911F24EE5B00FD6341 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB592D901F24EE5B00FD6341 /* AppDelegate.swift */; };
+		FB592D961F24EE5B00FD6341 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB592D941F24EE5B00FD6341 /* Main.storyboard */; };
+		FB592D981F24EE5B00FD6341 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB592D971F24EE5B00FD6341 /* Assets.xcassets */; };
+		FB592D9B1F24EE5B00FD6341 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB592D991F24EE5B00FD6341 /* LaunchScreen.storyboard */; };
+		FB6A3FC41F314F250093EE4C /* AddedProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A3FC31F314F250093EE4C /* AddedProjectsTableViewController.swift */; };
+		FB6A3FC61F31FFE40093EE4C /* AddedProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A3FC51F31FFE40093EE4C /* AddedProjectsTableViewCell.swift */; };
+		FB8F83101F2965C900E82811 /* AddProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8F830F1F2965C900E82811 /* AddProjectTableViewCell.swift */; };
+		FB9ADEFB1F4109D0001A9FAB /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9ADEFA1F4109D0001A9FAB /* Parser.swift */; };
+		FBF1F8E81F2AF27C00158214 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF1F8E71F2AF27B00158214 /* ProjectViewController.swift */; };
+		FBF1F8EB1F2B9FE300158214 /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF1F8EA1F2B9FE300158214 /* Crypto.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		FBE6B6901E6AE428007F5B9C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FBE6B6731E6AE428007F5B9C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FBE6B67A1E6AE428007F5B9C;
-			remoteInfo = BOINC;
-		};
-		FBE6B69A1E6AE428007F5B9C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FBE6B6731E6AE428007F5B9C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FBE6B6971E6AE428007F5B9C;
-			remoteInfo = "BOINC WatchKit App";
-		};
-		FBE6B6A91E6AE428007F5B9C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FBE6B6731E6AE428007F5B9C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FBE6B6A61E6AE428007F5B9C;
-			remoteInfo = "BOINC WatchKit Extension";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		FBE6B6BE1E6AE428007F5B9C /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				FBE6B6A81E6AE428007F5B9C /* BOINC WatchKit Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FBE6B6C21E6AE428007F5B9C /* Embed Watch Content */ = {
+		FB592DDF1F24EE5B00FD6341 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				FBE6B6991E6AE428007F5B9C /* BOINC WatchKit App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,46 +36,26 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		FBE6B67B1E6AE428007F5B9C /* BOINC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BOINC.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FBE6B67E1E6AE428007F5B9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FBE6B6801E6AE428007F5B9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FBE6B6831E6AE428007F5B9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FBE6B6851E6AE428007F5B9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FBE6B6881E6AE428007F5B9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FBE6B68A1E6AE428007F5B9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FBE6B68F1E6AE428007F5B9C /* BOINCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BOINCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FBE6B6931E6AE428007F5B9C /* BOINCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BOINCTests.swift; sourceTree = "<group>"; };
-		FBE6B6951E6AE428007F5B9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FBE6B6981E6AE428007F5B9C /* BOINC WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BOINC WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FBE6B69E1E6AE428007F5B9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		FBE6B6A01E6AE428007F5B9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FBE6B6A21E6AE428007F5B9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FBE6B6A71E6AE428007F5B9C /* BOINC WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "BOINC WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FBE6B6AD1E6AE428007F5B9C /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		FBE6B6AE1E6AE428007F5B9C /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		FBE6B6B01E6AE428007F5B9C /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		FBE6B6B21E6AE428007F5B9C /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		FBE6B6B41E6AE428007F5B9C /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
-		FBE6B6B61E6AE428007F5B9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FBE6B6B81E6AE428007F5B9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB1DFB4A1F28704500EDA670 /* AddProjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectTableViewController.swift; sourceTree = "<group>"; };
+		FB1DFB561F28861600EDA670 /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
+		FB2C445C1F2ED5A700099BDE /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		FB592D8D1F24EE5A00FD6341 /* BOINC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BOINC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB592D901F24EE5B00FD6341 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FB592D951F24EE5B00FD6341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FB592D971F24EE5B00FD6341 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB592D9A1F24EE5B00FD6341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FB592D9C1F24EE5B00FD6341 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB6A3FC31F314F250093EE4C /* AddedProjectsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedProjectsTableViewController.swift; sourceTree = "<group>"; };
+		FB6A3FC51F31FFE40093EE4C /* AddedProjectsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedProjectsTableViewCell.swift; sourceTree = "<group>"; };
+		FB8F830F1F2965C900E82811 /* AddProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectTableViewCell.swift; sourceTree = "<group>"; };
+		FB9ADEFA1F4109D0001A9FAB /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		FBF1F8E71F2AF27B00158214 /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
+		FBF1F8E91F2B9FE300158214 /* BOINC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BOINC-Bridging-Header.h"; sourceTree = "<group>"; };
+		FBF1F8EA1F2B9FE300158214 /* Crypto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Crypto.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FBE6B6781E6AE428007F5B9C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FBE6B68C1E6AE428007F5B9C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FBE6B6A41E6AE428007F5B9C /* Frameworks */ = {
+		FB592D8A1F24EE5A00FD6341 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -123,190 +65,84 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FBE6B6721E6AE428007F5B9C = {
+		FB592D841F24EE5A00FD6341 = {
 			isa = PBXGroup;
 			children = (
-				FBE6B67D1E6AE428007F5B9C /* BOINC */,
-				FBE6B6921E6AE428007F5B9C /* BOINCTests */,
-				FBE6B69C1E6AE428007F5B9C /* BOINC WatchKit App */,
-				FBE6B6AB1E6AE428007F5B9C /* BOINC WatchKit Extension */,
-				FBE6B67C1E6AE428007F5B9C /* Products */,
+				FB592D8F1F24EE5A00FD6341 /* BOINC */,
+				FB592D8E1F24EE5A00FD6341 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		FBE6B67C1E6AE428007F5B9C /* Products */ = {
+		FB592D8E1F24EE5A00FD6341 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FBE6B67B1E6AE428007F5B9C /* BOINC.app */,
-				FBE6B68F1E6AE428007F5B9C /* BOINCTests.xctest */,
-				FBE6B6981E6AE428007F5B9C /* BOINC WatchKit App.app */,
-				FBE6B6A71E6AE428007F5B9C /* BOINC WatchKit Extension.appex */,
+				FB592D8D1F24EE5A00FD6341 /* BOINC.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FBE6B67D1E6AE428007F5B9C /* BOINC */ = {
+		FB592D8F1F24EE5A00FD6341 /* BOINC */ = {
 			isa = PBXGroup;
 			children = (
-				FBE6B67E1E6AE428007F5B9C /* AppDelegate.swift */,
-				FBE6B6801E6AE428007F5B9C /* ViewController.swift */,
-				FBE6B6821E6AE428007F5B9C /* Main.storyboard */,
-				FBE6B6851E6AE428007F5B9C /* Assets.xcassets */,
-				FBE6B6871E6AE428007F5B9C /* LaunchScreen.storyboard */,
-				FBE6B68A1E6AE428007F5B9C /* Info.plist */,
+				FB592D901F24EE5B00FD6341 /* AppDelegate.swift */,
+				FB1DFB561F28861600EDA670 /* Projects.swift */,
+				FB2C445C1F2ED5A700099BDE /* Project.swift */,
+				FBF1F8E71F2AF27B00158214 /* ProjectViewController.swift */,
+				FB9ADEFA1F4109D0001A9FAB /* Parser.swift */,
+				FB6A3FC51F31FFE40093EE4C /* AddedProjectsTableViewCell.swift */,
+				FB6A3FC31F314F250093EE4C /* AddedProjectsTableViewController.swift */,
+				FB8F830F1F2965C900E82811 /* AddProjectTableViewCell.swift */,
+				FB1DFB4A1F28704500EDA670 /* AddProjectTableViewController.swift */,
+				FB592D941F24EE5B00FD6341 /* Main.storyboard */,
+				FB592D971F24EE5B00FD6341 /* Assets.xcassets */,
+				FB592D991F24EE5B00FD6341 /* LaunchScreen.storyboard */,
+				FB592D9C1F24EE5B00FD6341 /* Info.plist */,
+				FBF1F8E91F2B9FE300158214 /* BOINC-Bridging-Header.h */,
+				FBF1F8EA1F2B9FE300158214 /* Crypto.m */,
 			);
 			path = BOINC;
-			sourceTree = "<group>";
-		};
-		FBE6B6921E6AE428007F5B9C /* BOINCTests */ = {
-			isa = PBXGroup;
-			children = (
-				FBE6B6931E6AE428007F5B9C /* BOINCTests.swift */,
-				FBE6B6951E6AE428007F5B9C /* Info.plist */,
-			);
-			path = BOINCTests;
-			sourceTree = "<group>";
-		};
-		FBE6B69C1E6AE428007F5B9C /* BOINC WatchKit App */ = {
-			isa = PBXGroup;
-			children = (
-				FBE6B69D1E6AE428007F5B9C /* Interface.storyboard */,
-				FBE6B6A01E6AE428007F5B9C /* Assets.xcassets */,
-				FBE6B6A21E6AE428007F5B9C /* Info.plist */,
-			);
-			path = "BOINC WatchKit App";
-			sourceTree = "<group>";
-		};
-		FBE6B6AB1E6AE428007F5B9C /* BOINC WatchKit Extension */ = {
-			isa = PBXGroup;
-			children = (
-				FBE6B6AE1E6AE428007F5B9C /* InterfaceController.swift */,
-				FBE6B6B01E6AE428007F5B9C /* ExtensionDelegate.swift */,
-				FBE6B6B21E6AE428007F5B9C /* NotificationController.swift */,
-				FBE6B6B41E6AE428007F5B9C /* ComplicationController.swift */,
-				FBE6B6B61E6AE428007F5B9C /* Assets.xcassets */,
-				FBE6B6B81E6AE428007F5B9C /* Info.plist */,
-				FBE6B6AC1E6AE428007F5B9C /* Supporting Files */,
-			);
-			path = "BOINC WatchKit Extension";
-			sourceTree = "<group>";
-		};
-		FBE6B6AC1E6AE428007F5B9C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				FBE6B6AD1E6AE428007F5B9C /* PushNotificationPayload.apns */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FBE6B67A1E6AE428007F5B9C /* BOINC */ = {
+		FB592D8C1F24EE5A00FD6341 /* BOINC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FBE6B6C31E6AE428007F5B9C /* Build configuration list for PBXNativeTarget "BOINC" */;
+			buildConfigurationList = FB592DE01F24EE5B00FD6341 /* Build configuration list for PBXNativeTarget "BOINC" */;
 			buildPhases = (
-				FBE6B6771E6AE428007F5B9C /* Sources */,
-				FBE6B6781E6AE428007F5B9C /* Frameworks */,
-				FBE6B6791E6AE428007F5B9C /* Resources */,
-				FBE6B6C21E6AE428007F5B9C /* Embed Watch Content */,
+				FB592D891F24EE5A00FD6341 /* Sources */,
+				FB592D8A1F24EE5A00FD6341 /* Frameworks */,
+				FB592D8B1F24EE5A00FD6341 /* Resources */,
+				FB592DDF1F24EE5B00FD6341 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FBE6B69B1E6AE428007F5B9C /* PBXTargetDependency */,
 			);
 			name = BOINC;
 			productName = BOINC;
-			productReference = FBE6B67B1E6AE428007F5B9C /* BOINC.app */;
+			productReference = FB592D8D1F24EE5A00FD6341 /* BOINC.app */;
 			productType = "com.apple.product-type.application";
-		};
-		FBE6B68E1E6AE428007F5B9C /* BOINCTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FBE6B6C61E6AE428007F5B9C /* Build configuration list for PBXNativeTarget "BOINCTests" */;
-			buildPhases = (
-				FBE6B68B1E6AE428007F5B9C /* Sources */,
-				FBE6B68C1E6AE428007F5B9C /* Frameworks */,
-				FBE6B68D1E6AE428007F5B9C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FBE6B6911E6AE428007F5B9C /* PBXTargetDependency */,
-			);
-			name = BOINCTests;
-			productName = BOINCTests;
-			productReference = FBE6B68F1E6AE428007F5B9C /* BOINCTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		FBE6B6971E6AE428007F5B9C /* BOINC WatchKit App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FBE6B6BF1E6AE428007F5B9C /* Build configuration list for PBXNativeTarget "BOINC WatchKit App" */;
-			buildPhases = (
-				FBE6B6961E6AE428007F5B9C /* Resources */,
-				FBE6B6BE1E6AE428007F5B9C /* Embed App Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FBE6B6AA1E6AE428007F5B9C /* PBXTargetDependency */,
-			);
-			name = "BOINC WatchKit App";
-			productName = "BOINC WatchKit App";
-			productReference = FBE6B6981E6AE428007F5B9C /* BOINC WatchKit App.app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		FBE6B6A61E6AE428007F5B9C /* BOINC WatchKit Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FBE6B6BB1E6AE428007F5B9C /* Build configuration list for PBXNativeTarget "BOINC WatchKit Extension" */;
-			buildPhases = (
-				FBE6B6A31E6AE428007F5B9C /* Sources */,
-				FBE6B6A41E6AE428007F5B9C /* Frameworks */,
-				FBE6B6A51E6AE428007F5B9C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "BOINC WatchKit Extension";
-			productName = "BOINC WatchKit Extension";
-			productReference = FBE6B6A71E6AE428007F5B9C /* BOINC WatchKit Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		FBE6B6731E6AE428007F5B9C /* Project object */ = {
+		FB592D851F24EE5A00FD6341 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Austin Conlon";
 				TargetAttributes = {
-					FBE6B67A1E6AE428007F5B9C = {
-						CreatedOnToolsVersion = 8.2.1;
+					FB592D8C1F24EE5A00FD6341 = {
+						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = AV84QJNZ49;
-						ProvisioningStyle = Automatic;
-					};
-					FBE6B68E1E6AE428007F5B9C = {
-						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = AV84QJNZ49;
-						ProvisioningStyle = Automatic;
-						TestTargetID = FBE6B67A1E6AE428007F5B9C;
-					};
-					FBE6B6971E6AE428007F5B9C = {
-						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = AV84QJNZ49;
-						ProvisioningStyle = Automatic;
-					};
-					FBE6B6A61E6AE428007F5B9C = {
-						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = AV84QJNZ49;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = FBE6B6761E6AE428007F5B9C /* Build configuration list for PBXProject "BOINC" */;
+			buildConfigurationList = FB592D881F24EE5A00FD6341 /* Build configuration list for PBXProject "BOINC" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -314,138 +150,75 @@
 				en,
 				Base,
 			);
-			mainGroup = FBE6B6721E6AE428007F5B9C;
-			productRefGroup = FBE6B67C1E6AE428007F5B9C /* Products */;
+			mainGroup = FB592D841F24EE5A00FD6341;
+			productRefGroup = FB592D8E1F24EE5A00FD6341 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FBE6B67A1E6AE428007F5B9C /* BOINC */,
-				FBE6B68E1E6AE428007F5B9C /* BOINCTests */,
-				FBE6B6971E6AE428007F5B9C /* BOINC WatchKit App */,
-				FBE6B6A61E6AE428007F5B9C /* BOINC WatchKit Extension */,
+				FB592D8C1F24EE5A00FD6341 /* BOINC */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FBE6B6791E6AE428007F5B9C /* Resources */ = {
+		FB592D8B1F24EE5A00FD6341 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBE6B6891E6AE428007F5B9C /* LaunchScreen.storyboard in Resources */,
-				FBE6B6861E6AE428007F5B9C /* Assets.xcassets in Resources */,
-				FBE6B6841E6AE428007F5B9C /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FBE6B68D1E6AE428007F5B9C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FBE6B6961E6AE428007F5B9C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FBE6B6A11E6AE428007F5B9C /* Assets.xcassets in Resources */,
-				FBE6B69F1E6AE428007F5B9C /* Interface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FBE6B6A51E6AE428007F5B9C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FBE6B6B71E6AE428007F5B9C /* Assets.xcassets in Resources */,
+				FB592D9B1F24EE5B00FD6341 /* LaunchScreen.storyboard in Resources */,
+				FB592D981F24EE5B00FD6341 /* Assets.xcassets in Resources */,
+				FB592D961F24EE5B00FD6341 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FBE6B6771E6AE428007F5B9C /* Sources */ = {
+		FB592D891F24EE5A00FD6341 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBE6B6811E6AE428007F5B9C /* ViewController.swift in Sources */,
-				FBE6B67F1E6AE428007F5B9C /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FBE6B68B1E6AE428007F5B9C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FBE6B6941E6AE428007F5B9C /* BOINCTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FBE6B6A31E6AE428007F5B9C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FBE6B6B31E6AE428007F5B9C /* NotificationController.swift in Sources */,
-				FBE6B6B51E6AE428007F5B9C /* ComplicationController.swift in Sources */,
-				FBE6B6B11E6AE428007F5B9C /* ExtensionDelegate.swift in Sources */,
-				FBE6B6AF1E6AE428007F5B9C /* InterfaceController.swift in Sources */,
+				FBF1F8E81F2AF27C00158214 /* ProjectViewController.swift in Sources */,
+				FB1DFB571F28861600EDA670 /* Projects.swift in Sources */,
+				FB9ADEFB1F4109D0001A9FAB /* Parser.swift in Sources */,
+				FB592D911F24EE5B00FD6341 /* AppDelegate.swift in Sources */,
+				FB1DFB4B1F28704500EDA670 /* AddProjectTableViewController.swift in Sources */,
+				FB6A3FC41F314F250093EE4C /* AddedProjectsTableViewController.swift in Sources */,
+				FBF1F8EB1F2B9FE300158214 /* Crypto.m in Sources */,
+				FB2C445D1F2ED5A700099BDE /* Project.swift in Sources */,
+				FB6A3FC61F31FFE40093EE4C /* AddedProjectsTableViewCell.swift in Sources */,
+				FB8F83101F2965C900E82811 /* AddProjectTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		FBE6B6911E6AE428007F5B9C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FBE6B67A1E6AE428007F5B9C /* BOINC */;
-			targetProxy = FBE6B6901E6AE428007F5B9C /* PBXContainerItemProxy */;
-		};
-		FBE6B69B1E6AE428007F5B9C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FBE6B6971E6AE428007F5B9C /* BOINC WatchKit App */;
-			targetProxy = FBE6B69A1E6AE428007F5B9C /* PBXContainerItemProxy */;
-		};
-		FBE6B6AA1E6AE428007F5B9C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FBE6B6A61E6AE428007F5B9C /* BOINC WatchKit Extension */;
-			targetProxy = FBE6B6A91E6AE428007F5B9C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		FBE6B6821E6AE428007F5B9C /* Main.storyboard */ = {
+		FB592D941F24EE5B00FD6341 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FBE6B6831E6AE428007F5B9C /* Base */,
+				FB592D951F24EE5B00FD6341 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		FBE6B6871E6AE428007F5B9C /* LaunchScreen.storyboard */ = {
+		FB592D991F24EE5B00FD6341 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FBE6B6881E6AE428007F5B9C /* Base */,
+				FB592D9A1F24EE5B00FD6341 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		FBE6B69D1E6AE428007F5B9C /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FBE6B69E1E6AE428007F5B9C /* Base */,
-			);
-			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		FBE6B6B91E6AE428007F5B9C /* Debug */ = {
+		FB592DD61F24EE5B00FD6341 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -481,7 +254,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -491,11 +264,12 @@
 			};
 			name = Debug;
 		};
-		FBE6B6BA1E6AE428007F5B9C /* Release */ = {
+		FB592DD71F24EE5B00FD6341 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -525,7 +299,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -534,177 +308,59 @@
 			};
 			name = Release;
 		};
-		FBE6B6BC1E6AE428007F5B9C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				DEVELOPMENT_TEAM = AV84QJNZ49;
-				INFOPLIST_FILE = "BOINC WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Goods-and-Services.BOINC.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.1;
-			};
-			name = Debug;
-		};
-		FBE6B6BD1E6AE428007F5B9C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				DEVELOPMENT_TEAM = AV84QJNZ49;
-				INFOPLIST_FILE = "BOINC WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Goods-and-Services.BOINC.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.1;
-			};
-			name = Release;
-		};
-		FBE6B6C01E6AE428007F5B9C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AV84QJNZ49;
-				IBSC_MODULE = BOINC_WatchKit_Extension;
-				INFOPLIST_FILE = "BOINC WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "Goods-and-Services.BOINC.watchkitapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.1;
-			};
-			name = Debug;
-		};
-		FBE6B6C11E6AE428007F5B9C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AV84QJNZ49;
-				IBSC_MODULE = BOINC_WatchKit_Extension;
-				INFOPLIST_FILE = "BOINC WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "Goods-and-Services.BOINC.watchkitapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.1;
-			};
-			name = Release;
-		};
-		FBE6B6C41E6AE428007F5B9C /* Debug */ = {
+		FB592DE11F24EE5B00FD6341 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = AV84QJNZ49;
 				INFOPLIST_FILE = BOINC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Goods-and-Services.BOINC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon.BOINC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BOINC/BOINC-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		FBE6B6C51E6AE428007F5B9C /* Release */ = {
+		FB592DE21F24EE5B00FD6341 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = AV84QJNZ49;
 				INFOPLIST_FILE = BOINC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Goods-and-Services.BOINC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon.BOINC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BOINC/BOINC-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		FBE6B6C71E6AE428007F5B9C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = AV84QJNZ49;
-				INFOPLIST_FILE = BOINCTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Goods-and-Services.BOINCTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BOINC.app/BOINC";
-			};
-			name = Debug;
-		};
-		FBE6B6C81E6AE428007F5B9C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = AV84QJNZ49;
-				INFOPLIST_FILE = BOINCTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Goods-and-Services.BOINCTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BOINC.app/BOINC";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FBE6B6761E6AE428007F5B9C /* Build configuration list for PBXProject "BOINC" */ = {
+		FB592D881F24EE5A00FD6341 /* Build configuration list for PBXProject "BOINC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FBE6B6B91E6AE428007F5B9C /* Debug */,
-				FBE6B6BA1E6AE428007F5B9C /* Release */,
+				FB592DD61F24EE5B00FD6341 /* Debug */,
+				FB592DD71F24EE5B00FD6341 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FBE6B6BB1E6AE428007F5B9C /* Build configuration list for PBXNativeTarget "BOINC WatchKit Extension" */ = {
+		FB592DE01F24EE5B00FD6341 /* Build configuration list for PBXNativeTarget "BOINC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FBE6B6BC1E6AE428007F5B9C /* Debug */,
-				FBE6B6BD1E6AE428007F5B9C /* Release */,
+				FB592DE11F24EE5B00FD6341 /* Debug */,
+				FB592DE21F24EE5B00FD6341 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		FBE6B6BF1E6AE428007F5B9C /* Build configuration list for PBXNativeTarget "BOINC WatchKit App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FBE6B6C01E6AE428007F5B9C /* Debug */,
-				FBE6B6C11E6AE428007F5B9C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		FBE6B6C31E6AE428007F5B9C /* Build configuration list for PBXNativeTarget "BOINC" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FBE6B6C41E6AE428007F5B9C /* Debug */,
-				FBE6B6C51E6AE428007F5B9C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		FBE6B6C61E6AE428007F5B9C /* Build configuration list for PBXNativeTarget "BOINCTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FBE6B6C71E6AE428007F5B9C /* Debug */,
-				FBE6B6C81E6AE428007F5B9C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = FBE6B6731E6AE428007F5B9C /* Project object */;
+	rootObject = FB592D851F24EE5A00FD6341 /* Project object */;
 }

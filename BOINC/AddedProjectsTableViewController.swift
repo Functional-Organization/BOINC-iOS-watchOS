@@ -8,11 +8,12 @@
 
 import UIKit
 import os.log
+import WatchConnectivity
 
-class AddedProjectsTableViewController: UITableViewController {
+class AddedProjectsTableViewController: UITableViewController, WCSessionDelegate {
     // MARK: Properties
-    
     var addedProjects = [Project]()
+    let session = WCSession.default()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,27 +31,35 @@ class AddedProjectsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func sessionDidBecomeInactive(_ session: WCSession) { }
+    func sessionDidDeactivate(_ session: WCSession) { }
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        if WCSession.isSupported() {
+            session.delegate = self
+            session.activate()
+        }
+    }
+    
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return addedProjects.count
     }
     
     // MARK: Actions
-    
     @IBAction func unwingToAddedProjectsList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? ProjectViewController, let project = sourceViewController.project {
             // Add a new project.
             let newIndexPath = IndexPath(row: addedProjects.count, section: 0)
             addedProjects.append(project)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
-            saveProjects()
+            saveProjectsAndSendToWatch()
         }
     }
 
@@ -71,12 +80,14 @@ class AddedProjectsTableViewController: UITableViewController {
                     DispatchQueue.main.sync {
                         let formattedAverageCredit = self.formatCredit(averageCredit)
                         cell.averageCreditLabel.text = "Average credit: " + formattedAverageCredit
+                        project.averageCredit = formattedAverageCredit
                         
                         let formattedTotalCredit = self.formatCredit(totalCredit)
                         cell.totalCreditLabel.text = "Total credit: " + formattedTotalCredit
+                        project.totalCredit = formattedTotalCredit
                         
                         project.authenticator = authenticator
-                        self.saveProjects()
+                        self.saveProjectsAndSendToWatch()
                     }
                 }
             }
@@ -86,11 +97,13 @@ class AddedProjectsTableViewController: UITableViewController {
                 DispatchQueue.main.sync {
                     let formattedAverageCredit = self.formatCredit(averageCredit)
                     cell.averageCreditLabel.text = "Average credit: " + formattedAverageCredit
+                    project.averageCredit = formattedAverageCredit
                     
                     let formattedTotalCredit = self.formatCredit(totalCredit)
                     cell.totalCreditLabel.text = "Total credit: " + formattedTotalCredit
+                    project.totalCredit = formattedTotalCredit
                     
-                    self.saveProjects()
+                    self.saveProjectsAndSendToWatch()
                 }
             }
         }
@@ -117,7 +130,7 @@ class AddedProjectsTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             addedProjects.remove(at: indexPath.row)
-            saveProjects()
+            saveProjectsAndSendToWatch()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -147,12 +160,24 @@ class AddedProjectsTableViewController: UITableViewController {
     }
     */
 
-    private func saveProjects() {
+    private func saveProjectsAndSendToWatch() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(addedProjects, toFile: Project.ArchiveURL.path)
         if isSuccessfulSave {
             os_log("Projects successfully saved.", log: OSLog.default, type: .debug)
         } else {
             os_log("Failed to save projects...", log: OSLog.default, type: .error)
+        }
+        do {
+            var context = [String : [String]]()
+            if addedProjects.count > 0 {
+                for index in 0...addedProjects.count - 1 {
+                    context[addedProjects[index].name] = [addedProjects[index].name, addedProjects[index].averageCredit, addedProjects[index].totalCredit, addedProjects[index].authenticator!, addedProjects[index].homePage]
+                }
+            }
+            try session.updateApplicationContext(context)
+            
+        } catch {
+            print("Unable to update application context.")
         }
     }
     

@@ -12,6 +12,8 @@ import os
 
 class ProjectViewController: UIViewController, UITextFieldDelegate {
 
+    
+
     // MARK: Properties
     var project: Project?
     @IBOutlet weak var emailTextField: UITextField!
@@ -32,9 +34,8 @@ class ProjectViewController: UIViewController, UITextFieldDelegate {
         // Enable the Save button only if the text field has valid Project credentials.
         saveButton.isEnabled = false
     }
-
-    // MARK: UITextFieldDelegate
     
+    // MARK: UITextFieldDelegate
     func textFieldDidBeginEditing(_ textField: UITextField) {
         saveButton.isEnabled = false
     }

@@ -17,6 +17,7 @@
 		FB592D9B1F24EE5B00FD6341 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB592D991F24EE5B00FD6341 /* LaunchScreen.storyboard */; };
 		FB6A3FC41F314F250093EE4C /* AddedProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A3FC31F314F250093EE4C /* AddedProjectsTableViewController.swift */; };
 		FB6A3FC61F31FFE40093EE4C /* AddedProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A3FC51F31FFE40093EE4C /* AddedProjectsTableViewCell.swift */; };
+		FB6E17A91F6B51D400DDE5ED /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2C445C1F2ED5A700099BDE /* Project.swift */; };
 		FB7ACA111F52CCCC001C587E /* AddedProjectsRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7ACA0F1F52CCCC001C587E /* AddedProjectsRowController.swift */; };
 		FB82E0021F525F37000BF19D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB82E0001F525F37000BF19D /* Interface.storyboard */; };
 		FB82E0041F525F37000BF19D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB82E0031F525F37000BF19D /* Assets.xcassets */; };
@@ -28,7 +29,6 @@
 		FB82E01A1F525F37000BF19D /* BOINC WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FB82DFFE1F525F37000BF19D /* BOINC WatchKit App.app */; };
 		FB8F83101F2965C900E82811 /* AddProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8F830F1F2965C900E82811 /* AddProjectTableViewCell.swift */; };
 		FB9ADEFB1F4109D0001A9FAB /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9ADEFA1F4109D0001A9FAB /* Parser.swift */; };
-		FB9CEA621F5E4184007C7796 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9CEA611F5E4184007C7796 /* Project.swift */; };
 		FBF1F8E81F2AF27C00158214 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF1F8E71F2AF27B00158214 /* ProjectViewController.swift */; };
 		FBF1F8EB1F2B9FE300158214 /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF1F8EA1F2B9FE300158214 /* Crypto.m */; };
 /* End PBXBuildFile section */
@@ -102,7 +102,6 @@
 		FB82E0171F525F37000BF19D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB8F830F1F2965C900E82811 /* AddProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectTableViewCell.swift; sourceTree = "<group>"; };
 		FB9ADEFA1F4109D0001A9FAB /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
-		FB9CEA611F5E4184007C7796 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Project.swift; path = ../../../../../../.Trash/Project.swift; sourceTree = "<group>"; };
 		FBF1F8E71F2AF27B00158214 /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
 		FBF1F8E91F2B9FE300158214 /* BOINC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BOINC-Bridging-Header.h"; sourceTree = "<group>"; };
 		FBF1F8EA1F2B9FE300158214 /* Crypto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Crypto.m; sourceTree = "<group>"; };
@@ -182,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				FB82E0111F525F37000BF19D /* ExtensionDelegate.swift */,
-				FB9CEA611F5E4184007C7796 /* Project.swift */,
 				FB82E00F1F525F37000BF19D /* InterfaceController.swift */,
 				FB7ACA0F1F52CCCC001C587E /* AddedProjectsRowController.swift */,
 				FB82E0131F525F37000BF19D /* ComplicationController.swift */,
@@ -357,7 +355,7 @@
 				FB82E0101F525F37000BF19D /* InterfaceController.swift in Sources */,
 				FB7ACA111F52CCCC001C587E /* AddedProjectsRowController.swift in Sources */,
 				FB82E0141F525F37000BF19D /* ComplicationController.swift in Sources */,
-				FB9CEA621F5E4184007C7796 /* Project.swift in Sources */,
+				FB6E17A91F6B51D400DDE5ED /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,7 +443,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -490,7 +488,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -506,8 +504,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = AV84QJNZ49;
 				INFOPLIST_FILE = BOINC/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon.BOINC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BOINC/BOINC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -522,8 +521,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = AV84QJNZ49;
 				INFOPLIST_FILE = BOINC/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon.BOINC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BOINC/BOINC-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -540,14 +540,14 @@
 				IBSC_MODULE = BOINC_WatchKit_App_Extension;
 				INFOPLIST_FILE = "BOINC WatchKit App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon.BOINC.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Debug;
 		};
@@ -561,13 +561,13 @@
 				IBSC_MODULE = BOINC_WatchKit_App_Extension;
 				INFOPLIST_FILE = "BOINC WatchKit App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon.BOINC.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
 		};
@@ -579,7 +579,7 @@
 				DEVELOPMENT_TEAM = AV84QJNZ49;
 				INFOPLIST_FILE = "BOINC WatchKit App Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon.BOINC.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -587,7 +587,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Debug;
 		};
@@ -599,14 +599,14 @@
 				DEVELOPMENT_TEAM = AV84QJNZ49;
 				INFOPLIST_FILE = "BOINC WatchKit App Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon.BOINC.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "BOINC WatchKit App Extension/BOINC WatchKit App Extension-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
 		};

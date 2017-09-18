@@ -80,11 +80,9 @@ class AddedProjectsTableViewController: UITableViewController, WCSessionDelegate
                     DispatchQueue.main.sync {
                         let formattedAverageCredit = self.formatCredit(averageCredit)
                         cell.averageCreditLabel.text = "Average credit: " + formattedAverageCredit
-                        project.averageCredit = formattedAverageCredit
                         
                         let formattedTotalCredit = self.formatCredit(totalCredit)
                         cell.totalCreditLabel.text = "Total credit: " + formattedTotalCredit
-                        project.totalCredit = formattedTotalCredit
                         
                         project.authenticator = authenticator
                         self.saveProjectsAndSendToWatch()
@@ -97,11 +95,9 @@ class AddedProjectsTableViewController: UITableViewController, WCSessionDelegate
                 DispatchQueue.main.sync {
                     let formattedAverageCredit = self.formatCredit(averageCredit)
                     cell.averageCreditLabel.text = "Average credit: " + formattedAverageCredit
-                    project.averageCredit = formattedAverageCredit
                     
                     let formattedTotalCredit = self.formatCredit(totalCredit)
                     cell.totalCreditLabel.text = "Total credit: " + formattedTotalCredit
-                    project.totalCredit = formattedTotalCredit
                     
                     self.saveProjectsAndSendToWatch()
                 }
@@ -168,14 +164,13 @@ class AddedProjectsTableViewController: UITableViewController, WCSessionDelegate
             os_log("Failed to save projects...", log: OSLog.default, type: .error)
         }
         do {
-            var context = [String : [String]]()
+            var contextToBeSent = [[String]]()
             if addedProjects.count > 0 {
                 for index in 0...addedProjects.count - 1 {
-                    context[addedProjects[index].name] = [addedProjects[index].name, addedProjects[index].averageCredit, addedProjects[index].totalCredit, addedProjects[index].authenticator!, addedProjects[index].homePage]
+                    contextToBeSent.append([addedProjects[index].name, addedProjects[index].email, addedProjects[index].authenticator!, addedProjects[index].averageCredit, addedProjects[index].totalCredit, addedProjects[index].homePage])
                 }
             }
-            try session.updateApplicationContext(context)
-            
+            try session.updateApplicationContext(["Added projects" : contextToBeSent])
         } catch {
             print("Unable to update application context.")
         }

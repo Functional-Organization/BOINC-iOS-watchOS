@@ -11,8 +11,17 @@ import Foundation
 import WatchConnectivity
 import os.log
 
-class InterfaceController: WKInterfaceController, WCSessionDelegate {
+class InterfaceController: WKInterfaceController, WCSessionDelegate, XMLParserDelegate {
     @IBOutlet var addedProjectsTable: WKInterfaceTable!
+    enum Queries {
+        case showUserInfo
+    }
+    var dataFromLookingUpAccount: Data?
+    var authenticator: String?
+    var elementName: String?
+    var totalCredit: String?
+    var averageCredit: String?
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
@@ -25,10 +34,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         // Configure interface objects here.
         if let savedProjects = loadProjects() { // Load any saved projects.
             configureTableWithData(savedProjects)
-            var projectsToUpdateWithNewCredits = [Project]()
-            for index in 0...savedProjects.count - 1 {
-//                projectsToUpdateWithNewCredits.append()
-            }
+            fetchDataForEachProject(savedProjects)
         }
     }
     
@@ -50,24 +56,54 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             for projectIndex in 0...projectsData.count - 1 {
                 let theRow = self.addedProjectsTable.rowController(at: projectIndex) as! AddedProjectsRowController
                 theRow.nameLabel.setText(projectsData[projectIndex][0])
-                theRow.averageCreditLabel.setText(projectsData[projectIndex][1])
-                theRow.totalCreditLabel.setText(projectsData[projectIndex][2])
-                for projectAttribute in 0...4 {
+                let formattedAverageCredit = formatCredit(projectsData[projectIndex][3])
+                let formattedTotalCredit = formatCredit(projectsData[projectIndex][4])
+                theRow.averageCreditLabel.setText(formattedAverageCredit)
+                theRow.totalCreditLabel.setText(formattedTotalCredit)
+                for projectAttribute in 0...5 {
                     projectDataToBeSaved.append(projectsData[projectIndex][projectAttribute])
                 }
                 projectsDataToBeSaved.append(projectDataToBeSaved)
+                projectDataToBeSaved.removeAll()
             }
             saveProjects(projectsDataToBeSaved)
         }
     }
     
-    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-        let applicationContext = applicationContext as! [String : [String]]
+    func configureTableWithDataObjects(_ projectsDataObjects: [Project]) {
+        self.addedProjectsTable.setNumberOfRows(projectsDataObjects.count, withRowType: "mainRowType")
+        if projectsDataObjects.count > 0 {
+            for projectsDataObjectsIndex in 0...projectsDataObjects.count - 1 {
+                let theRow = self.addedProjectsTable.rowController(at: projectsDataObjectsIndex) as! AddedProjectsRowController
+                let name = projectsDataObjects[projectsDataObjectsIndex].name
+                let averageCredit = projectsDataObjects[projectsDataObjectsIndex].averageCredit
+                let totalCredit = projectsDataObjects[projectsDataObjectsIndex].totalCredit
+                
+                let formattedAverageCredit = self.formatCredit(averageCredit)
+                let formattedTotalAverageCredit = self.formatCredit(totalCredit)
+                
+                theRow.nameLabel.setText(name)
+                theRow.averageCreditLabel.setText(formattedAverageCredit)
+                theRow.totalCreditLabel.setText(formattedTotalAverageCredit)
+            }
+        }
+    }
+    
+    func formatCredit(_ creditToBeFormatted: String) -> String {
+        let credit = Float(creditToBeFormatted)
+        let creditTruncated = String(format: "%.0f", credit!)
+        let creditTruncatedAndFormatted = Int(creditTruncated)
+        let creditNumberFormatter = NumberFormatter()
+        creditNumberFormatter.numberStyle = NumberFormatter.Style.decimal
+        return creditNumberFormatter.string(from: NSNumber(value: creditTruncatedAndFormatted!))!
+    }
+    
+    func populateTableWithDataFromPhone(_ applicationContext: [String : [String]]) -> [[String]] {
         var projectData = [String]()
         var projectsNamesAndData = [[String]]()
         
         for (projectName, _) in applicationContext {
-            for index in 0...4 { // Populate an array of the project's name, average credit, and total credit.
+            for index in 0...5 { // Populate an array of the project's properties.
                 let projectDatum = [applicationContext[projectName]![index]]
                 projectData += projectDatum
             }
@@ -75,9 +111,40 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             projectData.removeAll()
         }
         projectsNamesAndData.reverse()
+        saveProjects(projectsNamesAndData)
         configureTableWithData(projectsNamesAndData)
-        projectsNamesAndData.removeAll()
+        return projectsNamesAndData
+    }
+    
+    func fetchDataForEachProject(_ projectsData: [[String]]) {
+        var projectObjects = [Project]()
         
+        for projectsDataIndex in 0...projectsData.count - 1 {
+            let name = projectsData[projectsDataIndex][0]
+            let email = projectsData[projectsDataIndex][1]
+            let authenticator = projectsData[projectsDataIndex][2]
+            let averageCredit = projectsData[projectsDataIndex][3]
+            let totalCredit = projectsData[projectsDataIndex][4]
+            let homePage = projectsData[projectsDataIndex][5]
+            projectObjects.append(Project(name: name, email, authenticator, averageCredit, totalCredit, homePage))
+        }
+        
+        for projectObjectsIndex in 0...projectsData.count - 1 {
+            let authenticator = projectsData[projectObjectsIndex][2]
+            let homePage = projectsData[projectObjectsIndex][5]
+            let email = projectsData[projectObjectsIndex][1]
+            projectObjects[projectObjectsIndex].fetch(.showUserInfo, authenticator, projectHomePage: homePage, email) { (averageCredit, totalCredit) in
+                DispatchQueue.main.sync {
+                    self.configureTableWithDataObjects(projectObjects)
+                }
+            }
+        }
+    }
+    
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        if let addedProjects = applicationContext["Added projects"] {
+            configureTableWithData(addedProjects as! [[String]])
+        }
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
@@ -95,7 +162,63 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Project.ArchiveURL.path) as? [[String]]
     }
     
-    private func fetchCreditsForEachProject() {
-        
+    // MARK: URLSession Methods
+    func fetch(_ query: Queries, _ authenticator: String, projectHomePage: String, _ email: String, completion: @escaping () -> Void) {
+        let URL = generateURL(query, projectHomePage, authenticator, email)
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig)
+        let task = session.dataTask(with: URL) { (data, response, error) in
+            self.parseReturnedXML(data!)
+            completion()
+        }
+        task.resume()
     }
+    
+    func generateURLForFetchingAuthenticator(_ projectHomePage: String, _ email: String, _ hash: String) -> URL {
+        let urlToFetchAuthenticatorFrom = URL(string: projectHomePage + "/lookup_account.php?email_addr=" + email + "&passwd_hash=" + hash)!
+        return urlToFetchAuthenticatorFrom
+    }
+    
+    func generateURL(_ query: Queries, _ projectHomePage: String, _ authenticator: String, _ email: String) -> URL {
+        let urlToQuery = URL(string: projectHomePage + "/show_user.php?auth=" + authenticator + "&format=xml")!
+        return urlToQuery
+    }
+    
+    // MARK: XMLParser Methods
+    func parseReturnedXML(_ data: Data?) {
+        let parser = XMLParser(data: data!)
+        parser.delegate = self
+        parser.parse()
+    }
+    
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+        self.elementName = elementName
+        if elementName == "authenticator" {
+            authenticator = String()
+        }
+        else if elementName == "total_credit" {
+            totalCredit = String()
+        }
+        else if elementName == "expavg_credit" {
+            averageCredit = String()
+        }
+    }
+    
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
+        let data = string.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+        if !data.isEmpty {
+            if elementName == "authenticator" {
+                authenticator = data
+            }
+            else if elementName == "total_credit" {
+                totalCredit = data
+            }
+            else if elementName == "expavg_credit" {
+                averageCredit = data
+                parser.abortParsing()
+            }
+        }
+    }
+    
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) { }
 }

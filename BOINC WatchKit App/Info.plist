@@ -26,7 +26,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.Austin-Conlon.BOINC</string>
+	<string>com.Austin-Conlon-BOINC</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 </dict>

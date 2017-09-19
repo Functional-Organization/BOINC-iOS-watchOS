@@ -169,8 +169,11 @@ class AddedProjectsTableViewController: UITableViewController, WCSessionDelegate
                 for index in 0...addedProjects.count - 1 {
                     contextToBeSent.append([addedProjects[index].name, addedProjects[index].email, addedProjects[index].authenticator!, addedProjects[index].averageCredit, addedProjects[index].totalCredit, addedProjects[index].homePage])
                 }
+                try session.updateApplicationContext(["Added projects" : contextToBeSent])
             }
-            try session.updateApplicationContext(["Added projects" : contextToBeSent])
+            else if addedProjects.count == 0 {
+                try session.updateApplicationContext(["Empty list of projects" : true])
+            }
         } catch {
             print("Unable to update application context.")
         }

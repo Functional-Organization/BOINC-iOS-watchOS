@@ -145,6 +145,10 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, XMLParserDe
         if let addedProjects = applicationContext["Added projects"] {
             configureTableWithData(addedProjects as! [[String]])
         }
+        if let _ = applicationContext["Empty list of projects"] {
+            
+            self.addedProjectsTable.setNumberOfRows(0, withRowType: "mainRowType")
+        }
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }

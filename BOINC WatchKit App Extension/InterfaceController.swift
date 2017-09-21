@@ -13,6 +13,7 @@ import os.log
 
 class InterfaceController: WKInterfaceController, WCSessionDelegate, XMLParserDelegate {
     @IBOutlet var addedProjectsTable: WKInterfaceTable!
+    var addedProjects = [[String]]()
     enum Queries {
         case showUserInfo
     }
@@ -33,7 +34,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, XMLParserDe
         
         // Configure interface objects here.
         if let savedProjects = loadProjects() { // Load any saved projects.
-            configureTableWithData(savedProjects)
+            configureTableWithData()
             fetchDataForEachProject(savedProjects)
         }
     }
@@ -48,25 +49,17 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, XMLParserDe
         super.didDeactivate()
     }
     
-    func configureTableWithData(_ projectsData: [[String]]) {
-        self.addedProjectsTable.setNumberOfRows(projectsData.count, withRowType: "mainRowType")
-        if projectsData.count > 0 {
-            var projectsDataToBeSaved = [[String]]()
-            var projectDataToBeSaved = [String]()
-            for projectIndex in 0...projectsData.count - 1 {
-                let theRow = self.addedProjectsTable.rowController(at: projectIndex) as! AddedProjectsRowController
-                theRow.nameLabel.setText(projectsData[projectIndex][0])
-                let formattedAverageCredit = formatCredit(projectsData[projectIndex][3])
-                let formattedTotalCredit = formatCredit(projectsData[projectIndex][4])
+    func configureTableWithData() {
+        self.addedProjectsTable.setNumberOfRows(addedProjects.count, withRowType: "mainRowType")
+        if addedProjects.isEmpty == false {
+            for project in 0...addedProjects.count - 1 {
+                let theRow = self.addedProjectsTable.rowController(at: project) as! AddedProjectsRowController
+                theRow.nameLabel.setText(addedProjects[project][0])
+                let formattedAverageCredit = formatCredit(addedProjects[project][3])
+                let formattedTotalCredit = formatCredit(addedProjects[project][4])
                 theRow.averageCreditLabel.setText(formattedAverageCredit)
                 theRow.totalCreditLabel.setText(formattedTotalCredit)
-                for projectAttribute in 0...5 {
-                    projectDataToBeSaved.append(projectsData[projectIndex][projectAttribute])
-                }
-                projectsDataToBeSaved.append(projectDataToBeSaved)
-                projectDataToBeSaved.removeAll()
             }
-            saveProjects(projectsDataToBeSaved)
         }
     }
     
@@ -112,7 +105,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, XMLParserDe
         }
         projectsNamesAndData.reverse()
         saveProjects(projectsNamesAndData)
-        configureTableWithData(projectsNamesAndData)
+        configureTableWithData()
         return projectsNamesAndData
     }
     
@@ -143,11 +136,12 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, XMLParserDe
     
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         if let addedProjects = applicationContext["Added projects"] {
-            configureTableWithData(addedProjects as! [[String]])
+            self.addedProjects = addedProjects as! [[String]]
+            configureTableWithData()
         }
         if let _ = applicationContext["Empty list of projects"] {
-            
             self.addedProjectsTable.setNumberOfRows(0, withRowType: "mainRowType")
+            saveProjects([[]])
         }
     }
     

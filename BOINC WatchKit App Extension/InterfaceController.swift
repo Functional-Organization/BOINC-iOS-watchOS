@@ -14,6 +14,7 @@ import os.log
 class InterfaceController: WKInterfaceController, WCSessionDelegate, XMLParserDelegate {
     @IBOutlet var addedProjectsTable: WKInterfaceTable!
     var addedProjects = [[String]]()
+    var addedProjectsToSaveAndLoad = [Project]()
     enum Queries {
         case showUserInfo
     }
@@ -34,8 +35,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, XMLParserDe
         
         // Configure interface objects here.
         if let savedProjects = loadProjects() { // Load any saved projects.
-            configureTableWithData()
-            fetchDataForEachProject(savedProjects)
+            addedProjectsToSaveAndLoad += savedProjects
+            fetchDataForEachProject()
         }
     }
     
@@ -49,36 +50,25 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, XMLParserDe
         super.didDeactivate()
     }
     
-    func configureTableWithData() {
+    func configureTable() {
         self.addedProjectsTable.setNumberOfRows(addedProjects.count, withRowType: "mainRowType")
         if addedProjects.isEmpty == false {
             for project in 0...addedProjects.count - 1 {
                 let theRow = self.addedProjectsTable.rowController(at: project) as! AddedProjectsRowController
                 theRow.nameLabel.setText(addedProjects[project][0])
-                let formattedAverageCredit = formatCredit(addedProjects[project][3])
-                let formattedTotalCredit = formatCredit(addedProjects[project][4])
-                theRow.averageCreditLabel.setText(formattedAverageCredit)
-                theRow.totalCreditLabel.setText(formattedTotalCredit)
+                theRow.averageCreditLabel.setText(formatCredit(addedProjects[project][3]))
+                theRow.totalCreditLabel.setText(formatCredit(addedProjects[project][4]))
             }
         }
     }
     
-    func configureTableWithDataObjects(_ projectsDataObjects: [Project]) {
-        self.addedProjectsTable.setNumberOfRows(projectsDataObjects.count, withRowType: "mainRowType")
-        if projectsDataObjects.count > 0 {
-            for projectsDataObjectsIndex in 0...projectsDataObjects.count - 1 {
-                let theRow = self.addedProjectsTable.rowController(at: projectsDataObjectsIndex) as! AddedProjectsRowController
-                let name = projectsDataObjects[projectsDataObjectsIndex].name
-                let averageCredit = projectsDataObjects[projectsDataObjectsIndex].averageCredit
-                let totalCredit = projectsDataObjects[projectsDataObjectsIndex].totalCredit
-                
-                let formattedAverageCredit = self.formatCredit(averageCredit)
-                let formattedTotalAverageCredit = self.formatCredit(totalCredit)
-                
-                theRow.nameLabel.setText(name)
-                theRow.averageCreditLabel.setText(formattedAverageCredit)
-                theRow.totalCreditLabel.setText(formattedTotalAverageCredit)
-            }
+    func configureTableWithFetchedData() {
+        self.addedProjectsTable.setNumberOfRows(addedProjectsToSaveAndLoad.count, withRowType: "mainRowType")
+        for project in 0...addedProjectsToSaveAndLoad.count - 1 {
+            let theRow = self.addedProjectsTable.rowController(at: project) as! AddedProjectsRowController
+            theRow.nameLabel.setText(addedProjectsToSaveAndLoad[project].name)
+            theRow.averageCreditLabel.setText(formatCredit(addedProjectsToSaveAndLoad[project].averageCredit))
+            theRow.totalCreditLabel.setText(formatCredit(addedProjectsToSaveAndLoad[project].totalCredit))
         }
     }
     
@@ -91,44 +81,14 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, XMLParserDe
         return creditNumberFormatter.string(from: NSNumber(value: creditTruncatedAndFormatted!))!
     }
     
-    func populateTableWithDataFromPhone(_ applicationContext: [String : [String]]) -> [[String]] {
-        var projectData = [String]()
-        var projectsNamesAndData = [[String]]()
-        
-        for (projectName, _) in applicationContext {
-            for index in 0...5 { // Populate an array of the project's properties.
-                let projectDatum = [applicationContext[projectName]![index]]
-                projectData += projectDatum
-            }
-            projectsNamesAndData.append(projectData)
-            projectData.removeAll()
-        }
-        projectsNamesAndData.reverse()
-        saveProjects(projectsNamesAndData)
-        configureTableWithData()
-        return projectsNamesAndData
-    }
-    
-    func fetchDataForEachProject(_ projectsData: [[String]]) {
-        var projectObjects = [Project]()
-        
-        for projectsDataIndex in 0...projectsData.count - 1 {
-            let name = projectsData[projectsDataIndex][0]
-            let email = projectsData[projectsDataIndex][1]
-            let authenticator = projectsData[projectsDataIndex][2]
-            let averageCredit = projectsData[projectsDataIndex][3]
-            let totalCredit = projectsData[projectsDataIndex][4]
-            let homePage = projectsData[projectsDataIndex][5]
-            projectObjects.append(Project(name: name, email, authenticator, averageCredit, totalCredit, homePage))
-        }
-        
-        for projectObjectsIndex in 0...projectsData.count - 1 {
-            let authenticator = projectsData[projectObjectsIndex][2]
-            let homePage = projectsData[projectObjectsIndex][5]
-            let email = projectsData[projectObjectsIndex][1]
-            projectObjects[projectObjectsIndex].fetch(.showUserInfo, authenticator, projectHomePage: homePage, email) { (averageCredit, totalCredit) in
+    func fetchDataForEachProject() {
+        for project in 0...addedProjectsToSaveAndLoad.count - 1 {
+            let authenticator = addedProjectsToSaveAndLoad[project].authenticator!
+            let homePage = addedProjectsToSaveAndLoad[project].homePage
+            let email = addedProjectsToSaveAndLoad[project].email
+            addedProjectsToSaveAndLoad[project].fetch(.showUserInfo, authenticator, homePage, email) { (averageCredit, totalCredit) in
                 DispatchQueue.main.sync {
-                    self.configureTableWithDataObjects(projectObjects)
+                    self.configureTableWithFetchedData()
                 }
             }
         }
@@ -137,18 +97,32 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, XMLParserDe
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         if let addedProjects = applicationContext["Added projects"] {
             self.addedProjects = addedProjects as! [[String]]
-            configureTableWithData()
+            configureTable()
+            saveProjects()
         }
         if let _ = applicationContext["Empty list of projects"] {
             self.addedProjectsTable.setNumberOfRows(0, withRowType: "mainRowType")
-            saveProjects([[]])
+            addedProjects.removeAll()
+            saveProjects()
         }
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
     
-    private func saveProjects(_ addedProjects: [[String]]) {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(addedProjects, toFile: Project.ArchiveURL.path)
+    private func saveProjects() {
+        addedProjectsToSaveAndLoad.removeAll()
+        if addedProjects.count > 0 {
+            for project in 0...addedProjects.count - 1 {
+                let name = addedProjects[project][0]
+                let email = addedProjects[project][1]
+                let authenticator = addedProjects[project][2]
+                let averageCredit = addedProjects[project][3]
+                let totalCredit = addedProjects[project][4]
+                let homePage = addedProjects[project][5]
+                addedProjectsToSaveAndLoad.append(Project(name: name, email, authenticator, averageCredit, totalCredit, homePage))
+            }
+        }
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(addedProjectsToSaveAndLoad, toFile: Project.ArchiveURL.path)
         if isSuccessfulSave {
             os_log("Projects successfully saved.", log: OSLog.default, type: .debug)
         } else {
@@ -156,8 +130,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, XMLParserDe
         }
     }
     
-    private func loadProjects() -> [[String]]? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Project.ArchiveURL.path) as? [[String]]
+    private func loadProjects() -> [Project]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Project.ArchiveURL.path) as? [Project]
     }
     
     // MARK: URLSession Methods

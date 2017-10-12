@@ -15,7 +15,7 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     var name: String
     var homePage: String
     var email: String
-    var password: String
+    var password: String?
     enum Queries {
         case showUserInfo
     }
@@ -30,15 +30,15 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("projects")
     
     // MARK: Initialization
-    init(name: String, _ email: String = "", _ password: String = "", _ averageCredit: String = "0", _ totalCredit: String = "0", _ homePage: String = "") {
+    init(name: String, _ email: String = "", _ authenticator: String = "", _ averageCredit: String = "0", _ totalCredit: String = "0", _ homePage: String = "") {
         self.name = name
         self.email = email
-        self.password = password
+        self.authenticator = authenticator
         self.averageCredit = averageCredit
         self.totalCredit = totalCredit
         self.homePage = homePage
     }
-    
+
     // MARK: Types
     struct PropertyType {
         static let name = "name"
@@ -119,7 +119,7 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
         task.resume()
     }
     
-    func fetch(_ query: Queries, _ authenticator: String, projectHomePage: String, _ email: String, completion: @escaping (String, String) -> Void) {
+    func fetch(_ query: Queries, _ authenticator: String, _ projectHomePage: String, _ email: String, completion: @escaping (String, String) -> Void) {
         let URL = generateURL(query, projectHomePage, authenticator, email)
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig)
@@ -131,7 +131,7 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     }
     
     func generateURLForFetchingAuthenticator(_ projectHomePage: String, _ email: String, _ hash: String) -> URL {
-        let urlToFetchAuthenticatorFrom = URL(string: homePage + "/lookup_account.php?email_addr=" + email + "&passwd_hash=" + hash)!
+        let urlToFetchAuthenticatorFrom = URL(string: projectHomePage + "/lookup_account.php?email_addr=" + email + "&passwd_hash=" + hash)!
         return urlToFetchAuthenticatorFrom
     }
     

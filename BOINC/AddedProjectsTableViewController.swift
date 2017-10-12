@@ -59,7 +59,6 @@ class AddedProjectsTableViewController: UITableViewController, WCSessionDelegate
             let newIndexPath = IndexPath(row: addedProjects.count, section: 0)
             addedProjects.append(project)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
-            saveProjectsAndSendToWatch()
         }
     }
 
@@ -75,8 +74,8 @@ class AddedProjectsTableViewController: UITableViewController, WCSessionDelegate
         
         cell.nameLabel.text = project.name
         if project.authenticator == nil {
-            project.fetchAuthenticator(project.homePage, project.email, project.password) { (authenticator) in
-                project.fetch(.showUserInfo, authenticator!, projectHomePage: project.homePage, project.email) { (averageCredit, totalCredit) in
+            project.fetchAuthenticator(project.homePage, project.email, project.password!) { (authenticator) in
+                project.fetch(.showUserInfo, authenticator!, project.homePage, project.email) { (averageCredit, totalCredit) in
                     DispatchQueue.main.sync {
                         let formattedAverageCredit = self.formatCredit(averageCredit)
                         cell.averageCreditLabel.text = "Average credit: " + formattedAverageCredit
@@ -91,7 +90,7 @@ class AddedProjectsTableViewController: UITableViewController, WCSessionDelegate
             }
         }
         else if project.authenticator != nil && addedProjects.count > 0 {
-            project.fetch(.showUserInfo, project.authenticator!, projectHomePage: project.homePage, project.email) { (averageCredit, totalCredit) in
+            project.fetch(.showUserInfo, project.authenticator!, project.homePage, project.email) { (averageCredit, totalCredit) in
                 DispatchQueue.main.sync {
                     let formattedAverageCredit = self.formatCredit(averageCredit)
                     cell.averageCreditLabel.text = "Average credit: " + formattedAverageCredit

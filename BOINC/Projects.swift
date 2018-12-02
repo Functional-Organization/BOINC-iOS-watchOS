@@ -28,8 +28,7 @@ var projectsToSelectFrom = [
     ("Radioactive@Home", "http://radioactiveathome.org/boinc"),
     ("Rosetta@home", "https://boinc.bakerlab.org"),
     ("SETI@home", "https://setiathome.berkeley.edu"),
-    ("SZTAKI Desktop Grid", "http://szdg.lpds.sztaki.hu/szdg"),
     ("Universe@Home", "https://universeathome.pl/universe"),
-    ("Yoyo@home", "https://rechenkraft.net/yoyo"),
-    ("theSkyNet POGS", "https://pogs.theskynet.org/pogs")
+    ("World Community Grid", "https://www.worldcommunitygrid.org"),
+    ("Yoyo@home", "https://rechenkraft.net/yoyo")
 ]

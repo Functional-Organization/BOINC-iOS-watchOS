@@ -13,13 +13,21 @@ import StoreKit
 
 class AddedProjectsTableViewController: UITableViewController, WCSessionDelegate {
     // MARK: Properties
-    var addedProjects = [Project]()
-    let session = WCSession.default()
+    var addedProjects = [Project]() {
+        didSet {
+            switch addedProjects.isEmpty {
+            case true:
+                self.navigationItem.leftBarButtonItem = nil
+            case false:
+                self.navigationItem.leftBarButtonItem = self.editButtonItem
+            }
+        }
+    }
+    
+    let session = WCSession.default
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
         
         // Load any saved projects.
         if let savedProjects = loadProjects() {
@@ -31,8 +39,6 @@ class AddedProjectsTableViewController: UITableViewController, WCSessionDelegate
                 // Fallback on earlier versions
             }
         }
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,8 +89,8 @@ class AddedProjectsTableViewController: UITableViewController, WCSessionDelegate
         
         cell.nameLabel.text = project.name
         if project.authenticator == nil {
-            project.fetchAuthenticator(project.homePage, project.email, project.password!) { (authenticator) in
-                project.fetch(.showUserInfo, authenticator!, project.homePage, project.email) { (averageCredit, totalCredit) in
+            project.fetchAuthenticator(project.homePage, project.username, project.password!) { (authenticator) in
+                project.fetch(.showUserInfo, authenticator!, project.homePage, username: project.username) { (averageCredit, totalCredit) in
                     DispatchQueue.main.sync {
                         let formattedAverageCredit = self.formatCredit(averageCredit)
                         cell.averageCreditLabel.text = "Average credit: " + formattedAverageCredit
@@ -97,9 +103,8 @@ class AddedProjectsTableViewController: UITableViewController, WCSessionDelegate
                     }
                 }
             }
-        }
-        else if project.authenticator != nil && addedProjects.count > 0 {
-            project.fetch(.showUserInfo, project.authenticator!, project.homePage, project.email) { (averageCredit, totalCredit) in
+        } else if project.authenticator != nil && addedProjects.count > 0 {
+            project.fetch(.showUserInfo, project.authenticator!, project.homePage, username: project.username) { (averageCredit, totalCredit) in
                 DispatchQueue.main.sync {
                     let formattedAverageCredit = self.formatCredit(averageCredit)
                     cell.averageCreditLabel.text = "Average credit: " + formattedAverageCredit
@@ -122,15 +127,13 @@ class AddedProjectsTableViewController: UITableViewController, WCSessionDelegate
         creditNumberFormatter.numberStyle = NumberFormatter.Style.decimal
         return creditNumberFormatter.string(from: NSNumber(value: creditTruncatedAndFormatted!))!
     }
-
-    // Override to support conditional editing of the table view.
+    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             addedProjects.remove(at: indexPath.row)
@@ -141,28 +144,11 @@ class AddedProjectsTableViewController: UITableViewController, WCSessionDelegate
         }    
     }
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     private func saveProjectsAndSendToWatch() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(addedProjects, toFile: Project.ArchiveURL.path)
@@ -175,11 +161,11 @@ class AddedProjectsTableViewController: UITableViewController, WCSessionDelegate
             var contextToBeSent = [[String]]()
             if addedProjects.count > 0 {
                 for index in 0...addedProjects.count - 1 {
-                    contextToBeSent.append([addedProjects[index].name, addedProjects[index].email, addedProjects[index].authenticator!, addedProjects[index].averageCredit, addedProjects[index].totalCredit, addedProjects[index].homePage])
+                    contextToBeSent.append([addedProjects[index].name, addedProjects[index].username, addedProjects[index].authenticator!, addedProjects[index].averageCredit, addedProjects[index].totalCredit, addedProjects[index].homePage])
                 }
                 try session.updateApplicationContext(["Added projects" : contextToBeSent])
             }
-            else if addedProjects.count == 0 {
+            else if addedProjects.isEmpty {
                 try session.updateApplicationContext(["Empty list of projects" : true])
             }
         } catch {

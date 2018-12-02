@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13526" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch38" orientation="portrait">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.30.1" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch42" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13524"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13505"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.19.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14460.16.1"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
@@ -18,21 +19,21 @@
                                 <tableRow identifier="mainRowType" selectable="NO" id="UDD-KK-vda" customClass="AddedProjectsRowController" customModule="BOINC_WatchKit_App_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="9u6-XO-2CR">
                                         <items>
-                                            <label alignment="left" text=" " id="Yky-aO-fgT">
-                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                            <label alignment="left" text="World Community Grid" numberOfLines="0" id="Yky-aO-fgT">
+                                                <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
                                             </label>
                                             <label alignment="left" text="Average Credit" id="M3e-c4-xuQ">
                                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
-                                                <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                             </label>
-                                            <label alignment="left" text=" " id="AW6-zd-bn6">
+                                            <label alignment="left" text=" 100" id="AW6-zd-bn6">
                                                 <fontDescription key="font" style="UICTFontTextStyleBody"/>
                                             </label>
                                             <label alignment="left" text="Total Credit" id="lMI-sP-QkP">
                                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
-                                                <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                             </label>
-                                            <label alignment="left" text=" " id="A2d-QT-Zgx"/>
+                                            <label alignment="left" text=" 100,000" id="A2d-QT-Zgx"/>
                                         </items>
                                         <edgeInsets key="margins" left="7" right="7" top="5" bottom="5"/>
                                     </group>

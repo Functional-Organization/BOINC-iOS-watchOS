@@ -16,7 +16,7 @@ class ProjectViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: Properties
     var project: Project?
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
@@ -28,11 +28,26 @@ class ProjectViewController: UIViewController, UITextFieldDelegate {
         project = Project(name: self.title!)
         project!.homePage = projectsToSelectFrom[selectedRow!].1
         
-        emailTextField.delegate = self
+        usernameTextField.delegate = self
         passwordTextField.delegate = self
         
         // Enable the Save button only if the text field has valid Project credentials.
         saveButton.isEnabled = false
+        
+        if project?.name == "World Community Grid" {
+            usernameTextField.placeholder = "Username"
+            if #available(iOS 11.0, *) {
+                usernameTextField.textContentType = .username
+            } else {
+                // Fallback on earlier versions
+            }
+            usernameTextField.keyboardType = .default
+            passwordTextField.isHidden = true
+        } else {
+            usernameTextField.textContentType = .emailAddress
+        }
+        
+        usernameTextField.becomeFirstResponder()
     }
     
     // MARK: UITextFieldDelegate
@@ -41,13 +56,20 @@ class ProjectViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        let emailText = emailTextField.text ?? ""
+        let usernameText = usernameTextField.text ?? ""
         let passwordText = passwordTextField.text ?? ""
-        project?.email = emailText
+        project?.username = usernameText
         project?.password = passwordText
         
-        if (!emailText.isEmpty && !passwordText.isEmpty) {
-            project!.fetchAuthenticator((project!.homePage), emailText, passwordText) { (authenticator) in
+        if project?.name == "World Community Grid" {
+            project!.fetch(.showUserInfo, username: usernameText) { (averageCredit, totalCredit) in
+                DispatchQueue.main.sync {
+                    // TODO: check if username is valid.
+                    self.saveButton.isEnabled = true
+                }
+            }
+        } else if (!usernameText.isEmpty && !passwordText.isEmpty) {
+            project!.fetchAuthenticator((project!.homePage), usernameText, passwordText) { (authenticator) in
                 DispatchQueue.main.sync {
                     if authenticator != nil {
                         self.saveButton.isEnabled = true

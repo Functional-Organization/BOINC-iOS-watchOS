@@ -9,7 +9,17 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>BOINC WatchKit App (Complication).xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>BOINC WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>BOINC WatchKit App.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
@@ -38,11 +48,6 @@
 			<true/>
 		</dict>
 		<key>FB592DB41F24EE5B00FD6341</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FB82DFFD1F525F37000BF19D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

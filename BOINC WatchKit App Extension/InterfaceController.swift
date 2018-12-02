@@ -28,7 +28,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, XMLParserDe
         super.awake(withContext: context)
         
         if WCSession.isSupported() {
-            let session = WCSession.default()
+            let session = WCSession.default
             session.delegate = self
             session.activate()
         }
@@ -38,16 +38,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, XMLParserDe
             addedProjectsToSaveAndLoad += savedProjects
             fetchDataForEachProject()
         }
-    }
-    
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
-    }
-    
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
     }
     
     func configureTable() {
@@ -85,8 +75,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, XMLParserDe
         for project in 0...addedProjectsToSaveAndLoad.count - 1 {
             let authenticator = addedProjectsToSaveAndLoad[project].authenticator!
             let homePage = addedProjectsToSaveAndLoad[project].homePage
-            let email = addedProjectsToSaveAndLoad[project].email
-            addedProjectsToSaveAndLoad[project].fetch(.showUserInfo, authenticator, homePage, email) { (averageCredit, totalCredit) in
+            let username = addedProjectsToSaveAndLoad[project].username
+            addedProjectsToSaveAndLoad[project].fetch(.showUserInfo, authenticator, homePage, username: username) { (averageCredit, totalCredit) in
                 DispatchQueue.main.sync {
                     self.configureTableWithFetchedData()
                 }

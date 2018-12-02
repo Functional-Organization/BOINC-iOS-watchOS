@@ -14,7 +14,7 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     
     var name: String
     var homePage: String
-    var email: String
+    var username: String
     var password: String?
     enum Queries {
         case showUserInfo
@@ -32,7 +32,7 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     // MARK: Initialization
     init(name: String, _ email: String = "", _ authenticator: String = "", _ averageCredit: String = "0", _ totalCredit: String = "0", _ homePage: String = "") {
         self.name = name
-        self.email = email
+        self.username = email
         self.authenticator = authenticator
         self.averageCredit = averageCredit
         self.totalCredit = totalCredit
@@ -52,7 +52,7 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     // MARK: NSCoding
     func encode(with aCoder: NSCoder) {
         aCoder.encode(name, forKey: PropertyType.name)
-        aCoder.encode(email, forKey: PropertyType.email)
+        aCoder.encode(username, forKey: PropertyType.email)
         aCoder.encode(authenticator, forKey: PropertyType.authenticator)
         aCoder.encode(averageCredit, forKey: PropertyType.averageCredit)
         aCoder.encode(totalCredit, forKey: PropertyType.totalCredit)
@@ -119,8 +119,8 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
         task.resume()
     }
     
-    func fetch(_ query: Queries, _ authenticator: String, _ projectHomePage: String, _ email: String, completion: @escaping (String, String) -> Void) {
-        let URL = generateURL(query, projectHomePage, authenticator, email)
+    func fetch(_ query: Queries, _ authenticator: String = "", _ projectHomePage: String = "", username: String, completion: @escaping (String, String) -> Void) {
+        let URL = generateURL(query, projectHomePage, authenticator, username)
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig)
         let task = session.dataTask(with: URL) { (data, response, error) in
@@ -135,8 +135,13 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
         return urlToFetchAuthenticatorFrom
     }
     
-    func generateURL(_ query: Queries, _ projectHomePage: String, _ authenticator: String, _ email: String) -> URL {
-        let urlToQuery = URL(string: projectHomePage + "/show_user.php?auth=" + authenticator + "&format=xml")!
+    func generateURL(_ query: Queries, _ projectHomePage: String, _ authenticator: String, _ username: String) -> URL {
+        var urlToQuery: URL
+        if self.name == "World Community Grid" {
+            urlToQuery = URL(string: "https://www.worldcommunitygrid.org/stat/viewMemberInfo.do?userName=" + username.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)! + "&xml=true")!
+        } else {
+            urlToQuery = URL(string: projectHomePage + "/show_user.php?auth=" + authenticator + "&format=xml")!
+        }
         return urlToQuery
     }
     
@@ -151,11 +156,9 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
         self.elementName = elementName
         if elementName == "authenticator" {
             authenticator = String()
-        }
-        else if elementName == "total_credit" {
+        } else if elementName == "total_credit" || elementName == "Points" {
             totalCredit = String()
-        }
-        else if elementName == "expavg_credit" {
+        } else if elementName == "expavg_credit" || elementName == "PointsPerDay" {
             averageCredit = String()
         }
     }
@@ -166,10 +169,10 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
             if elementName == "authenticator" {
                 authenticator = data
             }
-            else if elementName == "total_credit" {
+            else if elementName == "total_credit" || elementName == "Points" {
                 totalCredit = data
             }
-            else if elementName == "expavg_credit" {
+            else if elementName == "expavg_credit" || elementName == "PointsPerDay" {
                 averageCredit = data
                 parser.abortParsing()
             }

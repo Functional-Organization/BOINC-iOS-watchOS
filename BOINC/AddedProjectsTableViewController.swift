@@ -67,7 +67,7 @@ class AddedProjectsTableViewController: UITableViewController, WCSessionDelegate
         return addedProjects.count
     }
     
-    // MARK: Actions
+    // MARK: - Actions
     @IBAction func unwingToAddedProjectsList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? ProjectViewController, let project = sourceViewController.project {
             // Add a new project.
@@ -139,12 +139,9 @@ class AddedProjectsTableViewController: UITableViewController, WCSessionDelegate
             addedProjects.remove(at: indexPath.row)
             saveProjectsAndSendToWatch()
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
 
-    // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true

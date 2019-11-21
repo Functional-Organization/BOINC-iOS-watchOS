@@ -15,8 +15,8 @@
 		FB592D961F24EE5B00FD6341 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB592D941F24EE5B00FD6341 /* Main.storyboard */; };
 		FB592D981F24EE5B00FD6341 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB592D971F24EE5B00FD6341 /* Assets.xcassets */; };
 		FB592D9B1F24EE5B00FD6341 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB592D991F24EE5B00FD6341 /* LaunchScreen.storyboard */; };
-		FB6A3FC41F314F250093EE4C /* AddedProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A3FC31F314F250093EE4C /* AddedProjectsTableViewController.swift */; };
-		FB6A3FC61F31FFE40093EE4C /* AddedProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A3FC51F31FFE40093EE4C /* AddedProjectsTableViewCell.swift */; };
+		FB6A3FC41F314F250093EE4C /* SavedProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A3FC31F314F250093EE4C /* SavedProjectsTableViewController.swift */; };
+		FB6A3FC61F31FFE40093EE4C /* SavedProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A3FC51F31FFE40093EE4C /* SavedProjectsTableViewCell.swift */; };
 		FB6E17A91F6B51D400DDE5ED /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2C445C1F2ED5A700099BDE /* Project.swift */; };
 		FB7ACA111F52CCCC001C587E /* AddedProjectsRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7ACA0F1F52CCCC001C587E /* AddedProjectsRowController.swift */; };
 		FB82E0021F525F37000BF19D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB82E0001F525F37000BF19D /* Interface.storyboard */; };
@@ -87,8 +87,8 @@
 		FB592D971F24EE5B00FD6341 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB592D9A1F24EE5B00FD6341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB592D9C1F24EE5B00FD6341 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB6A3FC31F314F250093EE4C /* AddedProjectsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedProjectsTableViewController.swift; sourceTree = "<group>"; };
-		FB6A3FC51F31FFE40093EE4C /* AddedProjectsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedProjectsTableViewCell.swift; sourceTree = "<group>"; };
+		FB6A3FC31F314F250093EE4C /* SavedProjectsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedProjectsTableViewController.swift; sourceTree = "<group>"; };
+		FB6A3FC51F31FFE40093EE4C /* SavedProjectsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedProjectsTableViewCell.swift; sourceTree = "<group>"; };
 		FB7ACA0F1F52CCCC001C587E /* AddedProjectsRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedProjectsRowController.swift; sourceTree = "<group>"; };
 		FB82DFFE1F525F37000BF19D /* BOINC WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BOINC WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB82E0011F525F37000BF19D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -153,8 +153,8 @@
 				FB2C445C1F2ED5A700099BDE /* Project.swift */,
 				FBF1F8E71F2AF27B00158214 /* ProjectViewController.swift */,
 				FB9ADEFA1F4109D0001A9FAB /* Parser.swift */,
-				FB6A3FC51F31FFE40093EE4C /* AddedProjectsTableViewCell.swift */,
-				FB6A3FC31F314F250093EE4C /* AddedProjectsTableViewController.swift */,
+				FB6A3FC51F31FFE40093EE4C /* SavedProjectsTableViewCell.swift */,
+				FB6A3FC31F314F250093EE4C /* SavedProjectsTableViewController.swift */,
 				FB8F830F1F2965C900E82811 /* AddProjectTableViewCell.swift */,
 				FB1DFB4A1F28704500EDA670 /* AddProjectTableViewController.swift */,
 				FB592D941F24EE5B00FD6341 /* Main.storyboard */,
@@ -255,13 +255,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Austin Conlon";
 				TargetAttributes = {
 					FB592D8C1F24EE5A00FD6341 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = AV84QJNZ49;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1120;
 						ProvisioningStyle = Automatic;
 					};
 					FB82DFFD1F525F37000BF19D = {
@@ -273,14 +273,14 @@
 					FB82E0091F525F37000BF19D = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = AV84QJNZ49;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1120;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = FB592D881F24EE5A00FD6341 /* Build configuration list for PBXProject "BOINC" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -338,10 +338,10 @@
 				FB9ADEFB1F4109D0001A9FAB /* Parser.swift in Sources */,
 				FB592D911F24EE5B00FD6341 /* AppDelegate.swift in Sources */,
 				FB1DFB4B1F28704500EDA670 /* AddProjectTableViewController.swift in Sources */,
-				FB6A3FC41F314F250093EE4C /* AddedProjectsTableViewController.swift in Sources */,
+				FB6A3FC41F314F250093EE4C /* SavedProjectsTableViewController.swift in Sources */,
 				FBF1F8EB1F2B9FE300158214 /* Crypto.m in Sources */,
 				FB2C445D1F2ED5A700099BDE /* Project.swift in Sources */,
-				FB6A3FC61F31FFE40093EE4C /* AddedProjectsTableViewCell.swift in Sources */,
+				FB6A3FC61F31FFE40093EE4C /* SavedProjectsTableViewCell.swift in Sources */,
 				FB8F83101F2965C900E82811 /* AddProjectTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,6 +406,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -465,6 +466,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -522,12 +524,13 @@
 				INFOPLIST_FILE = BOINC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.22;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BOINC/BOINC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -540,11 +543,12 @@
 				INFOPLIST_FILE = BOINC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.22;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BOINC/BOINC-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -558,6 +562,7 @@
 				IBSC_MODULE = BOINC_WatchKit_App_Extension;
 				INFOPLIST_FILE = "BOINC WatchKit App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MARKETING_VERSION = 1.22;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -579,6 +584,7 @@
 				IBSC_MODULE = BOINC_WatchKit_App_Extension;
 				INFOPLIST_FILE = "BOINC WatchKit App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MARKETING_VERSION = 1.22;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -597,6 +603,7 @@
 				DEVELOPMENT_TEAM = AV84QJNZ49;
 				INFOPLIST_FILE = "BOINC WatchKit App Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.22;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -604,7 +611,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "BOINC WatchKit App Extension/BOINC WatchKit App Extension-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
@@ -618,13 +625,14 @@
 				DEVELOPMENT_TEAM = AV84QJNZ49;
 				INFOPLIST_FILE = "BOINC WatchKit App Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.22;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "BOINC WatchKit App Extension/BOINC WatchKit App Extension-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};

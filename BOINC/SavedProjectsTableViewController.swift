@@ -1,28 +1,20 @@
 //
-//  AddedProjectsTableViewController.swift
+//  SavedProjectsTableViewController.swift
 //  BOINC
 //
 //  Created by Austin Conlon on 8/1/17.
-//  Copyright © 2017 Austin Conlon. All rights reserved.
+//  Copyright © 2019 Austin Conlon. All rights reserved.
 //
 
 import UIKit
 import os.log
 import WatchConnectivity
 import StoreKit
+import SafariServices
 
-class AddedProjectsTableViewController: UITableViewController, WCSessionDelegate {
+class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate {
     // MARK: Properties
-    var addedProjects = [Project]() {
-        didSet {
-            switch addedProjects.isEmpty {
-            case true:
-                self.navigationItem.leftBarButtonItem = nil
-            case false:
-                self.navigationItem.leftBarButtonItem = self.editButtonItem
-            }
-        }
-    }
+    var addedProjects = [Project]()
     
     let session = WCSession.default
 
@@ -76,11 +68,20 @@ class AddedProjectsTableViewController: UITableViewController, WCSessionDelegate
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
     }
+    
+    @IBAction func openNews(_ sender: UIBarButtonItem) {
+        let myURL = URL(string:"https://boinc.berkeley.edu/old_news.php")
+//        let myRequest = URLRequest(url: myURL!)
+        let myViewController = SFSafariViewController(url: myURL!)
+        myViewController.modalPresentationStyle = .popover
+        present(myViewController, animated: true)
+    }
+    
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "addedProjectsTableViewCell"
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? AddedProjectsTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SavedProjectsTableViewCell else {
             fatalError("The dequeued cell is not an instance of AddedProjectsTableViewCell.")
         }
 

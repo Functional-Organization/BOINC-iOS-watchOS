@@ -1,5 +1,5 @@
 //
-//  AddedProjectsTableViewCell.swift
+//  SavedProjectsTableViewCell.swift
 //  BOINC
 //
 //  Created by Austin Conlon on 8/2/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddedProjectsTableViewCell: UITableViewCell {
+class SavedProjectsTableViewCell: UITableViewCell {
 
     // MARK: Properties
     @IBOutlet weak var nameLabel: UILabel!

@@ -26,7 +26,7 @@ class ProjectViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         project = Project(name: self.title!)
-        project!.homePage = projectsToSelectFrom[selectedRow!].1
+        project!.homePage = projects[selectedRow!].1
         
         usernameTextField.delegate = self
         passwordTextField.delegate = self

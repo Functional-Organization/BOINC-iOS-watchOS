@@ -24,6 +24,7 @@ var projects = [
     ("MindModeling@Home", "http://mindmodeling.org"),
     ("Moo! Wrapper", "https://moowrap.net"),
     ("NFS@home", "http://escatter11.fullerton.edu/nfs"),
+    ("nanoHUB@Home", "https://boinc.nanohub.org/nanoHUB_at_home/"),
     ("NumberFields@home", "https://numberfields.asu.edu/NumberFields"),
     ("PrimeGrid", "http://primegrid.com"),
     ("RNA World", "https://rnaworld.de/rnaworld"),

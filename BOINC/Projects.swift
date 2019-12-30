@@ -3,13 +3,15 @@
 //  BOINC
 //
 //  Created by Austin Conlon on 7/26/17.
-//  Copyright © 2017 Austin Conlon. All rights reserved.
+//  Copyright © 2019 Austin Conlon. All rights reserved.
 //
 
 import Foundation
-// Common BOINC projects that people can add
-var projectsToSelectFrom = [
+
+/// Common  projects that can be added.
+var projects = [
     ("Asteroids@home", "https://asteroidsathome.net/boinc"),
+    ("BOINC@TACC", "https://boinc.tacc.utexas.edu"),
     ("Citizen Science Grid", "https://csgrid.org/csg/"),
     ("climateprediction.net", "http://climateprediction.net"),
     ("Cosmology@Home", "https://cosmologyathome.org"),
@@ -22,6 +24,7 @@ var projectsToSelectFrom = [
     ("MindModeling@Home", "http://mindmodeling.org"),
     ("Moo! Wrapper", "https://moowrap.net"),
     ("NFS@home", "http://escatter11.fullerton.edu/nfs"),
+    ("nanoHUB@Home", "https://boinc.nanohub.org/nanoHUB_at_home/"),
     ("NumberFields@home", "https://numberfields.asu.edu/NumberFields"),
     ("PrimeGrid", "http://primegrid.com"),
     ("RNA World", "https://rnaworld.de/rnaworld"),

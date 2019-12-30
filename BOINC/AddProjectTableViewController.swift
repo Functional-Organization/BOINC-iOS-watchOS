@@ -31,7 +31,7 @@ class AddProjectTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return projectsToSelectFrom.count
+        return projects.count
     }
     
     @IBAction func cancel(_ sender: Any) {
@@ -42,7 +42,7 @@ class AddProjectTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTableViewCell", for: indexPath) as? AddProjectTableViewCell else {
             fatalError("The dequeued cell is not an instance of ProjectTableViewCell.")
         }
-        cell.nameLabel.text = projectsToSelectFrom[indexPath.row].0
+        cell.nameLabel.text = projects[indexPath.row].0
         return cell
     }
      
@@ -56,7 +56,7 @@ class AddProjectTableViewController: UITableViewController {
             fatalError("Unexpected destination: \(segue.destination)")
         }
         projectViewController.selectedRow = tableView.indexPathForSelectedRow!.row
-        projectViewController.title = projectsToSelectFrom[projectViewController.selectedRow!].0
+        projectViewController.title = projects[projectViewController.selectedRow!].0
     }
 
 }

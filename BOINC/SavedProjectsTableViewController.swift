@@ -69,15 +69,20 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
         }
     }
     
-    @IBAction func openNews(_ sender: UIBarButtonItem) {
-        let myURL = URL(string:"https://boinc.berkeley.edu/old_news.php")
-//        let myRequest = URLRequest(url: myURL!)
-        let myViewController = SFSafariViewController(url: myURL!)
-        myViewController.modalPresentationStyle = .popover
-        present(myViewController, animated: true)
+    @IBAction func presentNews(_ sender: UIBarButtonItem) {
+        let newsURL = URL(string:"https://boinc.berkeley.edu/old_news.php")
+        let newsViewController = SFSafariViewController(url: newsURL!)
+        newsViewController.modalPresentationStyle = .popover
+        present(newsViewController, animated: true)
     }
     
-
+    @IBAction func presentMessageBoards(_ sender: UIBarButtonItem) {
+        let messageBoardsURL = URL(string:"https://boinc.berkeley.edu/forum_index.php")
+        let messageBoardsViewController = SFSafariViewController(url: messageBoardsURL!)
+        messageBoardsViewController.modalPresentationStyle = .popover
+        present(messageBoardsViewController, animated: true)
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "addedProjectsTableViewCell"
         

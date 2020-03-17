@@ -14,7 +14,6 @@
 		FB592D911F24EE5B00FD6341 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB592D901F24EE5B00FD6341 /* AppDelegate.swift */; };
 		FB592D961F24EE5B00FD6341 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB592D941F24EE5B00FD6341 /* Main.storyboard */; };
 		FB592D981F24EE5B00FD6341 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB592D971F24EE5B00FD6341 /* Assets.xcassets */; };
-		FB592D9B1F24EE5B00FD6341 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB592D991F24EE5B00FD6341 /* LaunchScreen.storyboard */; };
 		FB6A3FC41F314F250093EE4C /* SavedProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A3FC31F314F250093EE4C /* SavedProjectsTableViewController.swift */; };
 		FB6A3FC61F31FFE40093EE4C /* SavedProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A3FC51F31FFE40093EE4C /* SavedProjectsTableViewCell.swift */; };
 		FB6E17A91F6B51D400DDE5ED /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2C445C1F2ED5A700099BDE /* Project.swift */; };
@@ -77,7 +76,6 @@
 
 /* Begin PBXFileReference section */
 		FB0BEB2C241FB3E100E72FE9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		FB0BEB2D241FB3E100E72FE9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		FB0BEB2E241FB3E200E72FE9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Interface.strings"; sourceTree = "<group>"; };
 		FB1DFB4A1F28704500EDA670 /* AddProjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectTableViewController.swift; sourceTree = "<group>"; };
 		FB1DFB561F28861600EDA670 /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
@@ -88,10 +86,11 @@
 		FB592D901F24EE5B00FD6341 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB592D951F24EE5B00FD6341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB592D971F24EE5B00FD6341 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FB592D9A1F24EE5B00FD6341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB592D9C1F24EE5B00FD6341 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB6A3FC31F314F250093EE4C /* SavedProjectsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedProjectsTableViewController.swift; sourceTree = "<group>"; };
 		FB6A3FC51F31FFE40093EE4C /* SavedProjectsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedProjectsTableViewCell.swift; sourceTree = "<group>"; };
+		FB78AE9C2420E1A2002EE3B3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		FB78AE9D2420E1A2002EE3B3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Interface.strings"; sourceTree = "<group>"; };
 		FB7ACA0F1F52CCCC001C587E /* AddedProjectsRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedProjectsRowController.swift; sourceTree = "<group>"; };
 		FB82DFFE1F525F37000BF19D /* BOINC WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BOINC WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB82E0011F525F37000BF19D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -162,7 +161,6 @@
 				FB1DFB4A1F28704500EDA670 /* AddProjectTableViewController.swift */,
 				FB592D941F24EE5B00FD6341 /* Main.storyboard */,
 				FB592D971F24EE5B00FD6341 /* Assets.xcassets */,
-				FB592D991F24EE5B00FD6341 /* LaunchScreen.storyboard */,
 				FB592D9C1F24EE5B00FD6341 /* Info.plist */,
 				FBF1F8E91F2B9FE300158214 /* BOINC-Bridging-Header.h */,
 				FBF1F8EA1F2B9FE300158214 /* Crypto.m */,
@@ -289,6 +287,7 @@
 				en,
 				Base,
 				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = FB592D841F24EE5A00FD6341;
 			productRefGroup = FB592D8E1F24EE5A00FD6341 /* Products */;
@@ -307,7 +306,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB592D9B1F24EE5B00FD6341 /* LaunchScreen.storyboard in Resources */,
 				FB592D981F24EE5B00FD6341 /* Assets.xcassets in Resources */,
 				FB592D961F24EE5B00FD6341 /* Main.storyboard in Resources */,
 			);
@@ -384,17 +382,9 @@
 			children = (
 				FB592D951F24EE5B00FD6341 /* Base */,
 				FB0BEB2C241FB3E100E72FE9 /* zh-Hans */,
+				FB78AE9C2420E1A2002EE3B3 /* zh-Hant */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FB592D991F24EE5B00FD6341 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FB592D9A1F24EE5B00FD6341 /* Base */,
-				FB0BEB2D241FB3E100E72FE9 /* zh-Hans */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 		FB82E0001F525F37000BF19D /* Interface.storyboard */ = {
@@ -402,6 +392,7 @@
 			children = (
 				FB82E0011F525F37000BF19D /* Base */,
 				FB0BEB2E241FB3E200E72FE9 /* zh-Hans */,
+				FB78AE9D2420E1A2002EE3B3 /* zh-Hant */,
 			);
 			name = Interface.storyboard;
 			sourceTree = "<group>";

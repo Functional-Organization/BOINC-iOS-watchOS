@@ -52,7 +52,7 @@ class AddProjectTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        guard let projectViewController = segue.destination as? ProjectViewController else {
+        guard let projectViewController = segue.destination as? LoginViewController else {
             fatalError("Unexpected destination: \(segue.destination)")
         }
         projectViewController.selectedRow = tableView.indexPathForSelectedRow!.row

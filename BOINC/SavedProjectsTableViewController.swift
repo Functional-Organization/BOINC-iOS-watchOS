@@ -61,7 +61,7 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
     
     // MARK: - Actions
     @IBAction func unwingToAddedProjectsList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.source as? ProjectViewController, let project = sourceViewController.project {
+        if let sourceViewController = sender.source as? LoginViewController, let project = sourceViewController.project {
             // Add a new project.
             let newIndexPath = IndexPath(row: addedProjects.count, section: 0)
             addedProjects.append(project)

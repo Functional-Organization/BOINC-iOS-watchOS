@@ -145,10 +145,10 @@
             </objects>
             <point key="canvasLocation" x="2882" y="159"/>
         </scene>
-        <!--Project View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="ytI-Qr-umC">
             <objects>
-                <viewController id="7fM-zc-ABQ" customClass="ProjectViewController" customModule="BOINC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7fM-zc-ABQ" customClass="LoginViewController" customModule="BOINC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aGN-3b-Yc7"/>
                         <viewControllerLayoutGuide type="bottom" id="Rfs-tp-qLB"/>

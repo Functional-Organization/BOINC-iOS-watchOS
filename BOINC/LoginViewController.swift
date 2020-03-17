@@ -1,19 +1,16 @@
 //
-//  ProjectViewController.swift
+//  LoginViewController.swift
 //  BOINC
 //
 //  Created by Austin Conlon on 7/27/17.
-//  Copyright © 2017 Austin Conlon. All rights reserved.
+//  Copyright © 2020 Austin Conlon. All rights reserved.
 //
 
 import Foundation
 import UIKit
 import os
 
-class ProjectViewController: UIViewController, UITextFieldDelegate {
-
-    
-
+class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: Properties
     var project: Project?
     @IBOutlet weak var usernameTextField: UITextField!
@@ -71,7 +68,7 @@ class ProjectViewController: UIViewController, UITextFieldDelegate {
         } else if (!usernameText.isEmpty && !passwordText.isEmpty) {
             project!.fetchAuthenticator((project!.homePage), usernameText, passwordText) { (authenticator) in
                 DispatchQueue.main.sync {
-                    if authenticator != nil {
+                    if !authenticator!.isEmpty {
                         self.saveButton.isEnabled = true
                     }
                     else {

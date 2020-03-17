@@ -25,11 +25,11 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
         if let savedProjects = loadProjects() {
             addedProjects += savedProjects
             // If the user has added projects, occasionally ask if they'd like to rate the app.
-            if #available(iOS 10.3, *) {
-                SKStoreReviewController.requestReview()
-            } else {
-                // Fallback on earlier versions
-            }
+//            if #available(iOS 10.3, *) {
+//                SKStoreReviewController.requestReview()
+//            } else {
+//                // Fallback on earlier versions
+//            }
         }
     }
 
@@ -77,7 +77,7 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
     }
     
     @IBAction func presentMessageBoards(_ sender: UIBarButtonItem) {
-        let messageBoardsURL = URL(string:"https://boinc.berkeley.edu/forum_index.php")
+        let messageBoardsURL = URL(string: "https://boinc.berkeley.edu/forum_index.php")
         let messageBoardsViewController = SFSafariViewController(url: messageBoardsURL!)
         messageBoardsViewController.modalPresentationStyle = .popover
         present(messageBoardsViewController, animated: true)
@@ -87,7 +87,7 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
         let cellIdentifier = "addedProjectsTableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SavedProjectsTableViewCell else {
-            fatalError("The dequeued cell is not an instance of AddedProjectsTableViewCell.")
+            fatalError("The dequeued cell is not an instance of \(self).")
         }
 
         // Fetches the appropriate project for the data source layout.
@@ -99,10 +99,10 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
                 project.fetch(.showUserInfo, authenticator!, project.homePage, username: project.username) { (averageCredit, totalCredit) in
                     DispatchQueue.main.sync {
                         let formattedAverageCredit = self.formatCredit(averageCredit)
-                        cell.averageCreditLabel.text = "Average credit: " + formattedAverageCredit
+                        cell.averageCreditLabel.text = "\(NSLocalizedString("Average credit:", tableName: "Main", comment: "")) " + formattedAverageCredit
                         
                         let formattedTotalCredit = self.formatCredit(totalCredit)
-                        cell.totalCreditLabel.text = "Total credit: " + formattedTotalCredit
+                        cell.totalCreditLabel.text = "\(NSLocalizedString("Total credit:", tableName: "Main", comment: "")) " + formattedTotalCredit
                         
                         project.authenticator = authenticator
                         self.saveProjectsAndSendToWatch()
@@ -113,10 +113,10 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
             project.fetch(.showUserInfo, project.authenticator!, project.homePage, username: project.username) { (averageCredit, totalCredit) in
                 DispatchQueue.main.sync {
                     let formattedAverageCredit = self.formatCredit(averageCredit)
-                    cell.averageCreditLabel.text = "Average credit: " + formattedAverageCredit
+                    cell.averageCreditLabel.text = "\(NSLocalizedString("Average credit:", tableName: "Main", comment: "")) " + formattedAverageCredit
                     
                     let formattedTotalCredit = self.formatCredit(totalCredit)
-                    cell.totalCreditLabel.text = "Total credit: " + formattedTotalCredit
+                    cell.totalCreditLabel.text = "\(NSLocalizedString("Total credit:", tableName: "Main", comment: "")) " + formattedTotalCredit
                     
                     self.saveProjectsAndSendToWatch()
                 }

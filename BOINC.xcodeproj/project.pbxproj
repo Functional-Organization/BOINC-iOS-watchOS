@@ -76,6 +76,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FB0BEB2C241FB3E100E72FE9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		FB0BEB2D241FB3E100E72FE9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		FB0BEB2E241FB3E200E72FE9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Interface.strings"; sourceTree = "<group>"; };
 		FB1DFB4A1F28704500EDA670 /* AddProjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectTableViewController.swift; sourceTree = "<group>"; };
 		FB1DFB561F28861600EDA670 /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
 		FB2C445C1F2ED5A700099BDE /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -285,6 +288,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = FB592D841F24EE5A00FD6341;
 			productRefGroup = FB592D8E1F24EE5A00FD6341 /* Products */;
@@ -379,6 +383,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FB592D951F24EE5B00FD6341 /* Base */,
+				FB0BEB2C241FB3E100E72FE9 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -387,6 +392,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FB592D9A1F24EE5B00FD6341 /* Base */,
+				FB0BEB2D241FB3E100E72FE9 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -395,6 +401,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FB82E0011F525F37000BF19D /* Base */,
+				FB0BEB2E241FB3E200E72FE9 /* zh-Hans */,
 			);
 			name = Interface.storyboard;
 			sourceTree = "<group>";

@@ -1,0 +1,26 @@
+
+/* Class = "UIBarButtonItem"; title = "Boards"; ObjectID = "1A1-W0-cUc"; */
+"1A1-W0-cUc.title" = "留言板";
+
+/* Class = "UITextField"; placeholder = "Email address"; ObjectID = "2af-kP-A16"; */
+"2af-kP-A16.placeholder" = "电子邮件地址";
+
+/* Class = "UINavigationItem"; title = "Add Project"; ObjectID = "Bza-FC-fYQ"; */
+"Bza-FC-fYQ.title" = "添加项目";
+
+/* Class = "UIBarButtonItem"; title = "News"; ObjectID = "GRG-hu-X4n"; */
+"GRG-hu-X4n.title" = "新闻";
+
+/* Class = "UILabel"; text = "Average credits:"; ObjectID = "VUn-dL-ktv"; */
+"VUn-dL-ktv.text" = "近期平均积分:";
+"Average credit:" = "近期平均积分:";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "d4w-E1-aDm"; */
+"d4w-E1-aDm.placeholder" = "密码";
+
+/* Class = "UINavigationItem"; title = "BOINC"; ObjectID = "gKD-m7-Qc0"; */
+"gKD-m7-Qc0.title" = "BOINC";
+
+/* Class = "UILabel"; text = "Total credit:"; ObjectID = "x1o-Sk-XJ9"; */
+"x1o-Sk-XJ9.text" = "总积分:";
+"Total credit:" = "总积分:";

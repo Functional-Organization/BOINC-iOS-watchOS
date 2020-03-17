@@ -30,7 +30,7 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("projects")
     
     // MARK: Initialization
-    init(name: String, _ email: String = "", _ authenticator: String = "", _ averageCredit: String = "0", _ totalCredit: String = "0", _ homePage: String = "") {
+    @objc init(name: String, _ email: String = "", _ authenticator: String = "", _ averageCredit: String = "0", _ totalCredit: String = "0", _ homePage: String = "") {
         self.name = name
         self.username = email
         self.authenticator = authenticator

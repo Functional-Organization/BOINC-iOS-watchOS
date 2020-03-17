@@ -3,7 +3,7 @@
 //  BOINC WatchKit App Extension
 //
 //  Created by Austin Conlon on 8/26/17.
-//  Copyright © 2017 Austin Conlon. All rights reserved.
+//  Copyright © 2020 Austin Conlon. All rights reserved.
 //
 
 import WatchKit
@@ -33,8 +33,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, XMLParserDe
             session.activate()
         }
         
-        // Configure interface objects here.
-        if let savedProjects = loadProjects() { // Load any saved projects.
+        // Load any saved projects.
+        if let savedProjects = loadProjects() {
             addedProjectsToSaveAndLoad += savedProjects
             fetchDataForEachProject()
         }

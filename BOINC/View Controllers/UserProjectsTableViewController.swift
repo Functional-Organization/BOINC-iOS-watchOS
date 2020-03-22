@@ -1,5 +1,5 @@
 //
-//  SavedProjectsTableViewController.swift
+//  UserProjectsTableViewController.swift
 //  BOINC
 //
 //  Created by Austin Conlon on 8/1/17.
@@ -12,7 +12,7 @@ import WatchConnectivity
 import StoreKit
 import SafariServices
 
-class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate {
+class UserProjectsTableViewController: UITableViewController, WCSessionDelegate {
     // MARK: Properties
     var addedProjects = [Project]()
     
@@ -32,15 +32,6 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
 //            }
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    func sessionDidBecomeInactive(_ session: WCSession) { }
-    func sessionDidDeactivate(_ session: WCSession) { }
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -175,6 +166,10 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
             print("Unable to update application context.")
         }
     }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) { }
+    func sessionDidDeactivate(_ session: WCSession) { }
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
     
     private func loadProjects() -> [Project]? {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Project.ArchiveURL.path) as? [Project]

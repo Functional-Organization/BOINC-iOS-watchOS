@@ -10,7 +10,7 @@ import UIKit
 import os.log
 
 class Project: NSObject, NSCoding, XMLParserDelegate {
-    // MARK: Properties
+    // MARK: - Properties
     
     var name: String
     var homePage: String
@@ -180,4 +180,9 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) { }
+}
+
+class Parser: NSObject, XMLParserDelegate {
+    let url: String = ""
+    var xmlParser: XMLParser!
 }

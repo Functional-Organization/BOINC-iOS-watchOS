@@ -9,7 +9,7 @@
 import Foundation
 
 /// Common  projects that can be added.
-var projects = [
+public var projects = [
     ("Asteroids@home", "https://asteroidsathome.net/boinc"),
     ("BOINC@TACC", "https://boinc.tacc.utexas.edu"),
     ("Citizen Science Grid", "https://csgrid.org/csg/"),

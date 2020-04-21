@@ -16,7 +16,7 @@
 		FB592D961F24EE5B00FD6341 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB592D941F24EE5B00FD6341 /* Main.storyboard */; };
 		FB592D981F24EE5B00FD6341 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB592D971F24EE5B00FD6341 /* Assets.xcassets */; };
 		FB6A3FC41F314F250093EE4C /* UserProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A3FC31F314F250093EE4C /* UserProjectsTableViewController.swift */; };
-		FB6A3FC61F31FFE40093EE4C /* SavedProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A3FC51F31FFE40093EE4C /* SavedProjectsTableViewCell.swift */; };
+		FB6A3FC61F31FFE40093EE4C /* UserProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A3FC51F31FFE40093EE4C /* UserProjectsTableViewCell.swift */; };
 		FB7ACA111F52CCCC001C587E /* AddedProjectsRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7ACA0F1F52CCCC001C587E /* AddedProjectsRowController.swift */; };
 		FB82E0021F525F37000BF19D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB82E0001F525F37000BF19D /* Interface.storyboard */; };
 		FB82E0041F525F37000BF19D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB82E0031F525F37000BF19D /* Assets.xcassets */; };
@@ -87,7 +87,7 @@
 		FB592D971F24EE5B00FD6341 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB592D9C1F24EE5B00FD6341 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB6A3FC31F314F250093EE4C /* UserProjectsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProjectsTableViewController.swift; sourceTree = "<group>"; };
-		FB6A3FC51F31FFE40093EE4C /* SavedProjectsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedProjectsTableViewCell.swift; sourceTree = "<group>"; };
+		FB6A3FC51F31FFE40093EE4C /* UserProjectsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProjectsTableViewCell.swift; sourceTree = "<group>"; };
 		FB78AE9C2420E1A2002EE3B3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		FB78AE9D2420E1A2002EE3B3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Interface.strings"; sourceTree = "<group>"; };
 		FB7ACA0F1F52CCCC001C587E /* AddedProjectsRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedProjectsRowController.swift; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 		FB936F002427A174000A6D79 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				FB6A3FC51F31FFE40093EE4C /* SavedProjectsTableViewCell.swift */,
+				FB6A3FC51F31FFE40093EE4C /* UserProjectsTableViewCell.swift */,
 				FB8F830F1F2965C900E82811 /* AddProjectTableViewCell.swift */,
 			);
 			path = Cells;
@@ -363,7 +363,7 @@
 				FB6A3FC41F314F250093EE4C /* UserProjectsTableViewController.swift in Sources */,
 				FBF1F8EB1F2B9FE300158214 /* Crypto.m in Sources */,
 				FB2C445D1F2ED5A700099BDE /* Project.swift in Sources */,
-				FB6A3FC61F31FFE40093EE4C /* SavedProjectsTableViewCell.swift in Sources */,
+				FB6A3FC61F31FFE40093EE4C /* UserProjectsTableViewCell.swift in Sources */,
 				FB8F83101F2965C900E82811 /* AddProjectTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,7 +470,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -524,7 +524,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -540,7 +540,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = AV84QJNZ49;
 				INFOPLIST_FILE = BOINC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.26;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC";
@@ -559,7 +559,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = AV84QJNZ49;
 				INFOPLIST_FILE = BOINC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.26;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC";

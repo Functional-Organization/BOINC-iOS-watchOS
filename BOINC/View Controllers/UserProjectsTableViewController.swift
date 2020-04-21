@@ -13,11 +13,17 @@ import StoreKit
 import SafariServices
 
 class UserProjectsTableViewController: UITableViewController, WCSessionDelegate {
-    // MARK: Properties
+    enum Section {
+        case main
+    }
+    
     var addedProjects = [Project]()
     
     let session = WCSession.default
 
+    var dataSource: UITableViewDiffableDataSource<Section, Project>!
+    var currentSnapshot: NSDiffableDataSourceSnapshot<Section, Project>! = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +37,10 @@ class UserProjectsTableViewController: UITableViewController, WCSessionDelegate 
 //                // Fallback on earlier versions
 //            }
         }
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UserProjectsTableViewController.reuseIdentifier)
+        configureDataSource()
+//        updateUI(animated: false)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,22 +51,15 @@ class UserProjectsTableViewController: UITableViewController, WCSessionDelegate 
         }
     }
     
-    // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return addedProjects.count
-    }
-    
     // MARK: - Actions
     @IBAction func unwingToAddedProjectsList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? LoginViewController, let project = sourceViewController.project {
             // Add a new project.
-            let newIndexPath = IndexPath(row: addedProjects.count, section: 0)
+//            let newIndexPath = IndexPath(row: addedProjects.count, section: 0)
             addedProjects.append(project)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+//            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            self.configureDataSource()
+            self.updateUI()
         }
     }
     
@@ -72,48 +75,6 @@ class UserProjectsTableViewController: UITableViewController, WCSessionDelegate 
         let messageBoardsViewController = SFSafariViewController(url: messageBoardsURL!)
         messageBoardsViewController.modalPresentationStyle = .popover
         present(messageBoardsViewController, animated: true)
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "addedProjectsTableViewCell"
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SavedProjectsTableViewCell else {
-            fatalError("The dequeued cell is not an instance of \(self).")
-        }
-
-        // Fetches the appropriate project for the data source layout.
-        let project = addedProjects[indexPath.row]
-        
-        cell.nameLabel.text = project.name
-        if project.authenticator == nil {
-            project.fetchAuthenticator(project.homePage, project.username, project.password!) { (authenticator) in
-                project.fetch(.showUserInfo, authenticator!, project.homePage, username: project.username) { (averageCredit, totalCredit) in
-                    DispatchQueue.main.sync {
-                        let formattedAverageCredit = self.formatCredit(averageCredit)
-                        cell.averageCreditLabel.text = "\(NSLocalizedString("Average credit:", tableName: "Main", comment: "")) " + formattedAverageCredit
-                        
-                        let formattedTotalCredit = self.formatCredit(totalCredit)
-                        cell.totalCreditLabel.text = "\(NSLocalizedString("Total credit:", tableName: "Main", comment: "")) " + formattedTotalCredit
-                        
-                        project.authenticator = authenticator
-                        self.saveProjectsAndSendToWatch()
-                    }
-                }
-            }
-        } else if project.authenticator != nil && addedProjects.count > 0 {
-            project.fetch(.showUserInfo, project.authenticator!, project.homePage, username: project.username) { (averageCredit, totalCredit) in
-                DispatchQueue.main.sync {
-                    let formattedAverageCredit = self.formatCredit(averageCredit)
-                    cell.averageCreditLabel.text = "\(NSLocalizedString("Average credit:", tableName: "Main", comment: "")) " + formattedAverageCredit
-                    
-                    let formattedTotalCredit = self.formatCredit(totalCredit)
-                    cell.totalCreditLabel.text = "\(NSLocalizedString("Total credit:", tableName: "Main", comment: "")) " + formattedTotalCredit
-                    
-                    self.saveProjectsAndSendToWatch()
-                }
-            }
-        }
-        return cell
     }
     
     func formatCredit(_ creditToBeFormatted: String) -> String {
@@ -173,5 +134,64 @@ class UserProjectsTableViewController: UITableViewController, WCSessionDelegate 
     
     private func loadProjects() -> [Project]? {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Project.ArchiveURL.path) as? [Project]
+    }
+}
+
+extension UserProjectsTableViewController {
+    func configureDataSource() {
+        self.dataSource = UITableViewDiffableDataSource
+            <Section, Project>(tableView: tableView) { [weak self]
+                (tableView: UITableView, indexPath: IndexPath, project: Project) -> UITableViewCell? in
+                
+            // Get a cell of the desired kind.
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: UserProjectsTableViewController.reuseIdentifier,
+                for: indexPath) as! UserProjectsTableViewCell
+            
+            // Fetches the appropriate project for the data source layout.
+            let project = self!.addedProjects[indexPath.row]
+            
+            cell.nameLabel.text = project.name
+            if project.authenticator == nil {
+                project.fetchAuthenticator(project.homePage, project.username, project.password!) { (authenticator) in
+                    project.fetch(.showUserInfo, authenticator!, project.homePage, username: project.username) { (averageCredit, totalCredit) in
+                        DispatchQueue.main.sync {
+                            let formattedAverageCredit = self!.formatCredit(averageCredit)
+                            cell.averageCreditLabel.text = "\(NSLocalizedString("Average credit:", tableName: "Main", comment: "")) " + formattedAverageCredit
+                            
+                            let formattedTotalCredit = self!.formatCredit(totalCredit)
+                            cell.totalCreditLabel.text = "\(NSLocalizedString("Total credit:", tableName: "Main", comment: "")) " + formattedTotalCredit
+                            
+                            project.authenticator = authenticator
+                            self!.saveProjectsAndSendToWatch()
+                        }
+                    }
+                }
+            } else if project.authenticator != nil && self!.addedProjects.count > 0 {
+                project.fetch(.showUserInfo, project.authenticator!, project.homePage, username: project.username) { (averageCredit, totalCredit) in
+                    DispatchQueue.main.sync {
+                        let formattedAverageCredit = self!.formatCredit(averageCredit)
+                        cell.averageCreditLabel.text = "\(NSLocalizedString("Average credit:", tableName: "Main", comment: "")) " + formattedAverageCredit
+                        
+                        let formattedTotalCredit = self!.formatCredit(totalCredit)
+                        cell.totalCreditLabel.text = "\(NSLocalizedString("Total credit:", tableName: "Main", comment: "")) " + formattedTotalCredit
+                        
+                        self!.saveProjectsAndSendToWatch()
+                    }
+                }
+            }
+            
+            return cell
+        }
+        self.dataSource.defaultRowAnimation = .fade
+    }
+
+    func updateUI(animated: Bool = true) {
+        currentSnapshot = NSDiffableDataSourceSnapshot<Section, Project>()
+        
+        currentSnapshot.appendSections([.main])
+        currentSnapshot.appendItems(addedProjects, toSection: .main)
+        
+        self.dataSource.apply(currentSnapshot, animatingDifferences: animated)
     }
 }

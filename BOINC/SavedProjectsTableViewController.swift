@@ -72,15 +72,8 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
     @IBAction func presentNews(_ sender: UIBarButtonItem) {
         let newsURL = URL(string:"https://boinc.berkeley.edu/old_news.php")
         let newsViewController = SFSafariViewController(url: newsURL!)
-        newsViewController.modalPresentationStyle = .popover
+        newsViewController.modalPresentationStyle = .pageSheet
         present(newsViewController, animated: true)
-    }
-    
-    @IBAction func presentMessageBoards(_ sender: UIBarButtonItem) {
-        let messageBoardsURL = URL(string: "https://boinc.berkeley.edu/forum_index.php")
-        let messageBoardsViewController = SFSafariViewController(url: messageBoardsURL!)
-        messageBoardsViewController.modalPresentationStyle = .popover
-        present(messageBoardsViewController, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

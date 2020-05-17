@@ -20,6 +20,7 @@ var projects = [
     ("DENIS@Home", "http://denis.usj.es/denisathome"),
     ("Einstein@home", "https://einsteinathome.org"),
     ("FiND@Home", "http://findah.ucd.ie"),
+    ("Gerasim@Home", "http://gerasim.boinc.ru"),
     ("GPUGrid.net", "https://gpugrid.net"),
     ("LHC@home", "https://lhcathome.cern.ch/lhcathome"),
     ("Milkyway@home", "https://milkyway.cs.rpi.edu/milkyway"),

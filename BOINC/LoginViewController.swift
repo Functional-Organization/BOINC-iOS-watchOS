@@ -12,18 +12,18 @@ import os
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: Properties
-    var project: Project?
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var saveButton: UIBarButtonItem!
+    var selectedProject: Project?
+    @IBOutlet private weak var usernameTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var saveButton: UIBarButtonItem!
     
     var passwordAndUsername = ""
     var selectedRow: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        project = Project(name: self.title!)
-        project!.homePage = projects[selectedRow!].1
+        selectedProject = Project(name: self.title!)
+        selectedProject!.homePage = projects[selectedRow!].1
         
         usernameTextField.delegate = self
         passwordTextField.delegate = self
@@ -31,7 +31,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Enable the Save button only if the text field has valid Project credentials.
         saveButton.isEnabled = false
         
-        if project?.name == "World Community Grid" {
+        if selectedProject?.name == "World Community Grid" {
             usernameTextField.placeholder = "Username"
             if #available(iOS 11.0, *) {
                 usernameTextField.textContentType = .username
@@ -55,18 +55,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         let usernameText = usernameTextField.text ?? ""
         let passwordText = passwordTextField.text ?? ""
-        project?.username = usernameText
-        project?.password = passwordText
+        selectedProject?.username = usernameText
+        selectedProject?.password = passwordText
         
-        if project?.name == "World Community Grid" {
-            project!.fetch(.showUserInfo, username: usernameText) { (averageCredit, totalCredit) in
+        if selectedProject?.name == "World Community Grid" {
+            selectedProject!.fetch(.showUserInfo, username: usernameText) { (averageCredit, totalCredit) in
                 DispatchQueue.main.sync {
                     // TODO: check if username is valid.
                     self.saveButton.isEnabled = true
                 }
             }
         } else if (!usernameText.isEmpty && !passwordText.isEmpty) {
-            project!.fetchAuthenticator((project!.homePage), usernameText, passwordText) { (authenticator) in
+            selectedProject!.fetchAuthenticator((selectedProject!.homePage), usernameText, passwordText) { (authenticator) in
                 DispatchQueue.main.sync {
                     if !authenticator!.isEmpty {
                         self.saveButton.isEnabled = true

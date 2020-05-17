@@ -3,7 +3,7 @@
 //  BOINC
 //
 //  Created by Austin Conlon on 8/1/17.
-//  Copyright © 2019 Austin Conlon. All rights reserved.
+//  Copyright © 2020 Austin Conlon. All rights reserved.
 //
 
 import UIKit
@@ -21,21 +21,17 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Load any saved projects.
+        configureRefreshControl()
+        
         if let savedProjects = loadProjects() {
             addedProjects += savedProjects
             // If the user has added projects, occasionally ask if they'd like to rate the app.
-//            if #available(iOS 10.3, *) {
-//                SKStoreReviewController.requestReview()
-//            } else {
-//                // Fallback on earlier versions
-//            }
+            if #available(iOS 10.3, *) {
+                SKStoreReviewController.requestReview()
+            } else {
+                // Fallback on earlier versions
+            }
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func sessionDidBecomeInactive(_ session: WCSession) { }
@@ -61,7 +57,7 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
     
     // MARK: - Actions
     @IBAction func unwingToAddedProjectsList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.source as? LoginViewController, let project = sourceViewController.project {
+        if let sourceViewController = sender.source as? LoginViewController, let project = sourceViewController.selectedProject {
             // Add a new project.
             let newIndexPath = IndexPath(row: addedProjects.count, section: 0)
             addedProjects.append(project)
@@ -106,15 +102,20 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
             project.fetch(.showUserInfo, project.authenticator!, project.homePage, username: project.username) { (averageCredit, totalCredit) in
                 DispatchQueue.main.sync {
                     let formattedAverageCredit = self.formatCredit(averageCredit)
-                    cell.averageCreditLabel.text = "\(NSLocalizedString("Average credit:", tableName: "Main", comment: "")) " + formattedAverageCredit
+                    cell.averageCreditLabel.text = formattedAverageCredit
                     
                     let formattedTotalCredit = self.formatCredit(totalCredit)
-                    cell.totalCreditLabel.text = "\(NSLocalizedString("Total credit:", tableName: "Main", comment: "")) " + formattedTotalCredit
+                    cell.totalCreditLabel.text = formattedTotalCredit
                     
                     self.saveProjectsAndSendToWatch()
                 }
             }
         }
+        
+        if addedProjects[indexPath.row] == addedProjects.last {
+            refreshControl?.endRefreshing()
+        }
+        
         return cell
     }
     
@@ -171,5 +172,16 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
     
     private func loadProjects() -> [Project]? {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Project.ArchiveURL.path) as? [Project]
+    }
+    
+    // MARK: - Refresh
+    
+    func configureRefreshControl () {
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+    }
+    
+    @objc func handleRefreshControl() {
+        tableView.reloadData()
     }
 }

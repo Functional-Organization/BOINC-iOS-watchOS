@@ -3,7 +3,7 @@
 //  BOINC
 //
 //  Created by Austin Conlon on 7/30/17.
-//  Copyright © 2017 Austin Conlon. All rights reserved.
+//  Copyright © 2020 Austin Conlon. All rights reserved.
 //
 
 import UIKit

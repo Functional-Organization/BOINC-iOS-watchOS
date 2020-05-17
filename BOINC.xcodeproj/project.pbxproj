@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB107F972471A61000F606AD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB107F962471A61000F606AD /* Launch Screen.storyboard */; };
 		FB1DFB4B1F28704500EDA670 /* AddProjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1DFB4A1F28704500EDA670 /* AddProjectTableViewController.swift */; };
 		FB1DFB571F28861600EDA670 /* Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1DFB561F28861600EDA670 /* Projects.swift */; };
 		FB2C445D1F2ED5A700099BDE /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2C445C1F2ED5A700099BDE /* Project.swift */; };
@@ -77,6 +78,7 @@
 /* Begin PBXFileReference section */
 		FB0BEB2C241FB3E100E72FE9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		FB0BEB2E241FB3E200E72FE9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Interface.strings"; sourceTree = "<group>"; };
+		FB107F962471A61000F606AD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		FB1DFB4A1F28704500EDA670 /* AddProjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectTableViewController.swift; sourceTree = "<group>"; };
 		FB1DFB561F28861600EDA670 /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
 		FB2C445C1F2ED5A700099BDE /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				FB8F830F1F2965C900E82811 /* AddProjectTableViewCell.swift */,
 				FB1DFB4A1F28704500EDA670 /* AddProjectTableViewController.swift */,
 				FB592D941F24EE5B00FD6341 /* Main.storyboard */,
+				FB107F962471A61000F606AD /* Launch Screen.storyboard */,
 				FB592D971F24EE5B00FD6341 /* Assets.xcassets */,
 				FB592D9C1F24EE5B00FD6341 /* Info.plist */,
 				FBF1F8E91F2B9FE300158214 /* BOINC-Bridging-Header.h */,
@@ -306,6 +309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB107F972471A61000F606AD /* Launch Screen.storyboard in Resources */,
 				FB592D981F24EE5B00FD6341 /* Assets.xcassets in Resources */,
 				FB592D961F24EE5B00FD6341 /* Main.storyboard in Resources */,
 			);

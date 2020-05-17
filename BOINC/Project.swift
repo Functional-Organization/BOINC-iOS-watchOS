@@ -3,7 +3,7 @@
 //  BOINC
 //
 //  Created by Austin Conlon on 7/30/17.
-//  Copyright © 2017 Austin Conlon. All rights reserved.
+//  Copyright © 2020 Austin Conlon. All rights reserved.
 //
 
 import UIKit
@@ -141,7 +141,6 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
             urlToQuery = URL(string: "https://www.worldcommunitygrid.org/stat/viewMemberInfo.do?userName=" + username.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)! + "&xml=true")!
         } else {
             urlToQuery = URL(string: projectHomePage + "/show_user.php?auth=" + authenticator + "&format=xml")!
-            print(urlToQuery.absoluteString)
         }
         return urlToQuery
     }

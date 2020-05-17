@@ -15,6 +15,7 @@ var projects = [
     ("BOINC@TACC", "https://boinc.tacc.utexas.edu"),
     ("Citizen Science Grid", "https://csgrid.org/csg/"),
     ("climateprediction.net", "http://climateprediction.net"),
+    ("Collatz Conjecture", "https://boinc.thesonntags.com/collatz"),
     ("Cosmology@Home", "https://cosmologyathome.org"),
     ("DENIS@Home", "http://denis.usj.es/denisathome"),
     ("Einstein@home", "https://einsteinathome.org"),

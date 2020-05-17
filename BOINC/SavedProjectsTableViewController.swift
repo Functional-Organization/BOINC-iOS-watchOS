@@ -34,11 +34,6 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     func sessionDidBecomeInactive(_ session: WCSession) { }
     func sessionDidDeactivate(_ session: WCSession) { }
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
@@ -107,10 +102,10 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
             project.fetch(.showUserInfo, project.authenticator!, project.homePage, username: project.username) { (averageCredit, totalCredit) in
                 DispatchQueue.main.sync {
                     let formattedAverageCredit = self.formatCredit(averageCredit)
-                    cell.averageCreditLabel.text = "\(NSLocalizedString("Average credit:", tableName: "Main", comment: "")) " + formattedAverageCredit
+                    cell.averageCreditLabel.text = formattedAverageCredit
                     
                     let formattedTotalCredit = self.formatCredit(totalCredit)
-                    cell.totalCreditLabel.text = "\(NSLocalizedString("Total credit:", tableName: "Main", comment: "")) " + formattedTotalCredit
+                    cell.totalCreditLabel.text = formattedTotalCredit
                     
                     self.saveProjectsAndSendToWatch()
                 }

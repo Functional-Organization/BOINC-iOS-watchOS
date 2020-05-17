@@ -142,7 +142,6 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
         } else {
             urlToQuery = URL(string: projectHomePage + "/show_user.php?auth=" + authenticator + "&format=xml")!
         }
-        print(urlToQuery.absoluteString)
         return urlToQuery
     }
     

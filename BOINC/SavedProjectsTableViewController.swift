@@ -94,7 +94,6 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
                         cell.totalCreditLabel.text = "\(NSLocalizedString("Total credit:", tableName: "Main", comment: "")) " + formattedTotalCredit
                         
                         project.authenticator = authenticator
-                        self.saveProjectsAndSendToWatch()
                     }
                 }
             }
@@ -106,8 +105,6 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
                     
                     let formattedTotalCredit = self.formatCredit(totalCredit)
                     cell.totalCreditLabel.text = formattedTotalCredit
-                    
-                    self.saveProjectsAndSendToWatch()
                 }
             }
         }
@@ -119,11 +116,10 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
         return cell
     }
     
-    func formatCredit(_ creditToBeFormatted: String) -> String {
-        let credit = Float(creditToBeFormatted)
+    func formatCredit(_ creditToBeFormatted: Float) -> String {
         let creditNumberFormatter = NumberFormatter()
         creditNumberFormatter.numberStyle = NumberFormatter.Style.decimal
-        return creditNumberFormatter.string(from: NSNumber(value: credit!))!
+        return creditNumberFormatter.string(from: NSNumber(value: creditToBeFormatted))!
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -134,7 +130,6 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
         if editingStyle == .delete {
             // Delete the row from the data source.
             addedProjects.remove(at: indexPath.row)
-            saveProjectsAndSendToWatch()
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -142,29 +137,6 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
-    }
-
-    private func saveProjectsAndSendToWatch() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(addedProjects, toFile: Project.ArchiveURL.path)
-        if isSuccessfulSave {
-            os_log("Projects successfully saved.", log: OSLog.default, type: .debug)
-        } else {
-            os_log("Failed to save projects...", log: OSLog.default, type: .error)
-        }
-        do {
-            var contextToBeSent = [[String]]()
-            if addedProjects.count > 0 {
-                for index in 0...addedProjects.count - 1 {
-                    contextToBeSent.append([addedProjects[index].name, addedProjects[index].username, addedProjects[index].authenticator!, addedProjects[index].averageCredit, addedProjects[index].totalCredit, addedProjects[index].homePage])
-                }
-                try session.updateApplicationContext(["Added projects" : contextToBeSent])
-            }
-            else if addedProjects.isEmpty {
-                try session.updateApplicationContext(["Empty list of projects" : true])
-            }
-        } catch {
-            print("Unable to update application context.")
-        }
     }
     
     private func loadProjects() -> [Project]? {

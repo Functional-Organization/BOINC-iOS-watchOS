@@ -15,14 +15,16 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     var homePage: String
     var username: String
     var password: String?
+    
     enum Queries {
         case showUserInfo
     }
+    
     var dataFromLookingUpAccount: Data?
     var authenticator: String?
     
-    var totalCredit: String
-    var averageCredit: String
+    var totalCredit: Float
+    var averageCredit: Float
     
     var currentParsedCharacterData: String?
     var isAccumulatingParsedCharacterData = false
@@ -44,7 +46,12 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("projects")
     
     // MARK: - Initialization
-    @objc init(name: String, _ email: String = "", _ authenticator: String = "", _ averageCredit: String = "0", _ totalCredit: String = "0", _ homePage: String = "") {
+    @objc init(name: String,
+               _ email: String = "",
+               _ authenticator: String = "",
+               _ averageCredit: Float = 0,
+               _ totalCredit: Float = 0,
+               _ homePage: String = "") {
         self.name = name
         self.username = email
         self.authenticator = authenticator
@@ -86,11 +93,11 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
             os_log("Unable to decode the authenticator for a Project object.", log: OSLog.default, type: .debug)
             return nil
         }
-        guard let averageCredit = aDecoder.decodeObject(forKey: PropertyType.averageCredit) as? String else {
+        guard let averageCredit = aDecoder.decodeObject(forKey: PropertyType.averageCredit) as? Float else {
             os_log("Unable to decode the average credit for a Project object.", log: OSLog.default, type: .debug)
             return nil
         }
-        guard let totalCredit = aDecoder.decodeObject(forKey: PropertyType.totalCredit) as? String else {
+        guard let totalCredit = aDecoder.decodeObject(forKey: PropertyType.totalCredit) as? Float else {
             os_log("Unable to decode the total credit for a Project object.", log: OSLog.default, type: .debug)
             return nil
         }
@@ -135,7 +142,7 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
         task.resume()
     }
     
-    func fetch(_ query: Queries, _ authenticator: String = "", _ projectHomePage: String = "", username: String, completion: @escaping (String, String) -> Void) {
+    func fetch(_ query: Queries, _ authenticator: String = "", _ projectHomePage: String = "", username: String, completion: @escaping (Float, Float) -> Void) {
         
         let URL = generateURL(query, projectHomePage, authenticator, username)
         let sessionConfig = URLSessionConfiguration.default
@@ -206,12 +213,12 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
             }
         case ElementName.averageCredit:
             if self.isSeekingAverageCredit {
-                self.averageCredit = currentParsedCharacterData!
+                self.averageCredit += Float(currentParsedCharacterData!)!
                 self.isSeekingAverageCredit = false
             }
         case ElementName.totalCredit:
             if self.isSeekingTotalCredit {
-                self.totalCredit = currentParsedCharacterData!
+                self.totalCredit += Float(currentParsedCharacterData!)!
                 self.isSeekingTotalCredit = false
             }
         default:

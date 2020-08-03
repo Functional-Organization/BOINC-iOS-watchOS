@@ -11,7 +11,7 @@ import UIKit
 import os
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-    // MARK: Properties
+    
     var selectedProject: Project?
     @IBOutlet private weak var usernameTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
@@ -89,14 +89,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         

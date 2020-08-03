@@ -121,21 +121,18 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
     
     func formatCredit(_ creditToBeFormatted: String) -> String {
         let credit = Float(creditToBeFormatted)
-        let creditTruncated = String(format: "%.0f", credit!)
-        let creditTruncatedAndFormatted = Int(creditTruncated)
         let creditNumberFormatter = NumberFormatter()
         creditNumberFormatter.numberStyle = NumberFormatter.Style.decimal
-        return creditNumberFormatter.string(from: NSNumber(value: creditTruncatedAndFormatted!))!
+        return creditNumberFormatter.string(from: NSNumber(value: credit!))!
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            // Delete the row from the data source.
             addedProjects.remove(at: indexPath.row)
             saveProjectsAndSendToWatch()
             tableView.deleteRows(at: [indexPath], with: .fade)

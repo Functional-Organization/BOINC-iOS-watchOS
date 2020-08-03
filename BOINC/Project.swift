@@ -10,8 +10,7 @@ import UIKit
 import os.log
 
 class Project: NSObject, NSCoding, XMLParserDelegate {
-    // MARK: Properties
-    
+    var accountName: String!
     var name: String
     var homePage: String
     var username: String
@@ -21,15 +20,30 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     }
     var dataFromLookingUpAccount: Data?
     var authenticator: String?
+    
     var totalCredit: String
     var averageCredit: String
+    
+    var currentParsedCharacterData: String?
+    var isAccumulatingParsedCharacterData = false
+    
+    var isSeekingAuthenticator = false
+    var isSeekingAverageCredit = false
+    var isSeekingTotalCredit = false
+    
     var elementName: String?
     
-    // MARK: Archiving Paths
+    struct ElementName {
+        static let authenticator = "authenticator"
+        static let averageCredit = "expavg_credit"
+        static let totalCredit = "total_credit"
+    }
+    
+    // MARK: - Archiving Paths
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("projects")
     
-    // MARK: Initialization
+    // MARK: - Initialization
     @objc init(name: String, _ email: String = "", _ authenticator: String = "", _ averageCredit: String = "0", _ totalCredit: String = "0", _ homePage: String = "") {
         self.name = name
         self.username = email
@@ -39,7 +53,7 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
         self.homePage = homePage
     }
 
-    // MARK: Types
+    // MARK: - Types
     struct PropertyType {
         static let name = "name"
         static let email = "email"
@@ -49,7 +63,7 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
         static let homePage = "homePage"
     }
     
-    // MARK: NSCoding
+    // MARK: - NSCoding
     func encode(with aCoder: NSCoder) {
         aCoder.encode(name, forKey: PropertyType.name)
         aCoder.encode(username, forKey: PropertyType.email)
@@ -87,7 +101,7 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
         self.init(name: name, email, authenticator, averageCredit, totalCredit, homePage)
     }
     
-    // MARK: MD5 Hash Methods
+    // MARK: - MD5 Hash Methods
     // MD5 is required to use BOINC's Web Remote Procedure Calls
     func createHash(_ password: String, _ email: String) -> String {
         let passwordAndEmail = password + email
@@ -98,20 +112,22 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     func MD5(string: String) -> Data {
         let messageData = string.data(using:.utf8)!
         var digestData = Data(count: Int(CC_MD5_DIGEST_LENGTH))
-        _ = digestData.withUnsafeMutableBytes {digestBytes in
-            messageData.withUnsafeBytes {messageBytes in
+        _ = digestData.withUnsafeMutableBytes { digestBytes in
+            messageData.withUnsafeBytes { messageBytes in
                 CC_MD5(messageBytes, CC_LONG(messageData.count), digestBytes)
             }
         }
         return digestData
     }
     
-    // MARK: URLSession Methods
+    // MARK: - Networking
     func fetchAuthenticator(_ projectHomePage: String, _ email: String, _ password: String, completion: @escaping (String?) -> Void) -> Void {
         let hash = createHash(password, email)
         let URL = generateURLForFetchingAuthenticator(projectHomePage, email, hash)
+        
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig)
+        
         let task = session.dataTask(with: URL) { (data, response, error) in
             self.parseReturnedXML(data!)
             completion(self.authenticator)
@@ -120,6 +136,7 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     }
     
     func fetch(_ query: Queries, _ authenticator: String = "", _ projectHomePage: String = "", username: String, completion: @escaping (String, String) -> Void) {
+        
         let URL = generateURL(query, projectHomePage, authenticator, username)
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig)
@@ -142,10 +159,11 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
         } else {
             urlToQuery = URL(string: projectHomePage + "/show_user.php?auth=" + authenticator + "&format=xml")!
         }
+        print(urlToQuery.absoluteURL)
         return urlToQuery
     }
     
-    // MARK: XMLParser Methods
+    // MARK: - XMLParser
     func parseReturnedXML(_ data: Data?) {
         let parser = XMLParser(data: data!)
         parser.delegate = self
@@ -153,31 +171,54 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
-        self.elementName = elementName
-        if elementName == "authenticator" {
-            authenticator = String()
-        } else if elementName == "total_credit" || elementName == "Points" {
-            totalCredit = String()
-        } else if elementName == "expavg_credit" || elementName == "PointsPerDay" {
-            averageCredit = String()
+        
+        switch elementName {
+        case ElementName.authenticator:
+            isSeekingAuthenticator = true
+            self.isAccumulatingParsedCharacterData = true
+            self.currentParsedCharacterData = ""
+        case ElementName.averageCredit:
+            isSeekingAverageCredit = true
+            self.isAccumulatingParsedCharacterData = true
+            self.currentParsedCharacterData = ""
+        case ElementName.totalCredit:
+            isSeekingTotalCredit = true
+            self.isAccumulatingParsedCharacterData = true
+            self.currentParsedCharacterData = ""
+        default:
+            break
         }
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-        let data = string.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
-        if !data.isEmpty {
-            if elementName == "authenticator" {
-                authenticator = data
-            }
-            else if elementName == "total_credit" || elementName == "Points" {
-                totalCredit = data
-            }
-            else if elementName == "expavg_credit" || elementName == "PointsPerDay" {
-                averageCredit = data
-                parser.abortParsing()
-            }
+        if self.isAccumulatingParsedCharacterData {
+            currentParsedCharacterData?.append(string)
         }
     }
     
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) { }
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        
+        switch elementName {
+        case ElementName.authenticator:
+            if self.isSeekingAuthenticator {
+                self.authenticator = currentParsedCharacterData
+                self.isSeekingAuthenticator = false
+            }
+        case ElementName.averageCredit:
+            if self.isSeekingAverageCredit {
+                self.averageCredit = currentParsedCharacterData!
+                self.isSeekingAverageCredit = false
+            }
+        case ElementName.totalCredit:
+            if self.isSeekingTotalCredit {
+                self.totalCredit = currentParsedCharacterData!
+                self.isSeekingTotalCredit = false
+            }
+        default:
+            break
+        }
+        
+        // Stop accumulating parsed character data. We won't start again until specific elements begin.
+        self.isAccumulatingParsedCharacterData = false
+    }
 }

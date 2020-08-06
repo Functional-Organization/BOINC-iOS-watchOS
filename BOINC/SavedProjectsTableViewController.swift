@@ -8,15 +8,13 @@
 
 import UIKit
 import os.log
-import WatchConnectivity
 import StoreKit
 import SafariServices
+import SwiftUI
 
-class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate {
+class SavedProjectsTableViewController: UITableViewController {
     // MARK: Properties
     var addedProjects = [Project]()
-    
-    let session = WCSession.default
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,18 +29,6 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
             } else {
                 // Fallback on earlier versions
             }
-        }
-    }
-
-    func sessionDidBecomeInactive(_ session: WCSession) { }
-    func sessionDidDeactivate(_ session: WCSession) { }
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        if WCSession.isSupported() {
-            session.delegate = self
-            session.activate()
         }
     }
     
@@ -134,9 +120,8 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
         }
     }
 
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        navigationController?.pushViewController(UIHostingController(rootView: ProjectDetail(project: addedProjects[indexPath.row])), animated: true)
     }
     
     private func loadProjects() -> [Project]? {

@@ -15,6 +15,7 @@
 		FB592D981F24EE5B00FD6341 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB592D971F24EE5B00FD6341 /* Assets.xcassets */; };
 		FB6A3FC41F314F250093EE4C /* SavedProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A3FC31F314F250093EE4C /* SavedProjectsTableViewController.swift */; };
 		FB6A3FC61F31FFE40093EE4C /* SavedProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A3FC51F31FFE40093EE4C /* SavedProjectsTableViewCell.swift */; };
+		FB79B03F24D98AB9009977B9 /* ProjectDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB79B03E24D98AB9009977B9 /* ProjectDetail.swift */; };
 		FB8F83101F2965C900E82811 /* AddProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8F830F1F2965C900E82811 /* AddProjectTableViewCell.swift */; };
 		FB9ADEFB1F4109D0001A9FAB /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9ADEFA1F4109D0001A9FAB /* Parser.swift */; };
 		FBF1F8E81F2AF27C00158214 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF1F8E71F2AF27B00158214 /* LoginViewController.swift */; };
@@ -47,6 +48,7 @@
 		FB6A3FC31F314F250093EE4C /* SavedProjectsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedProjectsTableViewController.swift; sourceTree = "<group>"; };
 		FB6A3FC51F31FFE40093EE4C /* SavedProjectsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedProjectsTableViewCell.swift; sourceTree = "<group>"; };
 		FB78AE9C2420E1A2002EE3B3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		FB79B03E24D98AB9009977B9 /* ProjectDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetail.swift; sourceTree = "<group>"; };
 		FB8F830F1F2965C900E82811 /* AddProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectTableViewCell.swift; sourceTree = "<group>"; };
 		FB9ADEFA1F4109D0001A9FAB /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		FBF1F8E71F2AF27B00158214 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				FB6A3FC31F314F250093EE4C /* SavedProjectsTableViewController.swift */,
 				FB8F830F1F2965C900E82811 /* AddProjectTableViewCell.swift */,
 				FB1DFB4A1F28704500EDA670 /* AddProjectTableViewController.swift */,
+				FB79B03E24D98AB9009977B9 /* ProjectDetail.swift */,
 				FB592D941F24EE5B00FD6341 /* Main.storyboard */,
 				FB592D971F24EE5B00FD6341 /* Assets.xcassets */,
 				FB592D9C1F24EE5B00FD6341 /* Info.plist */,
@@ -183,6 +186,7 @@
 				FB9ADEFB1F4109D0001A9FAB /* Parser.swift in Sources */,
 				FB592D911F24EE5B00FD6341 /* AppDelegate.swift in Sources */,
 				FB1DFB4B1F28704500EDA670 /* AddProjectTableViewController.swift in Sources */,
+				FB79B03F24D98AB9009977B9 /* ProjectDetail.swift in Sources */,
 				FB6A3FC41F314F250093EE4C /* SavedProjectsTableViewController.swift in Sources */,
 				FBF1F8EB1F2B9FE300158214 /* Crypto.m in Sources */,
 				FB2C445D1F2ED5A700099BDE /* Project.swift in Sources */,
@@ -257,7 +261,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -311,7 +315,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -327,7 +331,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = AV84QJNZ49;
 				INFOPLIST_FILE = BOINC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.28;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC";
@@ -346,7 +350,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = AV84QJNZ49;
 				INFOPLIST_FILE = BOINC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.28;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC";

@@ -10,7 +10,7 @@ import UIKit
 import os.log
 
 class Project: NSObject, NSCoding, XMLParserDelegate {
-    var accountName: String!
+    var userName: String!
     var name: String
     var homePage: String
     var username: String
@@ -23,13 +23,14 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     var dataFromLookingUpAccount: Data?
     var authenticator: String?
     
-    var totalCredit: Float
-    var averageCredit: Float
+    var totalCredit: Float = 0
+    var averageCredit: Float = 0
     
     var currentParsedCharacterData: String?
     var isAccumulatingParsedCharacterData = false
     
     var isSeekingAuthenticator = false
+    var isSeekingUserName = false
     var isSeekingAverageCredit = false
     var isSeekingTotalCredit = false
     
@@ -37,6 +38,7 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     
     struct ElementName {
         static let authenticator = "authenticator"
+        static let userName = "name"
         static let averageCredit = "expavg_credit"
         static let totalCredit = "total_credit"
     }
@@ -60,7 +62,7 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
         self.homePage = homePage
     }
 
-    // MARK: - Types
+    // MARK: - Keys
     struct PropertyType {
         static let name = "name"
         static let email = "email"
@@ -75,8 +77,6 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
         aCoder.encode(name, forKey: PropertyType.name)
         aCoder.encode(username, forKey: PropertyType.email)
         aCoder.encode(authenticator, forKey: PropertyType.authenticator)
-        aCoder.encode(averageCredit, forKey: PropertyType.averageCredit)
-        aCoder.encode(totalCredit, forKey: PropertyType.totalCredit)
         aCoder.encode(homePage, forKey: PropertyType.homePage)
     }
     
@@ -85,27 +85,23 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
             os_log("Unable to decode the name for a Project object.", log: OSLog.default, type: .debug)
             return nil
         }
+        
         guard let email = aDecoder.decodeObject(forKey: PropertyType.email) as? String else {
             os_log("Unable to decode the email for a Project object.", log: OSLog.default, type: .debug)
             return nil
         }
+        
         guard let authenticator = aDecoder.decodeObject(forKey: PropertyType.authenticator) as? String else {
             os_log("Unable to decode the authenticator for a Project object.", log: OSLog.default, type: .debug)
             return nil
         }
-        guard let averageCredit = aDecoder.decodeObject(forKey: PropertyType.averageCredit) as? Float else {
-            os_log("Unable to decode the average credit for a Project object.", log: OSLog.default, type: .debug)
-            return nil
-        }
-        guard let totalCredit = aDecoder.decodeObject(forKey: PropertyType.totalCredit) as? Float else {
-            os_log("Unable to decode the total credit for a Project object.", log: OSLog.default, type: .debug)
-            return nil
-        }
+        
         guard let homePage = aDecoder.decodeObject(forKey: PropertyType.homePage) as? String else {
             os_log("Unable to decode the home page for a Project object.", log: OSLog.default, type: .debug)
             return nil
         }
-        self.init(name: name, email, authenticator, averageCredit, totalCredit, homePage)
+        
+        self.init(name: name, email, authenticator, 0, 0, homePage)
     }
     
     // MARK: - MD5 Hash Methods
@@ -166,11 +162,16 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
         } else {
             urlToQuery = URL(string: projectHomePage + "/show_user.php?auth=" + authenticator + "&format=xml")!
         }
-        print(urlToQuery.absoluteURL)
+        
         return urlToQuery
     }
     
     // MARK: - XMLParser
+    func parserDidStartDocument(_ parser: XMLParser) {
+        self.averageCredit = 0
+        self.totalCredit = 0
+    }
+    
     func parseReturnedXML(_ data: Data?) {
         let parser = XMLParser(data: data!)
         parser.delegate = self
@@ -182,6 +183,10 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
         switch elementName {
         case ElementName.authenticator:
             isSeekingAuthenticator = true
+            self.isAccumulatingParsedCharacterData = true
+            self.currentParsedCharacterData = ""
+        case ElementName.userName:
+            isSeekingUserName = true
             self.isAccumulatingParsedCharacterData = true
             self.currentParsedCharacterData = ""
         case ElementName.averageCredit:
@@ -210,6 +215,11 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
             if self.isSeekingAuthenticator {
                 self.authenticator = currentParsedCharacterData
                 self.isSeekingAuthenticator = false
+            }
+        case ElementName.userName:
+            if self.isSeekingUserName {
+                self.userName = currentParsedCharacterData
+                self.isSeekingUserName = false
             }
         case ElementName.averageCredit:
             if self.isSeekingAverageCredit {

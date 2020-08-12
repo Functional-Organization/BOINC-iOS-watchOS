@@ -25,7 +25,7 @@ class SavedProjectsTableViewController: UITableViewController {
             addedProjects += savedProjects
             // If the user has added projects, occasionally ask if they'd like to rate the app.
             if #available(iOS 10.3, *) {
-                SKStoreReviewController.requestReview()
+//                SKStoreReviewController.requestReview()
             } else {
                 // Fallback on earlier versions
             }

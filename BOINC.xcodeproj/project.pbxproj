@@ -17,6 +17,7 @@
 		FB6A3FC61F31FFE40093EE4C /* SavedProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A3FC51F31FFE40093EE4C /* SavedProjectsTableViewCell.swift */; };
 		FB79B03F24D98AB9009977B9 /* ProjectDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB79B03E24D98AB9009977B9 /* ProjectDetail.swift */; };
 		FB8F83101F2965C900E82811 /* AddProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8F830F1F2965C900E82811 /* AddProjectTableViewCell.swift */; };
+		FB98411924E3C49700613922 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB98411824E3C49700613922 /* User.swift */; };
 		FB9ADEFB1F4109D0001A9FAB /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9ADEFA1F4109D0001A9FAB /* Parser.swift */; };
 		FBF1F8E81F2AF27C00158214 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF1F8E71F2AF27B00158214 /* LoginViewController.swift */; };
 		FBF1F8EB1F2B9FE300158214 /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF1F8EA1F2B9FE300158214 /* Crypto.m */; };
@@ -50,6 +51,7 @@
 		FB78AE9C2420E1A2002EE3B3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		FB79B03E24D98AB9009977B9 /* ProjectDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetail.swift; sourceTree = "<group>"; };
 		FB8F830F1F2965C900E82811 /* AddProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectTableViewCell.swift; sourceTree = "<group>"; };
+		FB98411824E3C49700613922 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FB9ADEFA1F4109D0001A9FAB /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		FBF1F8E71F2AF27B00158214 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FBF1F8E91F2B9FE300158214 /* BOINC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BOINC-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				FB592D901F24EE5B00FD6341 /* AppDelegate.swift */,
 				FB1DFB561F28861600EDA670 /* Projects.swift */,
 				FB2C445C1F2ED5A700099BDE /* Project.swift */,
+				FB98411824E3C49700613922 /* User.swift */,
 				FBF1F8E71F2AF27B00158214 /* LoginViewController.swift */,
 				FB9ADEFA1F4109D0001A9FAB /* Parser.swift */,
 				FB6A3FC51F31FFE40093EE4C /* SavedProjectsTableViewCell.swift */,
@@ -189,6 +192,7 @@
 				FB79B03F24D98AB9009977B9 /* ProjectDetail.swift in Sources */,
 				FB6A3FC41F314F250093EE4C /* SavedProjectsTableViewController.swift in Sources */,
 				FBF1F8EB1F2B9FE300158214 /* Crypto.m in Sources */,
+				FB98411924E3C49700613922 /* User.swift in Sources */,
 				FB2C445D1F2ED5A700099BDE /* Project.swift in Sources */,
 				FB6A3FC61F31FFE40093EE4C /* SavedProjectsTableViewCell.swift in Sources */,
 				FB8F83101F2965C900E82811 /* AddProjectTableViewCell.swift in Sources */,

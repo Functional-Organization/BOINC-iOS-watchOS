@@ -12,6 +12,12 @@ struct ProjectDetail: View {
     let project: Project
     
     var body: some View {
-        Text(project.userName)
+        List {
+            VStack {
+                Text(project.user.name)
+                Text(project.user.country)
+            }
+        }
+        .navigationBarTitle(project.name)
     }
 }

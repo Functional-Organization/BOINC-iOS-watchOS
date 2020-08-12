@@ -10,7 +10,6 @@ import UIKit
 import os.log
 
 class Project: NSObject, NSCoding, XMLParserDelegate {
-    var userName: String!
     var name: String
     var homePage: String
     var username: String
@@ -23,6 +22,8 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     var dataFromLookingUpAccount: Data?
     var authenticator: String?
     
+    var user = User()
+    
     var totalCredit: Float = 0
     var averageCredit: Float = 0
     
@@ -31,6 +32,7 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     
     var isSeekingAuthenticator = false
     var isSeekingUserName = false
+    var isSeekingCountry = false
     var isSeekingAverageCredit = false
     var isSeekingTotalCredit = false
     
@@ -39,6 +41,7 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     struct ElementName {
         static let authenticator = "authenticator"
         static let userName = "name"
+        static let country = "country"
         static let averageCredit = "expavg_credit"
         static let totalCredit = "total_credit"
     }
@@ -179,22 +182,26 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
-        
+        // TODO: Replace boilerplate with a property wrapper.
         switch elementName {
         case ElementName.authenticator:
-            isSeekingAuthenticator = true
+            self.isSeekingAuthenticator = true
             self.isAccumulatingParsedCharacterData = true
             self.currentParsedCharacterData = ""
         case ElementName.userName:
-            isSeekingUserName = true
+            self.isSeekingUserName = true
+            self.isAccumulatingParsedCharacterData = true
+            self.currentParsedCharacterData = ""
+        case ElementName.country:
+            self.isSeekingCountry = true
             self.isAccumulatingParsedCharacterData = true
             self.currentParsedCharacterData = ""
         case ElementName.averageCredit:
-            isSeekingAverageCredit = true
+            self.isSeekingAverageCredit = true
             self.isAccumulatingParsedCharacterData = true
             self.currentParsedCharacterData = ""
         case ElementName.totalCredit:
-            isSeekingTotalCredit = true
+            self.isSeekingTotalCredit = true
             self.isAccumulatingParsedCharacterData = true
             self.currentParsedCharacterData = ""
         default:
@@ -218,8 +225,13 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
             }
         case ElementName.userName:
             if self.isSeekingUserName {
-                self.userName = currentParsedCharacterData
+                self.user.name = currentParsedCharacterData
                 self.isSeekingUserName = false
+            }
+        case ElementName.country:
+            if self.isSeekingCountry {
+                self.user.country = currentParsedCharacterData
+                self.isSeekingCountry = false
             }
         case ElementName.averageCredit:
             if self.isSeekingAverageCredit {

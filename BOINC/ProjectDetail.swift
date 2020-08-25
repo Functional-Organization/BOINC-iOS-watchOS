@@ -14,8 +14,8 @@ struct ProjectDetail: View {
     var body: some View {
         List {
             VStack {
-                Text(project.user.name)
-                Text(project.user.country)
+                Text(project.user?.name ?? "")
+                Text(project.user?.country ?? "")
             }
         }
         .navigationBarTitle(project.name)

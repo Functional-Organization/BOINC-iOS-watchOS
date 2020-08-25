@@ -22,7 +22,7 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     var dataFromLookingUpAccount: Data?
     var authenticator: String?
     
-    var user = User()
+    var user: User?
     
     var totalCredit: Float = 0
     var averageCredit: Float = 0
@@ -31,6 +31,7 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     var isAccumulatingParsedCharacterData = false
     
     var isSeekingAuthenticator = false
+    var isSeekingUser = false
     var isSeekingUserName = false
     var isSeekingCountry = false
     var isSeekingAverageCredit = false
@@ -40,6 +41,7 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     
     struct ElementName {
         static let authenticator = "authenticator"
+        static let user = "user"
         static let userName = "name"
         static let country = "country"
         static let averageCredit = "expavg_credit"
@@ -196,11 +198,11 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
             self.isSeekingCountry = true
             self.isAccumulatingParsedCharacterData = true
             self.currentParsedCharacterData = ""
-        case ElementName.averageCredit:
+        case ElementName.user:
             self.isSeekingAverageCredit = true
             self.isAccumulatingParsedCharacterData = true
             self.currentParsedCharacterData = ""
-        case ElementName.totalCredit:
+        case ElementName.user:
             self.isSeekingTotalCredit = true
             self.isAccumulatingParsedCharacterData = true
             self.currentParsedCharacterData = ""
@@ -225,22 +227,22 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
             }
         case ElementName.userName:
             if self.isSeekingUserName {
-                self.user.name = currentParsedCharacterData
+                self.user?.name = currentParsedCharacterData!
                 self.isSeekingUserName = false
             }
         case ElementName.country:
             if self.isSeekingCountry {
-                self.user.country = currentParsedCharacterData
+                self.user?.country = currentParsedCharacterData!
                 self.isSeekingCountry = false
             }
         case ElementName.averageCredit:
             if self.isSeekingAverageCredit {
-                self.averageCredit += Float(currentParsedCharacterData!)!
+                self.averageCredit = Float(currentParsedCharacterData!) ?? 0
                 self.isSeekingAverageCredit = false
             }
         case ElementName.totalCredit:
             if self.isSeekingTotalCredit {
-                self.totalCredit += Float(currentParsedCharacterData!)!
+                self.totalCredit = Float(currentParsedCharacterData!) ?? 0
                 self.isSeekingTotalCredit = false
             }
         default:

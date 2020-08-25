@@ -9,6 +9,6 @@
 import Foundation
 
 struct User {
-    var name: String!
-    var country: String!
+    var name: String
+    var country: String
 }

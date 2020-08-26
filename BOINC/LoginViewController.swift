@@ -15,8 +15,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var usernameTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var saveButton: UIBarButtonItem!
-    @IBOutlet weak var worldCommunityGridInstructions: UILabel!
-    @IBOutlet weak var worldCommunityGridSettingsLink: UIButton!
+    @IBOutlet private weak var worldCommunityGridInstructions: UILabel!
+    @IBOutlet private weak var worldCommunityGridSettingsLink: UIButton!
     
     var passwordAndUsername = ""
     var selectedRow: Int?

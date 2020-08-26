@@ -11,11 +11,12 @@ import UIKit
 import os
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-    // MARK: Properties
     var selectedProject: Project?
     @IBOutlet private weak var usernameTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var worldCommunityGridInstructions: UILabel!
+    @IBOutlet weak var worldCommunityGridSettingsLink: UIButton!
     
     var passwordAndUsername = ""
     var selectedRow: Int?
@@ -40,6 +41,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             usernameTextField.keyboardType = .default
             passwordTextField.isHidden = true
+            
+            worldCommunityGridInstructions.isHidden = false
+            worldCommunityGridSettingsLink.isHidden = false
         } else {
             usernameTextField.textContentType = .emailAddress
         }
@@ -89,11 +93,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -105,5 +104,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
             return
         }
+    }
+    
+    @IBAction func openSettings(_ sender: Any) {
+        UIApplication.shared.open(URL(string: "https://www.worldcommunitygrid.org/ms/viewDataSharing.action")!)
     }
 }

@@ -10,8 +10,6 @@ import UIKit
 import os.log
 
 class Project: NSObject, NSCoding, XMLParserDelegate {
-    // MARK: Properties
-    
     var name: String
     var homePage: String
     var username: String

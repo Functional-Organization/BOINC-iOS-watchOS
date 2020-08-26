@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t2j-3d-ETb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t2j-3d-ETb">
     <device id="retina4_7" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17124"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,7 +16,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Oe9-D5-0bF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="addedProjectsTableViewCell" id="als-67-gAC" customClass="SavedProjectsTableViewCell" customModule="BOINC" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="97"/>
@@ -28,7 +29,7 @@
                                             <rect key="frame" x="16" y="11" width="343" height="75"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rosetta@home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Sw-kN-kIO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="122" height="21"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="121.5" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="uH6-tJ-Hsu"/>
                                                     </constraints>
@@ -45,13 +46,13 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Average credit:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUn-dL-ktv">
                                                                     <rect key="frame" x="0.0" y="0.0" width="103.5" height="18"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Total credit:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1o-Sk-XJ9">
                                                                     <rect key="frame" x="22.5" y="26" width="81" height="20"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -85,7 +86,7 @@
                                         <constraint firstItem="P0h-hB-RNf" firstAttribute="trailing" secondItem="6C8-Q0-E4w" secondAttribute="trailingMargin" id="vTk-CY-swn"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="tableCellGroupedBackgroundColor"/>
                                 <connections>
                                     <outlet property="averageCreditLabel" destination="cWu-Rc-lPT" id="qGJ-ds-T69"/>
                                     <outlet property="nameLabel" destination="2Sw-kN-kIO" id="g0U-AE-4W0"/>
@@ -110,7 +111,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="CvM-eb-GNG">
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="DFA-ct-Bsc">
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                 </tableViewController>
@@ -125,7 +126,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mz4-g0-4a8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ProjectTableViewCell" id="Gah-Jj-9oD" userLabel="ProjectTableViewCell" customClass="AddProjectTableViewCell" customModule="BOINC" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="50"/>
@@ -192,14 +193,35 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="yYH-V6-nZ6">
+                                <rect key="frame" x="16" y="223" width="343" height="33"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <state key="normal" title="https://www.worldcommunitygrid.org/ms/viewDataSharing.action"/>
+                                <connections>
+                                    <action selector="openSettings:" destination="7fM-zc-ABQ" eventType="touchUpInside" id="D6w-UH-796"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First, make sure in World Community Grid settings that &quot;Display my data&quot; is selected." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EjT-JZ-joq">
+                                <rect key="frame" x="16" y="174" width="343" height="41"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="yYH-V6-nZ6" firstAttribute="trailing" secondItem="uzG-Az-J1p" secondAttribute="trailingMargin" id="0BX-b4-uLK"/>
                             <constraint firstItem="2af-kP-A16" firstAttribute="trailing" secondItem="uzG-Az-J1p" secondAttribute="trailingMargin" id="5vI-Wd-SRe"/>
+                            <constraint firstItem="yYH-V6-nZ6" firstAttribute="top" secondItem="EjT-JZ-joq" secondAttribute="bottom" constant="8" symbolic="YES" id="6E4-Zy-y6q"/>
+                            <constraint firstItem="EjT-JZ-joq" firstAttribute="leading" secondItem="uzG-Az-J1p" secondAttribute="leadingMargin" id="Bgf-UX-ZIB"/>
                             <constraint firstItem="2af-kP-A16" firstAttribute="leading" secondItem="uzG-Az-J1p" secondAttribute="leadingMargin" id="IA6-T7-NHg"/>
                             <constraint firstItem="2af-kP-A16" firstAttribute="trailing" secondItem="d4w-E1-aDm" secondAttribute="trailing" id="REV-Ef-HAf"/>
+                            <constraint firstItem="EjT-JZ-joq" firstAttribute="trailing" secondItem="uzG-Az-J1p" secondAttribute="trailingMargin" id="TyZ-u5-pPM"/>
+                            <constraint firstItem="2af-kP-A16" firstAttribute="top" secondItem="yYH-V6-nZ6" secondAttribute="bottom" constant="8.5" id="UeS-2f-6C5"/>
+                            <constraint firstItem="yYH-V6-nZ6" firstAttribute="leading" secondItem="uzG-Az-J1p" secondAttribute="leadingMargin" id="WGl-q4-VOj"/>
                             <constraint firstItem="2af-kP-A16" firstAttribute="leading" secondItem="d4w-E1-aDm" secondAttribute="leading" id="Z8c-Dn-Jpi"/>
                             <constraint firstItem="d4w-E1-aDm" firstAttribute="top" secondItem="2af-kP-A16" secondAttribute="bottom" constant="8" symbolic="YES" id="eZ8-ft-7YZ"/>
+                            <constraint firstItem="yYH-V6-nZ6" firstAttribute="top" secondItem="EjT-JZ-joq" secondAttribute="bottom" constant="8" symbolic="YES" id="kLt-CM-5iG"/>
                             <constraint firstItem="d4w-E1-aDm" firstAttribute="centerY" secondItem="uzG-Az-J1p" secondAttribute="centerY" id="njL-TS-P9H"/>
                         </constraints>
                     </view>
@@ -215,12 +237,14 @@
                         <outlet property="passwordTextField" destination="d4w-E1-aDm" id="DTO-hD-Mpa"/>
                         <outlet property="saveButton" destination="cGD-DF-Hi4" id="Zn1-d0-IvJ"/>
                         <outlet property="usernameTextField" destination="2af-kP-A16" id="A3V-kb-FOR"/>
+                        <outlet property="worldCommunityGridInstructions" destination="EjT-JZ-joq" id="JkT-1G-Olj"/>
+                        <outlet property="worldCommunityGridSettingsLink" destination="yYH-V6-nZ6" id="VTA-xf-3i7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blb-Tg-nZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="2bV-0S-gEp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3690" y="159"/>
+            <point key="canvasLocation" x="3688.8000000000002" y="158.77061469265368"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FbK-B5-4lW">
@@ -257,5 +281,14 @@
     </scenes>
     <resources>
         <image name="safari" catalog="system" width="128" height="121"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tableCellGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

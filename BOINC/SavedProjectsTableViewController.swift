@@ -177,11 +177,13 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
     // MARK: - Refresh
     
     func configureRefreshControl () {
+        tableView.refreshControl?.isEnabled = true
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
     }
     
     @objc func handleRefreshControl() {
         tableView.reloadData()
+        if addedProjects.isEmpty { tableView.refreshControl?.endRefreshing() }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  Projects.swift
+//  PreselectedProjects.swift
 //  BOINC
 //
 //  Created by Austin Conlon on 7/26/17.
@@ -9,7 +9,7 @@
 import Foundation
 
 /// Common  projects that can be added.
-var projects = [
+var preselectedProjects: [(name: String, homePage: String)] = [
     ("Amicable Numbers", "https://sech.me/boinc/Amicable/"),
     ("Asteroids@home", "https://asteroidsathome.net/boinc"),
     ("BOINC@TACC", "https://boinc.tacc.utexas.edu"),

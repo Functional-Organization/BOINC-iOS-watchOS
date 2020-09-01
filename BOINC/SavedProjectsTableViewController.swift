@@ -14,7 +14,7 @@ import SafariServices
 
 class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate {
     // MARK: Properties
-    var addedProjects = [Project]()
+    var addedProjects = [ProjectDetail]()
     
     let session = WCSession.default
 
@@ -148,7 +148,7 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
     }
 
     private func saveProjectsAndSendToWatch() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(addedProjects, toFile: Project.ArchiveURL.path)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(addedProjects, toFile: ProjectDetail.ArchiveURL.path)
         if isSuccessfulSave {
             os_log("Projects successfully saved.", log: OSLog.default, type: .debug)
         } else {
@@ -170,8 +170,9 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
         }
     }
     
-    private func loadProjects() -> [Project]? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Project.ArchiveURL.path) as? [Project]
+    private func loadProjects() -> [ProjectDetail]? {
+        NSKeyedUnarchiver.setClass(ProjectDetail.self, forClassName: "BOINC.Project")
+        return NSKeyedUnarchiver.unarchiveObject(withFile: ProjectDetail.ArchiveURL.path) as? [ProjectDetail]
     }
     
     // MARK: - Refresh

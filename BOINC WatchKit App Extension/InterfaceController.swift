@@ -14,7 +14,7 @@ import os.log
 class InterfaceController: WKInterfaceController, WCSessionDelegate, XMLParserDelegate {
     @IBOutlet var addedProjectsTable: WKInterfaceTable!
     var addedProjects = [[String]]()
-    var addedProjectsToSaveAndLoad = [Project]()
+    var addedProjectsToSaveAndLoad = [ProjectDetail]()
     enum Queries {
         case showUserInfo
     }
@@ -109,10 +109,10 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, XMLParserDe
                 let averageCredit = addedProjects[project][3]
                 let totalCredit = addedProjects[project][4]
                 let homePage = addedProjects[project][5]
-                addedProjectsToSaveAndLoad.append(Project(name: name, email, authenticator, averageCredit, totalCredit, homePage))
+                addedProjectsToSaveAndLoad.append(ProjectDetail(name: name, email, authenticator, averageCredit, totalCredit, homePage))
             }
         }
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(addedProjectsToSaveAndLoad, toFile: Project.ArchiveURL.path)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(addedProjectsToSaveAndLoad, toFile: ProjectDetail.ArchiveURL.path)
         if isSuccessfulSave {
             os_log("Projects successfully saved.", log: OSLog.default, type: .debug)
         } else {
@@ -120,8 +120,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, XMLParserDe
         }
     }
     
-    private func loadProjects() -> [Project]? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Project.ArchiveURL.path) as? [Project]
+    private func loadProjects() -> [ProjectDetail]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: ProjectDetail.ArchiveURL.path) as? [ProjectDetail]
     }
     
     // MARK: URLSession Methods

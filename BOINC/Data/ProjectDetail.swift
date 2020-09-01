@@ -1,5 +1,5 @@
 //
-//  Project.swift
+//  ProjectDetail.swift
 //  BOINC
 //
 //  Created by Austin Conlon on 7/30/17.
@@ -8,8 +8,9 @@
 
 import UIKit
 import os.log
+import CryptoKit
 
-class Project: NSObject, NSCoding, XMLParserDelegate {
+class ProjectDetail: NSObject, NSCoding, XMLParserDelegate {
     var name: String
     var homePage: String
     var username: String
@@ -59,49 +60,36 @@ class Project: NSObject, NSCoding, XMLParserDelegate {
     
     required convenience init?(coder aDecoder: NSCoder) {
         guard let name = aDecoder.decodeObject(forKey: PropertyType.name) as? String else {
-            os_log("Unable to decode the name for a Project object.", log: OSLog.default, type: .debug)
+            os_log("Unable to decode the name for a ProjectDetail object.", log: OSLog.default, type: .debug)
             return nil
         }
         guard let email = aDecoder.decodeObject(forKey: PropertyType.email) as? String else {
-            os_log("Unable to decode the email for a Project object.", log: OSLog.default, type: .debug)
+            os_log("Unable to decode the email for a ProjectDetail object.", log: OSLog.default, type: .debug)
             return nil
         }
         guard let authenticator = aDecoder.decodeObject(forKey: PropertyType.authenticator) as? String else {
-            os_log("Unable to decode the authenticator for a Project object.", log: OSLog.default, type: .debug)
+            os_log("Unable to decode the authenticator for a ProjectDetail object.", log: OSLog.default, type: .debug)
             return nil
         }
         guard let averageCredit = aDecoder.decodeObject(forKey: PropertyType.averageCredit) as? String else {
-            os_log("Unable to decode the average credit for a Project object.", log: OSLog.default, type: .debug)
+            os_log("Unable to decode the average credit for a ProjectDetail object.", log: OSLog.default, type: .debug)
             return nil
         }
         guard let totalCredit = aDecoder.decodeObject(forKey: PropertyType.totalCredit) as? String else {
-            os_log("Unable to decode the total credit for a Project object.", log: OSLog.default, type: .debug)
+            os_log("Unable to decode the total credit for a ProjectDetail object.", log: OSLog.default, type: .debug)
             return nil
         }
         guard let homePage = aDecoder.decodeObject(forKey: PropertyType.homePage) as? String else {
-            os_log("Unable to decode the home page for a Project object.", log: OSLog.default, type: .debug)
+            os_log("Unable to decode the home page for a ProjectDetail object.", log: OSLog.default, type: .debug)
             return nil
         }
         self.init(name: name, email, authenticator, averageCredit, totalCredit, homePage)
     }
     
-    // MARK: MD5 Hash Methods
-    // MD5 is required to use BOINC's Web Remote Procedure Calls
     func createHash(_ password: String, _ email: String) -> String {
         let passwordAndEmail = password + email
-        let md5Data = MD5(string: passwordAndEmail)
-        return md5Data.map { String(format: "%02hhx", $0) }.joined()
-    }
-    
-    func MD5(string: String) -> Data {
-        let messageData = string.data(using:.utf8)!
-        var digestData = Data(count: Int(CC_MD5_DIGEST_LENGTH))
-        _ = digestData.withUnsafeMutableBytes {digestBytes in
-            messageData.withUnsafeBytes {messageBytes in
-                CC_MD5(messageBytes, CC_LONG(messageData.count), digestBytes)
-            }
-        }
-        return digestData
+        let passwordAndEmailData = Data(passwordAndEmail.utf8)
+        return Insecure.MD5.hash(data: passwordAndEmailData).map { String(format: "%02hhx", $0) }.joined()
     }
     
     // MARK: URLSession Methods

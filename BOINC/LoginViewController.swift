@@ -11,7 +11,7 @@ import UIKit
 import os
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-    var selectedProject: Project?
+    var selectedProject: ProjectDetail?
     @IBOutlet private weak var usernameTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var saveButton: UIBarButtonItem!
@@ -23,8 +23,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectedProject = Project(name: self.title!)
-        selectedProject!.homePage = projects[selectedRow!].1
+        selectedProject = ProjectDetail(name: self.title!)
+        selectedProject!.homePage = preselectedProjects[selectedRow!].homePage
         
         usernameTextField.delegate = self
         passwordTextField.delegate = self

@@ -23,6 +23,7 @@ var preselectedProjects: [(name: String, homePage: String)] = [
     ("GPUGrid.net", "https://gpugrid.net"),
     ("LHC@home", "https://lhcathome.cern.ch/lhcathome"),
     ("Milkyway@home", "https://milkyway.cs.rpi.edu/milkyway"),
+    ("Minecraft@Home", "https://minecraftathome.com/minecrafthome/"),
     ("MindModeling@Home", "http://mindmodeling.org"),
     ("MLC@Home", "https://www.mlcathome.org/mlcathome/"),
     ("Moo! Wrapper", "https://moowrap.net"),

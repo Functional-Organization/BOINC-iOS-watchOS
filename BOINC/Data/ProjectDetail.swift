@@ -28,6 +28,8 @@ class ProjectDetail: NSObject, NSCoding, XMLParserDelegate {
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("projects")
     
+    static let session = NetworkController.urlSession()
+    
     // MARK: Initialization
     @objc init(name: String, _ email: String = "", _ authenticator: String = "", _ averageCredit: String = "0", _ totalCredit: String = "0", _ homePage: String = "") {
         self.name = name
@@ -92,7 +94,26 @@ class ProjectDetail: NSObject, NSCoding, XMLParserDelegate {
         return Insecure.MD5.hash(data: passwordAndEmailData).map { String(format: "%02hhx", $0) }.joined()
     }
     
-    // MARK: URLSession Methods
+    // MARK: - Networking
+    static func loadAuthenticatorData(responseURL: URL, completion: @escaping ([ProjectDetail]?, Error?) -> Void) {
+        do {
+            session.dataTask(with: responseURL) { (data, response, error) in
+                if let data = data {
+                    do {
+                        completion(data, error)
+                    } catch {
+                        completion(nil, error)
+                    }
+                } else {
+                    completion(nil, error)
+                }
+            }.resume()
+        } catch {
+            completion(nil, error)
+        }
+        
+    }
+    
     func fetchAuthenticator(_ projectHomePage: String, _ email: String, _ password: String, completion: @escaping (String?) -> Void) -> Void {
         let hash = createHash(password, email)
         let URL = generateURLForFetchingAuthenticator(projectHomePage, email, hash)

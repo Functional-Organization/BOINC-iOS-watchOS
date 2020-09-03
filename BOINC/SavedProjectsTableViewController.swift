@@ -25,12 +25,6 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
         
         if let savedProjects = loadProjects() {
             addedProjects += savedProjects
-            // If the user has added projects, occasionally ask if they'd like to rate the app.
-            if #available(iOS 10.3, *) {
-                SKStoreReviewController.requestReview()
-            } else {
-                // Fallback on earlier versions
-            }
         }
     }
 
@@ -63,6 +57,7 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
             addedProjects.append(project)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
+        SKStoreReviewController.requestReview()
     }
     
     @IBAction func presentNews(_ sender: UIBarButtonItem) {

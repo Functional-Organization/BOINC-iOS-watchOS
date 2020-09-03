@@ -116,23 +116,24 @@ class ProjectDetail: NSObject, NSCoding, XMLParserDelegate {
     
     func fetchAuthenticator(_ projectHomePage: String, _ email: String, _ password: String, completion: @escaping (String?, Error?) -> Void) -> Void {
         let hash = createHash(password, email)
-        let URL = generateURLForFetchingAuthenticator(projectHomePage, email, hash)
-        let sessionConfig = URLSessionConfiguration.default
-        let session = URLSession(configuration: sessionConfig)
-        let task = session.dataTask(with: URL) { (data, response, error) in
-            if let data = data {
-                self.parseReturnedXML(data)
+        if let URL = generateURLForFetchingAuthenticator(projectHomePage, email, hash) {
+            let sessionConfig = URLSessionConfiguration.default
+            let session = URLSession(configuration: sessionConfig)
+            let task = session.dataTask(with: URL) { (data, response, error) in
+                if let data = data {
+                    self.parseReturnedXML(data)
+                }
+                completion(self.authenticator, error)
             }
-            completion(self.authenticator, error)
+            task.resume()
         }
-        task.resume()
     }
     
     func fetch(_ query: Queries, _ authenticator: String = "", _ projectHomePage: String = "", username: String, completion: @escaping (String, String, Error?) -> Void) {
-        let URL = generateURL(query, projectHomePage, authenticator, username)
+        let url = generateURL(query, projectHomePage, authenticator, username)
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig)
-        let task = session.dataTask(with: URL) { (data, response, error) in
+        let task = session.dataTask(with: url) { (data, response, error) in
             if let data = data {
                 self.parseReturnedXML(data)
             }
@@ -141,8 +142,8 @@ class ProjectDetail: NSObject, NSCoding, XMLParserDelegate {
         task.resume()
     }
     
-    func generateURLForFetchingAuthenticator(_ projectHomePage: String, _ email: String, _ hash: String) -> URL {
-        let urlToFetchAuthenticatorFrom = URL(string: projectHomePage + "/lookup_account.php?email_addr=" + email + "&passwd_hash=" + hash)!
+    func generateURLForFetchingAuthenticator(_ projectHomePage: String, _ email: String, _ hash: String) -> URL? {
+        let urlToFetchAuthenticatorFrom = URL(string: projectHomePage + "/lookup_account.php?email_addr=" + email + "&passwd_hash=" + hash)
         return urlToFetchAuthenticatorFrom
     }
     

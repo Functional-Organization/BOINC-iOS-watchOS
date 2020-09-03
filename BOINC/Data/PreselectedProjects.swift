@@ -24,6 +24,7 @@ var preselectedProjects: [(name: String, homePage: String)] = [
     ("LHC@home", "https://lhcathome.cern.ch/lhcathome"),
     ("Milkyway@home", "https://milkyway.cs.rpi.edu/milkyway"),
     ("MindModeling@Home", "http://mindmodeling.org"),
+    ("MLC@Home", "https://www.mlcathome.org/mlcathome/"),
     ("Moo! Wrapper", "https://moowrap.net"),
     ("NFS@home", "http://escatter11.fullerton.edu/nfs"),
     ("nanoHUB@Home", "https://boinc.nanohub.org/nanoHUB_at_home/"),

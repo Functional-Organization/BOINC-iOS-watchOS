@@ -76,7 +76,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, XMLParserDe
             let authenticator = addedProjectsToSaveAndLoad[project].authenticator!
             let homePage = addedProjectsToSaveAndLoad[project].homePage
             let username = addedProjectsToSaveAndLoad[project].username
-            addedProjectsToSaveAndLoad[project].fetch(.showUserInfo, authenticator, homePage, username: username) { (averageCredit, totalCredit) in
+            addedProjectsToSaveAndLoad[project].fetch(.showUserInfo, authenticator, homePage, username: username) { (averageCredit, totalCredit, error) in
                 DispatchQueue.main.sync {
                     self.configureTableWithFetchedData()
                 }

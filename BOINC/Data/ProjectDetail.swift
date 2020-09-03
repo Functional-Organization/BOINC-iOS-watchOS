@@ -100,7 +100,7 @@ class ProjectDetail: NSObject, NSCoding, XMLParserDelegate {
             session.dataTask(with: responseURL) { (data, response, error) in
                 if let data = data {
                     do {
-                        completion(data, error)
+//                        completion(data, error)
                     } catch {
                         completion(nil, error)
                     }
@@ -114,25 +114,29 @@ class ProjectDetail: NSObject, NSCoding, XMLParserDelegate {
         
     }
     
-    func fetchAuthenticator(_ projectHomePage: String, _ email: String, _ password: String, completion: @escaping (String?) -> Void) -> Void {
+    func fetchAuthenticator(_ projectHomePage: String, _ email: String, _ password: String, completion: @escaping (String?, Error?) -> Void) -> Void {
         let hash = createHash(password, email)
         let URL = generateURLForFetchingAuthenticator(projectHomePage, email, hash)
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig)
         let task = session.dataTask(with: URL) { (data, response, error) in
-            self.parseReturnedXML(data!)
-            completion(self.authenticator)
+            if let data = data {
+                self.parseReturnedXML(data)
+            }
+            completion(self.authenticator, error)
         }
         task.resume()
     }
     
-    func fetch(_ query: Queries, _ authenticator: String = "", _ projectHomePage: String = "", username: String, completion: @escaping (String, String) -> Void) {
+    func fetch(_ query: Queries, _ authenticator: String = "", _ projectHomePage: String = "", username: String, completion: @escaping (String, String, Error?) -> Void) {
         let URL = generateURL(query, projectHomePage, authenticator, username)
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig)
         let task = session.dataTask(with: URL) { (data, response, error) in
-            self.parseReturnedXML(data!)
-            completion(self.averageCredit, self.totalCredit)
+            if let data = data {
+                self.parseReturnedXML(data)
+            }
+            completion(self.averageCredit, self.totalCredit, error)
         }
         task.resume()
     }

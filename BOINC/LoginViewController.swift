@@ -63,19 +63,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         selectedProject?.password = passwordText
         
         if selectedProject?.name == "World Community Grid" {
-            selectedProject!.fetch(.showUserInfo, username: usernameText) { (averageCredit, totalCredit) in
+            selectedProject!.fetch(.showUserInfo, username: usernameText) { (averageCredit, totalCredit, error) in
                 DispatchQueue.main.sync {
-                    // TODO: check if username is valid.
+                    if let error = error {
+                        let alert = UIAlertController(title: nil, message: error.localizedDescription, preferredStyle: .alert)
+                        let defaultAction = UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default)
+                        alert.addAction(defaultAction)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    // TODO: Check if username is valid.
                     self.saveButton.isEnabled = true
                 }
             }
         } else if (!usernameText.isEmpty && !passwordText.isEmpty) {
-            selectedProject!.fetchAuthenticator((selectedProject!.homePage), usernameText, passwordText) { (authenticator) in
+            selectedProject!.fetchAuthenticator((selectedProject!.homePage), usernameText, passwordText) { (authenticator, error) in
                 DispatchQueue.main.sync {
+                    if let error = error {
+                        let alert = UIAlertController(title: nil, message: error.localizedDescription, preferredStyle: .alert)
+                        let defaultAction = UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default)
+                        alert.addAction(defaultAction)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    
                     if !authenticator!.isEmpty {
                         self.saveButton.isEnabled = true
-                    }
-                    else {
+                    } else {
                         let alert = UIAlertController(title: "Incorrect login", message: nil, preferredStyle: .alert)
                         let defaultAction = UIAlertAction(title: "OK", style: .default)
                         alert.addAction(defaultAction)

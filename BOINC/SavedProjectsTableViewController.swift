@@ -84,8 +84,17 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
         
         cell.nameLabel.text = project.name
         if project.authenticator == nil {
-            project.fetchAuthenticator(project.homePage, project.username, project.password!) { (authenticator) in
-                project.fetch(.showUserInfo, authenticator!, project.homePage, username: project.username) { (averageCredit, totalCredit) in
+            project.fetchAuthenticator(project.homePage, project.username, project.password!) { (authenticator, error) in
+                if let error = error {
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: nil, message: error.localizedDescription, preferredStyle: .alert)
+                        let defaultAction = UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default)
+                        alert.addAction(defaultAction)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+                
+                project.fetch(.showUserInfo, authenticator!, project.homePage, username: project.username) { (averageCredit, totalCredit, error) in
                     DispatchQueue.main.sync {
                         let formattedAverageCredit = self.formatCredit(averageCredit)
                         cell.averageCreditLabel.text = "\(NSLocalizedString("Average credit:", tableName: "Main", comment: "")) " + formattedAverageCredit
@@ -99,15 +108,24 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
                 }
             }
         } else if project.authenticator != nil && addedProjects.count > 0 {
-            project.fetch(.showUserInfo, project.authenticator!, project.homePage, username: project.username) { (averageCredit, totalCredit) in
-                DispatchQueue.main.sync {
-                    let formattedAverageCredit = self.formatCredit(averageCredit)
-                    cell.averageCreditLabel.text = formattedAverageCredit
-                    
-                    let formattedTotalCredit = self.formatCredit(totalCredit)
-                    cell.totalCreditLabel.text = formattedTotalCredit
-                    
-                    self.saveProjectsAndSendToWatch()
+            project.fetch(.showUserInfo, project.authenticator!, project.homePage, username: project.username) { (averageCredit, totalCredit, error) in
+                if let error = error {
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: nil, message: error.localizedDescription, preferredStyle: .alert)
+                        let defaultAction = UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default)
+                        alert.addAction(defaultAction)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        let formattedAverageCredit = self.formatCredit(averageCredit)
+                        cell.averageCreditLabel.text = formattedAverageCredit
+                        
+                        let formattedTotalCredit = self.formatCredit(totalCredit)
+                        cell.totalCreditLabel.text = formattedTotalCredit
+                        
+                        self.saveProjectsAndSendToWatch()
+                    }
                 }
             }
         }

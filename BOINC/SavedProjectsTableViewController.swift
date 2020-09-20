@@ -14,7 +14,7 @@ import SwiftUI
 
 class SavedProjectsTableViewController: UITableViewController {
     // MARK: Properties
-    var addedProjects = [Project]()
+    var addedProjects = [ProjectDetail]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,11 +121,11 @@ class SavedProjectsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(UIHostingController(rootView: ProjectDetail(project: addedProjects[indexPath.row])), animated: true)
+        navigationController?.pushViewController(UIHostingController(rootView: DetailView(project: addedProjects[indexPath.row])), animated: true)
     }
     
-    private func loadProjects() -> [Project]? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Project.ArchiveURL.path) as? [Project]
+    private func loadProjects() -> [ProjectDetail]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: ProjectDetail.ArchiveURL.path) as? [ProjectDetail]
     }
     
     // MARK: - Refresh

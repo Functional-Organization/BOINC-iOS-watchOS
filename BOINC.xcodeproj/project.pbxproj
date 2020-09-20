@@ -9,15 +9,14 @@
 /* Begin PBXBuildFile section */
 		FB1DFB4B1F28704500EDA670 /* AddProjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1DFB4A1F28704500EDA670 /* AddProjectTableViewController.swift */; };
 		FB1DFB571F28861600EDA670 /* Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1DFB561F28861600EDA670 /* Projects.swift */; };
-		FB2C445D1F2ED5A700099BDE /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2C445C1F2ED5A700099BDE /* Project.swift */; };
+		FB2C445D1F2ED5A700099BDE /* ProjectDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2C445C1F2ED5A700099BDE /* ProjectDetail.swift */; };
 		FB592D911F24EE5B00FD6341 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB592D901F24EE5B00FD6341 /* AppDelegate.swift */; };
 		FB592D961F24EE5B00FD6341 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB592D941F24EE5B00FD6341 /* Main.storyboard */; };
 		FB592D981F24EE5B00FD6341 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB592D971F24EE5B00FD6341 /* Assets.xcassets */; };
 		FB6A3FC41F314F250093EE4C /* SavedProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A3FC31F314F250093EE4C /* SavedProjectsTableViewController.swift */; };
 		FB6A3FC61F31FFE40093EE4C /* SavedProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A3FC51F31FFE40093EE4C /* SavedProjectsTableViewCell.swift */; };
-		FB79B03F24D98AB9009977B9 /* ProjectDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB79B03E24D98AB9009977B9 /* ProjectDetail.swift */; };
+		FB79B03F24D98AB9009977B9 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB79B03E24D98AB9009977B9 /* DetailView.swift */; };
 		FB8F83101F2965C900E82811 /* AddProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8F830F1F2965C900E82811 /* AddProjectTableViewCell.swift */; };
-		FB98411924E3C49700613922 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB98411824E3C49700613922 /* User.swift */; };
 		FB9ADEFB1F4109D0001A9FAB /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9ADEFA1F4109D0001A9FAB /* Parser.swift */; };
 		FBF1F8E81F2AF27C00158214 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF1F8E71F2AF27B00158214 /* LoginViewController.swift */; };
 		FBF1F8EB1F2B9FE300158214 /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF1F8EA1F2B9FE300158214 /* Crypto.m */; };
@@ -40,7 +39,7 @@
 		FB0BEB2C241FB3E100E72FE9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		FB1DFB4A1F28704500EDA670 /* AddProjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectTableViewController.swift; sourceTree = "<group>"; };
 		FB1DFB561F28861600EDA670 /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
-		FB2C445C1F2ED5A700099BDE /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		FB2C445C1F2ED5A700099BDE /* ProjectDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetail.swift; sourceTree = "<group>"; };
 		FB592D8D1F24EE5A00FD6341 /* BOINC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BOINC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB592D901F24EE5B00FD6341 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB592D951F24EE5B00FD6341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -49,9 +48,8 @@
 		FB6A3FC31F314F250093EE4C /* SavedProjectsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedProjectsTableViewController.swift; sourceTree = "<group>"; };
 		FB6A3FC51F31FFE40093EE4C /* SavedProjectsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedProjectsTableViewCell.swift; sourceTree = "<group>"; };
 		FB78AE9C2420E1A2002EE3B3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
-		FB79B03E24D98AB9009977B9 /* ProjectDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetail.swift; sourceTree = "<group>"; };
+		FB79B03E24D98AB9009977B9 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		FB8F830F1F2965C900E82811 /* AddProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectTableViewCell.swift; sourceTree = "<group>"; };
-		FB98411824E3C49700613922 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FB9ADEFA1F4109D0001A9FAB /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		FBF1F8E71F2AF27B00158214 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FBF1F8E91F2B9FE300158214 /* BOINC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BOINC-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -90,15 +88,14 @@
 			children = (
 				FB592D901F24EE5B00FD6341 /* AppDelegate.swift */,
 				FB1DFB561F28861600EDA670 /* Projects.swift */,
-				FB2C445C1F2ED5A700099BDE /* Project.swift */,
-				FB98411824E3C49700613922 /* User.swift */,
+				FB2C445C1F2ED5A700099BDE /* ProjectDetail.swift */,
 				FBF1F8E71F2AF27B00158214 /* LoginViewController.swift */,
 				FB9ADEFA1F4109D0001A9FAB /* Parser.swift */,
 				FB6A3FC51F31FFE40093EE4C /* SavedProjectsTableViewCell.swift */,
 				FB6A3FC31F314F250093EE4C /* SavedProjectsTableViewController.swift */,
 				FB8F830F1F2965C900E82811 /* AddProjectTableViewCell.swift */,
 				FB1DFB4A1F28704500EDA670 /* AddProjectTableViewController.swift */,
-				FB79B03E24D98AB9009977B9 /* ProjectDetail.swift */,
+				FB79B03E24D98AB9009977B9 /* DetailView.swift */,
 				FB592D941F24EE5B00FD6341 /* Main.storyboard */,
 				FB592D971F24EE5B00FD6341 /* Assets.xcassets */,
 				FB592D9C1F24EE5B00FD6341 /* Info.plist */,
@@ -189,11 +186,10 @@
 				FB9ADEFB1F4109D0001A9FAB /* Parser.swift in Sources */,
 				FB592D911F24EE5B00FD6341 /* AppDelegate.swift in Sources */,
 				FB1DFB4B1F28704500EDA670 /* AddProjectTableViewController.swift in Sources */,
-				FB79B03F24D98AB9009977B9 /* ProjectDetail.swift in Sources */,
+				FB79B03F24D98AB9009977B9 /* DetailView.swift in Sources */,
 				FB6A3FC41F314F250093EE4C /* SavedProjectsTableViewController.swift in Sources */,
 				FBF1F8EB1F2B9FE300158214 /* Crypto.m in Sources */,
-				FB98411924E3C49700613922 /* User.swift in Sources */,
-				FB2C445D1F2ED5A700099BDE /* Project.swift in Sources */,
+				FB2C445D1F2ED5A700099BDE /* ProjectDetail.swift in Sources */,
 				FB6A3FC61F31FFE40093EE4C /* SavedProjectsTableViewCell.swift in Sources */,
 				FB8F83101F2965C900E82811 /* AddProjectTableViewCell.swift in Sources */,
 			);

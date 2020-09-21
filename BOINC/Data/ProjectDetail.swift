@@ -153,7 +153,6 @@ class ProjectDetail: NSObject, NSCoding, XMLParserDelegate {
             urlToQuery = URL(string: "https://www.worldcommunitygrid.org/stat/viewMemberInfo.do?userName=" + username.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)! + "&xml=true")!
         } else {
             urlToQuery = URL(string: projectHomePage + "/show_user.php?auth=" + authenticator + "&format=xml")!
-            print(urlToQuery.absoluteURL)
         }
         return urlToQuery
     }

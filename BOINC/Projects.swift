@@ -21,6 +21,7 @@ var projects = [
     ("Einstein@home", "https://einsteinathome.org"),
     ("FiND@Home", "http://findah.ucd.ie"),
     ("GPUGrid.net", "https://gpugrid.net"),
+    ("iThena", "https://root.ithena.net/usr/"),
     ("LHC@home", "https://lhcathome.cern.ch/lhcathome"),
     ("Milkyway@home", "https://milkyway.cs.rpi.edu/milkyway"),
     ("MindModeling@Home", "http://mindmodeling.org"),

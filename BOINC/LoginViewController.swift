@@ -11,7 +11,7 @@ import UIKit
 import os
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-    var selectedProject: Project?
+    var selectedProject: ProjectDetail?
     @IBOutlet private weak var usernameTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var saveButton: UIBarButtonItem!
@@ -23,8 +23,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectedProject = Project(name: self.title!)
-        selectedProject!.homePage = projects[selectedRow!].1
+        selectedProject = ProjectDetail(name: self.title!)
+        selectedProject!.homePage = preselectedProjects[selectedRow!].homePage
         
         usernameTextField.delegate = self
         passwordTextField.delegate = self
@@ -63,19 +63,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         selectedProject?.password = passwordText
         
         if selectedProject?.name == "World Community Grid" {
-            selectedProject!.fetch(.showUserInfo, username: usernameText) { (averageCredit, totalCredit) in
+            selectedProject!.fetch(.showUserInfo, username: usernameText) { (averageCredit, totalCredit, error) in
                 DispatchQueue.main.sync {
-                    // TODO: check if username is valid.
+                    if let error = error {
+                        let alert = UIAlertController(title: nil, message: error.localizedDescription, preferredStyle: .alert)
+                        let defaultAction = UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default)
+                        alert.addAction(defaultAction)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    // TODO: Check if username is valid.
                     self.saveButton.isEnabled = true
                 }
             }
         } else if (!usernameText.isEmpty && !passwordText.isEmpty) {
-            selectedProject!.fetchAuthenticator((selectedProject!.homePage), usernameText, passwordText) { (authenticator) in
+            selectedProject!.fetchAuthenticator((selectedProject!.homePage), usernameText, passwordText) { (authenticator, error) in
                 DispatchQueue.main.sync {
+                    if let error = error {
+                        let alert = UIAlertController(title: nil, message: error.localizedDescription, preferredStyle: .alert)
+                        let defaultAction = UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default)
+                        alert.addAction(defaultAction)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    
                     if !authenticator!.isEmpty {
                         self.saveButton.isEnabled = true
-                    }
-                    else {
+                    } else {
                         let alert = UIAlertController(title: "Incorrect login", message: nil, preferredStyle: .alert)
                         let defaultAction = UIAlertAction(title: "OK", style: .default)
                         alert.addAction(defaultAction)

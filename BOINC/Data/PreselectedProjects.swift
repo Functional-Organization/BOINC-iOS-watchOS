@@ -1,5 +1,5 @@
 //
-//  Projects.swift
+//  PreselectedProjects.swift
 //  BOINC
 //
 //  Created by Austin Conlon on 7/26/17.
@@ -9,7 +9,7 @@
 import Foundation
 
 /// Common  projects that can be added.
-var projects = [
+var preselectedProjects: [(name: String, homePage: String)] = [
     ("Amicable Numbers", "https://sech.me/boinc/Amicable/"),
     ("Asteroids@home", "https://asteroidsathome.net/boinc"),
     ("BOINC@TACC", "https://boinc.tacc.utexas.edu"),
@@ -21,9 +21,12 @@ var projects = [
     ("Einstein@home", "https://einsteinathome.org"),
     ("FiND@Home", "http://findah.ucd.ie"),
     ("GPUGrid.net", "https://gpugrid.net"),
+    ("iThena", "https://root.ithena.net/usr/"),
     ("LHC@home", "https://lhcathome.cern.ch/lhcathome"),
     ("Milkyway@home", "https://milkyway.cs.rpi.edu/milkyway"),
+    ("Minecraft@Home", "https://minecraftathome.com/minecrafthome/"),
     ("MindModeling@Home", "http://mindmodeling.org"),
+    ("MLC@Home", "https://www.mlcathome.org/mlcathome/"),
     ("Moo! Wrapper", "https://moowrap.net"),
     ("NFS@home", "http://escatter11.fullerton.edu/nfs"),
     ("nanoHUB@Home", "https://boinc.nanohub.org/nanoHUB_at_home/"),

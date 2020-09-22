@@ -8,15 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		FB1DFB4B1F28704500EDA670 /* AddProjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1DFB4A1F28704500EDA670 /* AddProjectTableViewController.swift */; };
-		FB1DFB571F28861600EDA670 /* Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1DFB561F28861600EDA670 /* Projects.swift */; };
-		FB2C445D1F2ED5A700099BDE /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2C445C1F2ED5A700099BDE /* Project.swift */; };
-		FB2F4C3E1F58FB5200E7FD50 /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2F4C3D1F58FB5200E7FD50 /* Crypto.m */; };
+		FB2C445D1F2ED5A700099BDE /* ProjectDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2C445C1F2ED5A700099BDE /* ProjectDetail.swift */; };
 		FB592D911F24EE5B00FD6341 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB592D901F24EE5B00FD6341 /* AppDelegate.swift */; };
 		FB592D961F24EE5B00FD6341 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB592D941F24EE5B00FD6341 /* Main.storyboard */; };
 		FB592D981F24EE5B00FD6341 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB592D971F24EE5B00FD6341 /* Assets.xcassets */; };
 		FB6A3FC41F314F250093EE4C /* SavedProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A3FC31F314F250093EE4C /* SavedProjectsTableViewController.swift */; };
 		FB6A3FC61F31FFE40093EE4C /* SavedProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A3FC51F31FFE40093EE4C /* SavedProjectsTableViewCell.swift */; };
-		FB6E17A91F6B51D400DDE5ED /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2C445C1F2ED5A700099BDE /* Project.swift */; };
+		FB6E17A91F6B51D400DDE5ED /* ProjectDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2C445C1F2ED5A700099BDE /* ProjectDetail.swift */; };
 		FB7ACA111F52CCCC001C587E /* AddedProjectsRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7ACA0F1F52CCCC001C587E /* AddedProjectsRowController.swift */; };
 		FB82E0021F525F37000BF19D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB82E0001F525F37000BF19D /* Interface.storyboard */; };
 		FB82E0041F525F37000BF19D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB82E0031F525F37000BF19D /* Assets.xcassets */; };
@@ -26,11 +24,14 @@
 		FB82E0141F525F37000BF19D /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB82E0131F525F37000BF19D /* ComplicationController.swift */; };
 		FB82E0161F525F37000BF19D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB82E0151F525F37000BF19D /* Assets.xcassets */; };
 		FB82E01A1F525F37000BF19D /* BOINC WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FB82DFFE1F525F37000BF19D /* BOINC WatchKit App.app */; };
+		FB85992324FE58720040DFF1 /* PreselectedProjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1DFB561F28861600EDA670 /* PreselectedProjects.swift */; };
+		FB85992424FE58740040DFF1 /* PreselectedProjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1DFB561F28861600EDA670 /* PreselectedProjects.swift */; };
+		FB8F358A24FE824500B20F02 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8F358924FE824500B20F02 /* NetworkController.swift */; };
+		FB8F358B24FE824500B20F02 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8F358924FE824500B20F02 /* NetworkController.swift */; };
 		FB8F83101F2965C900E82811 /* AddProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8F830F1F2965C900E82811 /* AddProjectTableViewCell.swift */; };
 		FB9ADEFB1F4109D0001A9FAB /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9ADEFA1F4109D0001A9FAB /* Parser.swift */; };
 		FBF06D1124F6482600737A86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBF06D1024F6482600737A86 /* LaunchScreen.storyboard */; };
 		FBF1F8E81F2AF27C00158214 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF1F8E71F2AF27B00158214 /* LoginViewController.swift */; };
-		FBF1F8EB1F2B9FE300158214 /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF1F8EA1F2B9FE300158214 /* Crypto.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,10 +80,8 @@
 		FB0BEB2C241FB3E100E72FE9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		FB0BEB2E241FB3E200E72FE9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Interface.strings"; sourceTree = "<group>"; };
 		FB1DFB4A1F28704500EDA670 /* AddProjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectTableViewController.swift; sourceTree = "<group>"; };
-		FB1DFB561F28861600EDA670 /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
-		FB2C445C1F2ED5A700099BDE /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
-		FB2F4C3C1F58FB5200E7FD50 /* BOINC WatchKit App Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BOINC WatchKit App Extension-Bridging-Header.h"; sourceTree = "<group>"; };
-		FB2F4C3D1F58FB5200E7FD50 /* Crypto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Crypto.m; sourceTree = "<group>"; };
+		FB1DFB561F28861600EDA670 /* PreselectedProjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreselectedProjects.swift; sourceTree = "<group>"; };
+		FB2C445C1F2ED5A700099BDE /* ProjectDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetail.swift; sourceTree = "<group>"; };
 		FB592D8D1F24EE5A00FD6341 /* BOINC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BOINC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB592D901F24EE5B00FD6341 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB592D951F24EE5B00FD6341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,12 +102,11 @@
 		FB82E0131F525F37000BF19D /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		FB82E0151F525F37000BF19D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB82E0171F525F37000BF19D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB8F358924FE824500B20F02 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		FB8F830F1F2965C900E82811 /* AddProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectTableViewCell.swift; sourceTree = "<group>"; };
 		FB9ADEFA1F4109D0001A9FAB /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		FBF06D1024F6482600737A86 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FBF1F8E71F2AF27B00158214 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		FBF1F8E91F2B9FE300158214 /* BOINC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BOINC-Bridging-Header.h"; sourceTree = "<group>"; };
-		FBF1F8EA1F2B9FE300158214 /* Crypto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Crypto.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,8 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				FB592D901F24EE5B00FD6341 /* AppDelegate.swift */,
-				FB1DFB561F28861600EDA670 /* Projects.swift */,
-				FB2C445C1F2ED5A700099BDE /* Project.swift */,
+				FB85992124FE57B80040DFF1 /* Data */,
+				FB8F358824FE7FA400B20F02 /* Networking */,
 				FBF1F8E71F2AF27B00158214 /* LoginViewController.swift */,
 				FB9ADEFA1F4109D0001A9FAB /* Parser.swift */,
 				FB6A3FC51F31FFE40093EE4C /* SavedProjectsTableViewCell.swift */,
@@ -165,8 +163,6 @@
 				FBF06D1024F6482600737A86 /* LaunchScreen.storyboard */,
 				FB592D971F24EE5B00FD6341 /* Assets.xcassets */,
 				FB592D9C1F24EE5B00FD6341 /* Info.plist */,
-				FBF1F8E91F2B9FE300158214 /* BOINC-Bridging-Header.h */,
-				FBF1F8EA1F2B9FE300158214 /* Crypto.m */,
 			);
 			path = BOINC;
 			sourceTree = "<group>";
@@ -190,10 +186,25 @@
 				FB82E0131F525F37000BF19D /* ComplicationController.swift */,
 				FB82E0151F525F37000BF19D /* Assets.xcassets */,
 				FB82E0171F525F37000BF19D /* Info.plist */,
-				FB2F4C3C1F58FB5200E7FD50 /* BOINC WatchKit App Extension-Bridging-Header.h */,
-				FB2F4C3D1F58FB5200E7FD50 /* Crypto.m */,
 			);
 			path = "BOINC WatchKit App Extension";
+			sourceTree = "<group>";
+		};
+		FB85992124FE57B80040DFF1 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FB2C445C1F2ED5A700099BDE /* ProjectDetail.swift */,
+				FB1DFB561F28861600EDA670 /* PreselectedProjects.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		FB8F358824FE7FA400B20F02 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				FB8F358924FE824500B20F02 /* NetworkController.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,14 +350,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB8F358A24FE824500B20F02 /* NetworkController.swift in Sources */,
 				FBF1F8E81F2AF27C00158214 /* LoginViewController.swift in Sources */,
-				FB1DFB571F28861600EDA670 /* Projects.swift in Sources */,
 				FB9ADEFB1F4109D0001A9FAB /* Parser.swift in Sources */,
 				FB592D911F24EE5B00FD6341 /* AppDelegate.swift in Sources */,
 				FB1DFB4B1F28704500EDA670 /* AddProjectTableViewController.swift in Sources */,
 				FB6A3FC41F314F250093EE4C /* SavedProjectsTableViewController.swift in Sources */,
-				FBF1F8EB1F2B9FE300158214 /* Crypto.m in Sources */,
-				FB2C445D1F2ED5A700099BDE /* Project.swift in Sources */,
+				FB2C445D1F2ED5A700099BDE /* ProjectDetail.swift in Sources */,
+				FB85992324FE58720040DFF1 /* PreselectedProjects.swift in Sources */,
 				FB6A3FC61F31FFE40093EE4C /* SavedProjectsTableViewCell.swift in Sources */,
 				FB8F83101F2965C900E82811 /* AddProjectTableViewCell.swift in Sources */,
 			);
@@ -356,12 +367,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB2F4C3E1F58FB5200E7FD50 /* Crypto.m in Sources */,
+				FB85992424FE58740040DFF1 /* PreselectedProjects.swift in Sources */,
 				FB82E0121F525F37000BF19D /* ExtensionDelegate.swift in Sources */,
 				FB82E0101F525F37000BF19D /* InterfaceController.swift in Sources */,
 				FB7ACA111F52CCCC001C587E /* AddedProjectsRowController.swift in Sources */,
 				FB82E0141F525F37000BF19D /* ComplicationController.swift in Sources */,
-				FB6E17A91F6B51D400DDE5ED /* Project.swift in Sources */,
+				FB8F358B24FE824500B20F02 /* NetworkController.swift in Sources */,
+				FB6E17A91F6B51D400DDE5ED /* ProjectDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,7 +466,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -508,7 +520,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -524,12 +536,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = AV84QJNZ49;
 				INFOPLIST_FILE = BOINC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.29;
+				MARKETING_VERSION = 1.31;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "BOINC/BOINC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 5.0;
@@ -543,12 +554,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = AV84QJNZ49;
 				INFOPLIST_FILE = BOINC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.29;
+				MARKETING_VERSION = 1.31;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "BOINC/BOINC-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 5.0;
 			};
@@ -564,7 +574,7 @@
 				IBSC_MODULE = BOINC_WatchKit_App_Extension;
 				INFOPLIST_FILE = "BOINC WatchKit App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MARKETING_VERSION = 1.29;
+				MARKETING_VERSION = 1.31;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -572,7 +582,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -586,14 +596,14 @@
 				IBSC_MODULE = BOINC_WatchKit_App_Extension;
 				INFOPLIST_FILE = "BOINC WatchKit App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MARKETING_VERSION = 1.29;
+				MARKETING_VERSION = 1.31;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
@@ -605,17 +615,16 @@
 				DEVELOPMENT_TEAM = AV84QJNZ49;
 				INFOPLIST_FILE = "BOINC WatchKit App Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.29;
+				MARKETING_VERSION = 1.31;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "BOINC WatchKit App Extension/BOINC WatchKit App Extension-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -627,16 +636,15 @@
 				DEVELOPMENT_TEAM = AV84QJNZ49;
 				INFOPLIST_FILE = "BOINC WatchKit App Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.29;
+				MARKETING_VERSION = 1.31;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Austin-Conlon-BOINC.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "BOINC WatchKit App Extension/BOINC WatchKit App Extension-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};

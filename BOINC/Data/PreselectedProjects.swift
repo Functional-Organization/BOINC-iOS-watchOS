@@ -32,6 +32,7 @@ var preselectedProjects: [(name: String, homePage: String)] = [
     ("nanoHUB@Home", "https://boinc.nanohub.org/nanoHUB_at_home/"),
     ("NumberFields@home", "https://numberfields.asu.edu/NumberFields"),
     ("PrimeGrid", "http://primegrid.com"),
+    ("QuChemPedIA@home", "https://quchempedia.univ-angers.fr/athome/"),
     ("RNA World", "https://rnaworld.de/rnaworld"),
     ("Radioactive@Home", "http://radioactiveathome.org/boinc"),
     ("Rosetta@home", "https://boinc.bakerlab.org"),

@@ -11,12 +11,16 @@ import os.log
 import WatchConnectivity
 import StoreKit
 import SafariServices
+import Combine
 
 class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate {
     // MARK: Properties
     var addedProjects = [ProjectDetail]()
     
     let session = WCSession.default
+    // refreshProject notification subscriber to SavedProjectsTableViewController
+    private var refreshProjectSubscriber: AnyCancellable?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +30,16 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
         if let savedProjects = loadProjects() {
             addedProjects += savedProjects
         }
+        
+        // Set new refresh project subscriber to the subscriber returned by NotificationCenter publisher
+        refreshProjectSubscriber = NotificationCenter.default.publisher(for: .refreshProject)
+            .receive(on: RunLoop.main)
+            .sink(receiveValue: { [weak self] project in
+                guard let self = self else { return }
+                  
+            
+                self.handleRefreshControl()
+        })
     }
 
     func sessionDidBecomeInactive(_ session: WCSession) { }
@@ -39,6 +53,7 @@ class SavedProjectsTableViewController: UITableViewController, WCSessionDelegate
             session.activate()
         }
     }
+
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {

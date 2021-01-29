@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		616B227D25C383C600296CA3 /* MenuBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B227C25C383C600296CA3 /* MenuBuilder.swift */; };
+		616B228525C3998500296CA3 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B228425C3998500296CA3 /* NotificationName.swift */; };
 		FB1DFB4B1F28704500EDA670 /* AddProjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1DFB4A1F28704500EDA670 /* AddProjectTableViewController.swift */; };
 		FB2C445D1F2ED5A700099BDE /* ProjectDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2C445C1F2ED5A700099BDE /* ProjectDetail.swift */; };
 		FB592D911F24EE5B00FD6341 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB592D901F24EE5B00FD6341 /* AppDelegate.swift */; };
@@ -77,6 +79,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		616B227C25C383C600296CA3 /* MenuBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBuilder.swift; sourceTree = "<group>"; };
+		616B228425C3998500296CA3 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		FB0BEB2C241FB3E100E72FE9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		FB0BEB2E241FB3E200E72FE9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Interface.strings"; sourceTree = "<group>"; };
 		FB1DFB4A1F28704500EDA670 /* AddProjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectTableViewController.swift; sourceTree = "<group>"; };
@@ -158,7 +162,9 @@
 				FBF1F8E71F2AF27B00158214 /* LoginViewController.swift */,
 				FB9ADEFA1F4109D0001A9FAB /* Parser.swift */,
 				FB6A3FC51F31FFE40093EE4C /* SavedProjectsTableViewCell.swift */,
+				616B227C25C383C600296CA3 /* MenuBuilder.swift */,
 				FB6A3FC31F314F250093EE4C /* SavedProjectsTableViewController.swift */,
+				616B228425C3998500296CA3 /* NotificationName.swift */,
 				FB8F830F1F2965C900E82811 /* AddProjectTableViewCell.swift */,
 				FB1DFB4A1F28704500EDA670 /* AddProjectTableViewController.swift */,
 				FB592D941F24EE5B00FD6341 /* Main.storyboard */,
@@ -277,19 +283,16 @@
 				TargetAttributes = {
 					FB592D8C1F24EE5A00FD6341 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = AV84QJNZ49;
 						LastSwiftMigration = 1120;
 						ProvisioningStyle = Automatic;
 					};
 					FB82DFFD1F525F37000BF19D = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = AV84QJNZ49;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					FB82E0091F525F37000BF19D = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = AV84QJNZ49;
 						LastSwiftMigration = 1120;
 						ProvisioningStyle = Automatic;
 					};
@@ -353,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB8F358A24FE824500B20F02 /* NetworkController.swift in Sources */,
+				616B228525C3998500296CA3 /* NotificationName.swift in Sources */,
 				FBF1F8E81F2AF27C00158214 /* LoginViewController.swift in Sources */,
 				FB9ADEFB1F4109D0001A9FAB /* Parser.swift in Sources */,
 				FB592D911F24EE5B00FD6341 /* AppDelegate.swift in Sources */,
@@ -362,6 +366,7 @@
 				FB85992324FE58720040DFF1 /* PreselectedProjects.swift in Sources */,
 				FB6A3FC61F31FFE40093EE4C /* SavedProjectsTableViewCell.swift in Sources */,
 				FB8F83101F2965C900E82811 /* AddProjectTableViewCell.swift in Sources */,
+				616B227D25C383C600296CA3 /* MenuBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,8 +546,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BOINC/BOINC.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = AV84QJNZ49;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BOINC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -556,6 +562,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -565,8 +572,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BOINC/BOINC.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = AV84QJNZ49;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BOINC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -579,6 +587,7 @@
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -589,7 +598,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = AV84QJNZ49;
+				DEVELOPMENT_TEAM = "";
 				IBSC_MODULE = BOINC_WatchKit_App_Extension;
 				INFOPLIST_FILE = "BOINC WatchKit App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -616,7 +625,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = AV84QJNZ49;
+				DEVELOPMENT_TEAM = "";
 				IBSC_MODULE = BOINC_WatchKit_App_Extension;
 				INFOPLIST_FILE = "BOINC WatchKit App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -641,7 +650,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = AV84QJNZ49;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "BOINC WatchKit App Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -667,7 +676,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = AV84QJNZ49;
+				DEVELOPMENT_TEAM = TCL5NNKKA5;
 				INFOPLIST_FILE = "BOINC WatchKit App Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

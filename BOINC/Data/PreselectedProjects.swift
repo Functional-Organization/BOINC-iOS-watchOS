@@ -37,6 +37,7 @@ var preselectedProjects: [(name: String, homePage: String)] = [
     ("Radioactive@Home", "http://radioactiveathome.org/boinc"),
     ("Rosetta@home", "https://boinc.bakerlab.org"),
     ("SETI@home", "https://setiathome.berkeley.edu"),
+    ("SiDock@home", "https://www.sidock.si/sidock/"),
     ("Universe@Home", "https://universeathome.pl/universe"),
     ("World Community Grid", "https://www.worldcommunitygrid.org"),
     ("Yoyo@home", "https://rechenkraft.net/yoyo")
